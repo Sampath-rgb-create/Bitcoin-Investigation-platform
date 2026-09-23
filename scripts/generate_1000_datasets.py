@@ -30,8 +30,11 @@ def random_ip() -> str:
     return f"{random.randint(11, 190)}.{random.randint(1, 254)}.{random.randint(1, 254)}.{random.randint(1, 254)}"
 
 
+DEFAULT_OUTPUT_DIR = str(Path(__file__).resolve().parent.parent / "data" / "samples")
+
+
 def generate_1000_datasets(
-    output_dir: str = "d:/Bitcoin-Investigation-platform/data/samples",
+    output_dir: str = DEFAULT_OUTPUT_DIR,
     target_count: int = 1000,
     seed: int = 42,
 ):

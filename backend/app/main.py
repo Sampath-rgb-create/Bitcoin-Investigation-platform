@@ -81,7 +81,8 @@ import os
 from pathlib import Path
 from fastapi.responses import FileResponse, Response
 
-FRONTEND_DIR = Path("d:/Bitcoin-Investigation-platform/frontend")
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+FRONTEND_DIR = BASE_DIR / "frontend"
 STATIC_DIR = FRONTEND_DIR / "static"
 
 @app.get("/", tags=["frontend"])

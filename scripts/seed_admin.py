@@ -1,8 +1,10 @@
 import os
 import sys
 
-# Ensure d:\Bitcoin-Investigation-platform is in sys.path
-sys.path.insert(0, "d:/Bitcoin-Investigation-platform")
+from pathlib import Path
+
+# Ensure repository root is in sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from backend.app.db.session import SessionLocal, init_db
 from backend.app.db.models import User

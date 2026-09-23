@@ -1,6 +1,9 @@
+from pathlib import Path
 from typing import List, Optional
 from pydantic import AnyHttpUrl, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
 
 class Settings(BaseSettings):
@@ -11,9 +14,9 @@ class Settings(BaseSettings):
     # Offline & Network controls
     OFFLINE_MODE: bool = True
     
-    # Storage and paths (strictly D: drive)
-    DATA_DIR: str = "d:/Bitcoin-Investigation-platform/data"
-    DATABASE_URL: str = "sqlite:///d:/Bitcoin-Investigation-platform/data/app.db"
+    # Storage and paths (dynamically resolved relative to repository root)
+    DATA_DIR: str = str(BASE_DIR / "data")
+    DATABASE_URL: str = f"sqlite:///{(BASE_DIR / 'data' / 'app.db').as_posix()}"
     
     # Security & Auth
     SECRET_KEY: str = "prototype-insecure-secret-key-change-in-production-env-only"
@@ -42,7 +45,7 @@ class Settings(BaseSettings):
     MONEY_EPSILON: float = 1e-8
     
     # Optional GeoIP MMDB Path (offline file)
-    GEOIP_DATABASE_PATH: Optional[str] = "d:/Bitcoin-Investigation-platform/data/GeoLite2-City.mmdb"
+    GEOIP_DATABASE_PATH: Optional[str] = str(BASE_DIR / "data" / "GeoLite2-City.mmdb")
     
     # AI Adapters (Disabled by default in offline MVP)
     ENABLE_LAYA: bool = False
@@ -52,7 +55,7 @@ class Settings(BaseSettings):
     LAYA_MODEL_PATH: Optional[str] = None
 
     model_config = SettingsConfigDict(
-        env_file="d:/Bitcoin-Investigation-platform/.env",
+        env_file=str(BASE_DIR / ".env"),
         env_file_encoding="utf-8",
         case_sensitive=True,
         extra="ignore"

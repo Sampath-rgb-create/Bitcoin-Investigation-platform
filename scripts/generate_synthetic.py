@@ -17,8 +17,11 @@ def random_ip() -> str:
     return f"{random.randint(11, 190)}.{random.randint(1, 254)}.{random.randint(1, 254)}.{random.randint(1, 254)}"
 
 
+DEFAULT_OUTPUT_DIR = str(Path(__file__).resolve().parent.parent / "data" / "samples")
+
+
 def generate_synthetic_data(
-    output_dir: str = "d:/Bitcoin-Investigation-platform/data/samples",
+    output_dir: str = DEFAULT_OUTPUT_DIR,
     total_normal_txs: int = 200,
     seed: int = 42,
 ) -> Tuple[str, str, str]:
