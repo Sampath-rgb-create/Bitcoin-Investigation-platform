@@ -13,12 +13,18 @@
 ## 📑 Table of Contents
 
 - [Overview](#-overview)
+- [System Architecture & Visual Workflow](#-system-architecture--visual-workflow)
 - [Key Capabilities & Innovations](#-key-capabilities--innovations)
-- [Architecture & Analytical Pipeline](#-architecture--analytical-pipeline)
 - [Forensic Detection Engines & Scoring](#-forensic-detection-engines--scoring)
 - [Interactive Investigation Workbench](#-interactive-investigation-workbench)
 - [Project Directory Structure](#-project-directory-structure)
-- [Installation & Quickstart](#-installation--quickstart)
+- [Installation & Quickstart Guide](#-installation--quickstart-guide)
+  - [Prerequisites](#1-prerequisites)
+  - [Method 1: Workspace Virtual Environment (Recommended)](#method-1-workspace-virtual-environment-recommended)
+  - [Method 2: Conda Environment Setup](#method-2-conda-environment-setup)
+  - [Database Initialization & Seeding](#step-3-database-initialization--seeding)
+  - [Launching the Server](#step-4-launching-the-server)
+  - [Troubleshooting & Common Questions](#troubleshooting--common-setup-tips)
 - [Synthetic Dataset Generation](#-synthetic-dataset-generation)
 - [Running Automated Tests](#-running-automated-tests)
 - [REST API Reference](#-rest-api-reference)
@@ -34,6 +40,70 @@ Designed under strict **air-gapped forensic requirements**:
 - **100% Offline-First**: Zero external API dependencies, zero remote DNS/HTTP queries, and zero telemetry leakage.
 - **Cryptographic Provenance**: Every alert, graph link, and report statement is cryptographically bound to raw dataset record IDs via SHA-256 hashes and columnar Parquet tables.
 - **Deterministic Explainability**: Zero probabilistic hallucinations. Alerts present clear numerical thresholds, observed metrics, and exact rule criteria.
+
+---
+
+## 🏗️ System Architecture & Visual Workflow
+
+Below is the complete end-to-end flowchart illustrating how data flows from ingestion to graph analytics, machine learning, scoring, and UI visualization:
+
+```mermaid
+flowchart TD
+    subgraph UI ["🖥️ Investigation Workbench (Frontend Single-Page App)"]
+        direction LR
+        TAB1["Cases & Ingestion"]
+        TAB2["Alerts & Forensic Evidence Pack"]
+        TAB3["Interactive Entity Graph (HTML5 Canvas)"]
+        TAB4["Executive Intelligence Reports"]
+    end
+
+    subgraph API ["⚡ API Gateway & Service Layer (FastAPI)"]
+        direction LR
+        ROUTER["REST Endpoints (/api/v1)"]
+        DEPS["Auth & Lifecycle Middleware"]
+        JOB["Background Job Orchestrator"]
+    end
+
+    subgraph PIPELINE ["⚙️ 7-Stage Analytical Forensic Engine"]
+        direction TB
+        subgraph S1 ["Stage 1 & 2: Ingestion & Normalization"]
+            ING["CSV / JSON / XML Adapters"] --> VAL["Monetary & Array Parity Validation"]
+            VAL --> NORM["ISO 8601 UTC & Canonical IP Normalization"]
+        end
+
+        subgraph S2 ["Stage 3 & 4: Correlation & Graph Topology"]
+            CORR["Multi-Modal Correlator\n(TXID Exact & Time-Window)"] --> GEO["Offline MaxMind GeoLite2 & ASN"]
+            GEO --> GRAPH["NetworkX Multi-Layer Knowledge Graph\n(Wallets, TXs, IPs, ASNs, Countries)"]
+        end
+
+        subgraph S3 ["Stage 5 & 6: Feature Extraction & Detectors"]
+            FEAT["Multi-Dimensional Feature Engineering\n(Entropy, Centrality, Fan-Out, PageRank)"] --> IFOREST["Unsupervised Isolation Forest Model\n(Anomaly Score: 40%)"]
+            FEAT --> AML["Deterministic AML Rule Detectors\n(Peeling Chain, Dispersal, Dust: 30%)"]
+            FEAT --> TOPO["Graph Centrality & Hub Detectors\n(Bridge, PageRank: 20%)"]
+            FEAT --> NET["Network Relay Burst Detectors\n(Multi-IP, Port Anomalies: 10%)"]
+        end
+
+        subgraph S4 ["Stage 7: Fusion Scoring & Evidence Compilation"]
+            IFOREST & AML & TOPO & NET --> FUSION["Composite Priority Fusion Algorithm\n(CRITICAL >= 80, HIGH >= 60, MED >= 40, LOW < 40)"]
+            FUSION --> PACK["Cryptographic Evidence Pack\n(SHA-256 Hashes & Source Record IDs)"]
+        end
+    end
+
+    subgraph STORAGE ["💾 Forensic Ledger & Immutable Storage"]
+        direction LR
+        SQLITE[("SQLite Database\n(Cases, Alerts, Runs)")]
+        PARQUET[("Columnar PyArrow Parquet\n(Features, Normalized Records)")]
+        REPORTS[("Case Reports\n(Markdown & JSON)")]
+    end
+
+    UI <-->|HTTP / JSON REST API| API
+    API -->|Trigger Pipeline| JOB
+    JOB --> PIPELINE
+    S1 --> S2 --> S3 --> S4
+    S1 & S2 & S3 & S4 <-->|Read / Write Columnar Artifacts| PARQUET
+    S4 -->|Persist Alerts & Audit Trails| SQLITE
+    S4 -->|Export Artifacts| REPORTS
+```
 
 ---
 
@@ -72,45 +142,6 @@ Designed under strict **air-gapped forensic requirements**:
 - **Composite Fusion Scoring**:
   $$\text{Priority Score} = 0.40 \cdot S_{\text{anomaly}} + 0.30 \cdot S_{\text{behavior}} + 0.20 \cdot S_{\text{graph}} + 0.10 \cdot S_{\text{network}}$$
   Categorized into **CRITICAL** ($\ge 80$), **HIGH** ($\ge 60$), **MEDIUM** ($\ge 40$), and **LOW** ($< 40$) priority tiers.
-
----
-
-## 🏗️ Architecture & Analytical Pipeline
-
-```mermaid
-flowchart TD
-    subgraph Ingestion ["1. Data Ingestion & Sanitization"]
-        RAW[Raw Datasets\nCSV / JSON / XML] --> ADAPT[Format Adapters]
-        ADAPT --> VAL[Parity & Monetary Validation]
-        VAL --> NORM[ISO 8601 UTC & IP Normalization]
-        NORM --> PARQ[(Columnar Parquet Store)]
-    end
-
-    subgraph Correlation ["2. Telemetry Fusion"]
-        PARQ --> CORR[Multi-Modal Correlator]
-        CORR -->|Exact TXID| EXACT[TXID Links]
-        CORR -->|Time Window| PROX[Temporal Proximity Links]
-        EXACT & PROX --> GEOIP[Offline GeoIP & ASN Enrichment]
-    end
-
-    subgraph Topology ["3. Graph Engine"]
-        GEOIP --> GBUILD[NetworkX Graph Builder]
-        GBUILD --> FEAT[Feature Extraction Engine\nWallets, TXs, Network, Topology]
-    end
-
-    subgraph Detection ["4. Multi-Engine Analytics"]
-        FEAT --> IFOREST[Isolation Forest Model]
-        FEAT --> RULES[Deterministic AML Rules]
-        FEAT --> NETSIG[Network Burst Detectors]
-        IFOREST & RULES & NETSIG --> SCORE[Priority Fusion Scoring\nAnomaly + Behavior + Graph + Network]
-    end
-
-    subgraph Output ["5. Investigation & Evidence"]
-        SCORE --> EVIDENCE[Cryptographic Evidence Pack\nSHA-256 Provenance & Record IDs]
-        EVIDENCE --> REPORT[Executive Forensic Report\nMarkdown / JSON]
-        EVIDENCE --> UI[Interactive Visual Workbench]
-    end
-```
 
 ---
 
@@ -182,7 +213,7 @@ Bitcoin-Investigation-platform/
 │   │   │       ├── runs.py           # Pipeline execution & status polling
 │   │   │       └── wallets.py        # Unified entity inspector (wallets, TXs, IPs)
 │   │   ├── core/
-│   │   │   ├── config.py             # Settings (OFFLINE_MODE, directories, thresholds)
+│   │   │   ├── config.py             # Settings (Dynamic paths, OFFLINE_MODE, weights)
 │   │   │   └── logging.py            # Structured JSON logging
 │   │   ├── db/
 │   │   │   ├── base.py               # SQLAlchemy metadata registration
@@ -205,7 +236,7 @@ Bitcoin-Investigation-platform/
 │   │       ├── case_store.py         # Directory management (raw/, features/, reports/)
 │   │       ├── file_store.py         # Raw file storage with SHA-256 integrity
 │   │       └── parquet_store.py      # PyArrow columnar read/write engine
-│   ├── main.py                       # FastAPI application entrypoint
+│   ├── main.py                       # FastAPI application entrypoint & static mount
 │   └── tests/                        # Pytest automated test suites
 ├── data/
 │   ├── cases/                        # Case execution artifacts (Parquet, models, reports)
@@ -220,47 +251,121 @@ Bitcoin-Investigation-platform/
 │   ├── generate_synthetic.py         # Base synthetic dataset generator
 │   └── seed_admin.py                 # Seeds default case & administrator credentials
 ├── environment.yml                   # Conda environment specifications
+├── requirements.txt                  # Standard pip dependencies specification
 ├── .gitignore                        # Git exclusion rules
 └── README.md                         # Comprehensive platform documentation
 ```
 
 ---
 
-## ⚡ Installation & Quickstart
+## ⚡ Installation & Quickstart Guide
+
+The platform uses **dynamic path resolution** (`BASE_DIR = Path(__file__).resolve().parent...`), meaning it runs out-of-the-box on **Windows, macOS, or Linux** on any drive (`C:`, `D:`, etc.) without editing a single line of code.
 
 ### 1. Prerequisites
-- Python 3.11+
-- Conda (Miniconda or Anaconda) or standard `venv`
-- Windows, Linux, or macOS
 
-### 2. Environment Setup via Conda
-```powershell
-# Clone the repository
+- **Python 3.10 or 3.11** installed. Check your version:
+  ```bash
+  python --version
+  ```
+- **Git** installed for cloning.
+
+---
+
+### Method 1: Workspace Virtual Environment (Recommended)
+
+Installing inside an isolated `venv` folder within the workspace ensures packages do not conflict with other system libraries.
+
+#### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Sampath-rgb-create/Bitcoin-Investigation-platform.git
+cd Bitcoin-Investigation-platform
+```
+
+#### Step 2: Create the Virtual Environment
+```bash
+# Creates an isolated ./venv folder inside the project
+python -m venv venv
+```
+
+#### Step 3: Activate the Virtual Environment
+- **On Windows (PowerShell)**:
+  ```powershell
+  .\venv\Scripts\activate
+  ```
+- **On Windows (Command Prompt `cmd`)**:
+  ```cmd
+  venv\Scripts\activate.bat
+  ```
+- **On macOS / Linux**:
+  ```bash
+  source venv/bin/activate
+  ```
+
+*(You will see `(venv)` appear in front of your terminal prompt).*
+
+#### Step 4: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Method 2: Conda Environment Setup
+
+If you prefer using **Miniconda** or **Anaconda**, you can create the environment directly from `environment.yml`:
+
+```bash
+# 1. Clone & enter repository
 git clone https://github.com/Sampath-rgb-create/Bitcoin-Investigation-platform.git
 cd Bitcoin-Investigation-platform
 
-# Create and activate the conda environment
+# 2. Create and activate environment
 conda env create -f environment.yml
 conda activate btc-intel
 ```
 
-Or install using standard `pip`:
-```bash
-pip install fastapi uvicorn pydantic scikit-learn networkx pyarrow pandas duckdb sqlalchemy defusedxml pytest requests
-```
+---
 
-### 3. Initialize Database & Seed Defaults
-```powershell
+### Step 3: Database Initialization & Seeding
+
+Run the seed script to initialize SQLite database tables and set up default case metadata:
+
+```bash
 python scripts/seed_admin.py
 ```
 
-### 4. Start the Application Server
-```powershell
+*What this does*: Creates `data/app.db` with all ORM tables (`cases`, `datasets`, `analysis_runs`, `alerts`) and registers the default administrator account.
+
+---
+
+### Step 4: Launching the Server
+
+Run Uvicorn to start the application:
+
+```bash
 python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 Open your browser to:
-👉 **`http://127.0.0.1:8000`**
+👉 **`http://localhost:8000`** (or `http://127.0.0.1:8000`)
+
+---
+
+### 💡 Troubleshooting & Common Setup Tips
+
+1. **PowerShell `Script Execution` Error on Windows**:
+   If PowerShell displays `running scripts is disabled on this system` when running `activate`, run this command once in PowerShell:
+   ```powershell
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
+   Then run `.\venv\Scripts\activate` again.
+
+2. **Port 8000 Already in Use**:
+   If another application is using port 8000, start Uvicorn on another port (e.g. 8080):
+   ```bash
+   python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8080 --reload
+   ```
 
 ---
 
@@ -276,6 +381,7 @@ python scripts/generate_1000_datasets.py
 This outputs ready-to-ingest datasets under `data/samples/`:
 - `transactions_1000.csv`
 - `network_telemetry_1000.csv`
+- `combined_1000.csv`
 - `ground_truth_1000.json`
 
 ---
@@ -314,7 +420,7 @@ The backend provides a RESTful API compliant with OpenAPI 3.0:
 | `GET` | `/api/v1/cases/{case_id}/report?format=markdown` | Download executive forensic report (Markdown or JSON) |
 
 Interactive Swagger documentation is available locally at:
-👉 **`http://127.0.0.1:8000/docs`**
+👉 **`http://localhost:8000/docs`**
 
 ---
 
@@ -330,4 +436,3 @@ Interactive Swagger documentation is available locally at:
 ## 📄 License
 
 This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
-
