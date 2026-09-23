@@ -1,0 +1,4459 @@
+[
+  {
+    "record_id": "tx-rec-000000",
+    "timestamp": "2026-01-01T10:00:27+00:00",
+    "txid": "tx_norm_000000",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      1.326918
+    ],
+    "output_amounts": [
+      1.326818
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000001",
+    "timestamp": "2026-01-01T10:01:31+00:00",
+    "txid": "tx_norm_000001",
+    "input_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      1.365769
+    ],
+    "output_amounts": [
+      1.365669
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000002",
+    "timestamp": "2026-01-01T10:01:55+00:00",
+    "txid": "tx_norm_000002",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      2.344252
+    ],
+    "output_amounts": [
+      2.344152
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000003",
+    "timestamp": "2026-01-01T10:03:18+00:00",
+    "txid": "tx_norm_000003",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "input_amounts": [
+      0.609359
+    ],
+    "output_amounts": [
+      0.609259
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000004",
+    "timestamp": "2026-01-01T10:04:39+00:00",
+    "txid": "tx_norm_000004",
+    "input_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "output_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "input_amounts": [
+      1.498584
+    ],
+    "output_amounts": [
+      1.498484
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000005",
+    "timestamp": "2026-01-01T10:05:40+00:00",
+    "txid": "tx_norm_000005",
+    "input_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      0.5511
+    ],
+    "output_amounts": [
+      0.551
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000006",
+    "timestamp": "2026-01-01T10:06:14+00:00",
+    "txid": "tx_norm_000006",
+    "input_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "output_addresses": [
+      "bc1qfy8gd02j8zd0xunt5auq5qg039ukrj4aa2ftg4"
+    ],
+    "input_amounts": [
+      0.8041699999999999
+    ],
+    "output_amounts": [
+      0.80407
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000007",
+    "timestamp": "2026-01-01T10:08:11+00:00",
+    "txid": "tx_norm_000007",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "input_amounts": [
+      1.308015
+    ],
+    "output_amounts": [
+      1.307915
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000008",
+    "timestamp": "2026-01-01T10:10:08+00:00",
+    "txid": "tx_norm_000008",
+    "input_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "output_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "input_amounts": [
+      1.568823
+    ],
+    "output_amounts": [
+      1.568723
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000009",
+    "timestamp": "2026-01-01T10:11:53+00:00",
+    "txid": "tx_norm_000009",
+    "input_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "output_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "input_amounts": [
+      1.743908
+    ],
+    "output_amounts": [
+      1.743808
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000010",
+    "timestamp": "2026-01-01T10:12:58+00:00",
+    "txid": "tx_norm_000010",
+    "input_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "output_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "input_amounts": [
+      0.758934
+    ],
+    "output_amounts": [
+      0.758834
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000011",
+    "timestamp": "2026-01-01T10:13:56+00:00",
+    "txid": "tx_norm_000011",
+    "input_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "output_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "input_amounts": [
+      0.343991
+    ],
+    "output_amounts": [
+      0.343891
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000012",
+    "timestamp": "2026-01-01T10:14:58+00:00",
+    "txid": "tx_norm_000012",
+    "input_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      1.343832
+    ],
+    "output_amounts": [
+      1.343732
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000013",
+    "timestamp": "2026-01-01T10:16:20+00:00",
+    "txid": "tx_norm_000013",
+    "input_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      0.47862699999999997
+    ],
+    "output_amounts": [
+      0.478527
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000014",
+    "timestamp": "2026-01-01T10:17:26+00:00",
+    "txid": "tx_norm_000014",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      0.765038
+    ],
+    "output_amounts": [
+      0.764938
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000015",
+    "timestamp": "2026-01-01T10:18:02+00:00",
+    "txid": "tx_norm_000015",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "input_amounts": [
+      1.762484
+    ],
+    "output_amounts": [
+      1.762384
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000016",
+    "timestamp": "2026-01-01T10:18:55+00:00",
+    "txid": "tx_norm_000016",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      1.625416
+    ],
+    "output_amounts": [
+      1.625316
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000017",
+    "timestamp": "2026-01-01T10:19:12+00:00",
+    "txid": "tx_norm_000017",
+    "input_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "output_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "input_amounts": [
+      1.906556
+    ],
+    "output_amounts": [
+      1.906456
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000018",
+    "timestamp": "2026-01-01T10:19:22+00:00",
+    "txid": "tx_norm_000018",
+    "input_addresses": [
+      "bc1qfy8gd02j8zd0xunt5auq5qg039ukrj4aa2ftg4"
+    ],
+    "output_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "input_amounts": [
+      1.855818
+    ],
+    "output_amounts": [
+      1.855718
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000019",
+    "timestamp": "2026-01-01T10:20:37+00:00",
+    "txid": "tx_norm_000019",
+    "input_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "output_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "input_amounts": [
+      1.80293
+    ],
+    "output_amounts": [
+      1.80283
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000020",
+    "timestamp": "2026-01-01T10:21:54+00:00",
+    "txid": "tx_norm_000020",
+    "input_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "output_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "input_amounts": [
+      1.3812
+    ],
+    "output_amounts": [
+      1.3811
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000021",
+    "timestamp": "2026-01-01T10:22:57+00:00",
+    "txid": "tx_norm_000021",
+    "input_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      1.989589
+    ],
+    "output_amounts": [
+      1.989489
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000022",
+    "timestamp": "2026-01-01T10:24:55+00:00",
+    "txid": "tx_norm_000022",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1qakj6y5prmulu02nlnsfnhnayhtpa32gh7mcqrv"
+    ],
+    "input_amounts": [
+      2.3936200000000003
+    ],
+    "output_amounts": [
+      2.39352
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000023",
+    "timestamp": "2026-01-01T10:25:52+00:00",
+    "txid": "tx_norm_000023",
+    "input_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "output_addresses": [
+      "bc1qdtkm3azrjsu3zngpdwsn6yfx2456cqdywv9nk5"
+    ],
+    "input_amounts": [
+      0.586369
+    ],
+    "output_amounts": [
+      0.586269
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000024",
+    "timestamp": "2026-01-01T10:26:44+00:00",
+    "txid": "tx_norm_000024",
+    "input_addresses": [
+      "bc1qxvanm5sksj0c0xwua2wy3h3ss5hk9vf7kr7azn"
+    ],
+    "output_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "input_amounts": [
+      1.598044
+    ],
+    "output_amounts": [
+      1.597944
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000025",
+    "timestamp": "2026-01-01T10:26:49+00:00",
+    "txid": "tx_norm_000025",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1qfy8gd02j8zd0xunt5auq5qg039ukrj4aa2ftg4"
+    ],
+    "input_amounts": [
+      1.034333
+    ],
+    "output_amounts": [
+      1.034233
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000026",
+    "timestamp": "2026-01-01T10:28:26+00:00",
+    "txid": "tx_norm_000026",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      2.444024
+    ],
+    "output_amounts": [
+      2.443924
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000027",
+    "timestamp": "2026-01-01T10:30:15+00:00",
+    "txid": "tx_norm_000027",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "input_amounts": [
+      1.082227
+    ],
+    "output_amounts": [
+      1.082127
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000028",
+    "timestamp": "2026-01-01T10:30:39+00:00",
+    "txid": "tx_norm_000028",
+    "input_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      1.553354
+    ],
+    "output_amounts": [
+      1.553254
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000029",
+    "timestamp": "2026-01-01T10:31:31+00:00",
+    "txid": "tx_norm_000029",
+    "input_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "output_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "input_amounts": [
+      1.416955
+    ],
+    "output_amounts": [
+      1.416855
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000030",
+    "timestamp": "2026-01-01T10:32:59+00:00",
+    "txid": "tx_norm_000030",
+    "input_addresses": [
+      "bc1qdtkm3azrjsu3zngpdwsn6yfx2456cqdywv9nk5"
+    ],
+    "output_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "input_amounts": [
+      0.088994
+    ],
+    "output_amounts": [
+      0.088894
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000031",
+    "timestamp": "2026-01-01T10:34:25+00:00",
+    "txid": "tx_norm_000031",
+    "input_addresses": [
+      "bc1qn098rpw3f07j07nk8lt0tqc5yc34vmtrkzekum"
+    ],
+    "output_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "input_amounts": [
+      0.436845
+    ],
+    "output_amounts": [
+      0.436745
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000032",
+    "timestamp": "2026-01-01T10:36:19+00:00",
+    "txid": "tx_norm_000032",
+    "input_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "output_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "input_amounts": [
+      2.298789
+    ],
+    "output_amounts": [
+      2.298689
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000033",
+    "timestamp": "2026-01-01T10:36:29+00:00",
+    "txid": "tx_norm_000033",
+    "input_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      2.3148060000000004
+    ],
+    "output_amounts": [
+      2.314706
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000034",
+    "timestamp": "2026-01-01T10:38:22+00:00",
+    "txid": "tx_norm_000034",
+    "input_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "output_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "input_amounts": [
+      2.4041580000000002
+    ],
+    "output_amounts": [
+      2.404058
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000035",
+    "timestamp": "2026-01-01T10:39:05+00:00",
+    "txid": "tx_norm_000035",
+    "input_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      0.608876
+    ],
+    "output_amounts": [
+      0.608776
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000036",
+    "timestamp": "2026-01-01T10:39:59+00:00",
+    "txid": "tx_norm_000036",
+    "input_addresses": [
+      "bc1qx6w6xzehxyxw0l4zazkhyvg746g96rtls6vwuj"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      0.358577
+    ],
+    "output_amounts": [
+      0.358477
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000037",
+    "timestamp": "2026-01-01T10:40:10+00:00",
+    "txid": "tx_norm_000037",
+    "input_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      0.588139
+    ],
+    "output_amounts": [
+      0.588039
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000038",
+    "timestamp": "2026-01-01T10:41:32+00:00",
+    "txid": "tx_norm_000038",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "input_amounts": [
+      2.387697
+    ],
+    "output_amounts": [
+      2.387597
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000039",
+    "timestamp": "2026-01-01T10:43:17+00:00",
+    "txid": "tx_norm_000039",
+    "input_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "output_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "input_amounts": [
+      0.578165
+    ],
+    "output_amounts": [
+      0.578065
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000040",
+    "timestamp": "2026-01-01T10:44:46+00:00",
+    "txid": "tx_norm_000040",
+    "input_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      1.932797
+    ],
+    "output_amounts": [
+      1.932697
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000041",
+    "timestamp": "2026-01-01T10:45:25+00:00",
+    "txid": "tx_norm_000041",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      1.782176
+    ],
+    "output_amounts": [
+      1.782076
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000042",
+    "timestamp": "2026-01-01T10:45:43+00:00",
+    "txid": "tx_norm_000042",
+    "input_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "output_addresses": [
+      "bc1qn098rpw3f07j07nk8lt0tqc5yc34vmtrkzekum"
+    ],
+    "input_amounts": [
+      2.3580710000000003
+    ],
+    "output_amounts": [
+      2.357971
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000043",
+    "timestamp": "2026-01-01T10:45:59+00:00",
+    "txid": "tx_norm_000043",
+    "input_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      1.127721
+    ],
+    "output_amounts": [
+      1.127621
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000044",
+    "timestamp": "2026-01-01T10:46:49+00:00",
+    "txid": "tx_norm_000044",
+    "input_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      1.496442
+    ],
+    "output_amounts": [
+      1.496342
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000045",
+    "timestamp": "2026-01-01T10:47:43+00:00",
+    "txid": "tx_norm_000045",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      1.814961
+    ],
+    "output_amounts": [
+      1.814861
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000046",
+    "timestamp": "2026-01-01T10:49:15+00:00",
+    "txid": "tx_norm_000046",
+    "input_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "output_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "input_amounts": [
+      0.35581199999999996
+    ],
+    "output_amounts": [
+      0.355712
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000047",
+    "timestamp": "2026-01-01T10:50:15+00:00",
+    "txid": "tx_norm_000047",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1q0v5596p00t8c62rjrhsj4jy2tvjgy2hephx33m"
+    ],
+    "input_amounts": [
+      0.756483
+    ],
+    "output_amounts": [
+      0.756383
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000048",
+    "timestamp": "2026-01-01T10:51:36+00:00",
+    "txid": "tx_norm_000048",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      1.150175
+    ],
+    "output_amounts": [
+      1.150075
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000049",
+    "timestamp": "2026-01-01T10:51:41+00:00",
+    "txid": "tx_norm_000049",
+    "input_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "output_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "input_amounts": [
+      2.1057170000000003
+    ],
+    "output_amounts": [
+      2.105617
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000050",
+    "timestamp": "2026-01-01T10:53:30+00:00",
+    "txid": "tx_norm_000050",
+    "input_addresses": [
+      "bc1qdtkm3azrjsu3zngpdwsn6yfx2456cqdywv9nk5"
+    ],
+    "output_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "input_amounts": [
+      0.34904999999999997
+    ],
+    "output_amounts": [
+      0.34895
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000051",
+    "timestamp": "2026-01-01T10:53:57+00:00",
+    "txid": "tx_norm_000051",
+    "input_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "output_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "input_amounts": [
+      0.735806
+    ],
+    "output_amounts": [
+      0.735706
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000052",
+    "timestamp": "2026-01-01T10:54:50+00:00",
+    "txid": "tx_norm_000052",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "input_amounts": [
+      0.918989
+    ],
+    "output_amounts": [
+      0.918889
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000053",
+    "timestamp": "2026-01-01T10:56:22+00:00",
+    "txid": "tx_norm_000053",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      0.07712100000000001
+    ],
+    "output_amounts": [
+      0.077021
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000054",
+    "timestamp": "2026-01-01T10:58:13+00:00",
+    "txid": "tx_norm_000054",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      2.0493240000000004
+    ],
+    "output_amounts": [
+      2.049224
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000055",
+    "timestamp": "2026-01-01T10:59:39+00:00",
+    "txid": "tx_norm_000055",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "input_amounts": [
+      0.639277
+    ],
+    "output_amounts": [
+      0.639177
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000056",
+    "timestamp": "2026-01-01T11:01:00+00:00",
+    "txid": "tx_norm_000056",
+    "input_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "output_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "input_amounts": [
+      1.008105
+    ],
+    "output_amounts": [
+      1.008005
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000057",
+    "timestamp": "2026-01-01T11:02:46+00:00",
+    "txid": "tx_norm_000057",
+    "input_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "output_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "input_amounts": [
+      2.2398990000000003
+    ],
+    "output_amounts": [
+      2.239799
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000058",
+    "timestamp": "2026-01-01T11:04:15+00:00",
+    "txid": "tx_norm_000058",
+    "input_addresses": [
+      "bc1qakj6y5prmulu02nlnsfnhnayhtpa32gh7mcqrv"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      0.42428299999999997
+    ],
+    "output_amounts": [
+      0.424183
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000059",
+    "timestamp": "2026-01-01T11:05:56+00:00",
+    "txid": "tx_norm_000059",
+    "input_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      0.273902
+    ],
+    "output_amounts": [
+      0.273802
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000060",
+    "timestamp": "2026-01-01T11:06:29+00:00",
+    "txid": "tx_norm_000060",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qx6w6xzehxyxw0l4zazkhyvg746g96rtls6vwuj"
+    ],
+    "input_amounts": [
+      1.301906
+    ],
+    "output_amounts": [
+      1.301806
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000061",
+    "timestamp": "2026-01-01T11:07:24+00:00",
+    "txid": "tx_norm_000061",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      1.475689
+    ],
+    "output_amounts": [
+      1.475589
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000062",
+    "timestamp": "2026-01-01T11:08:06+00:00",
+    "txid": "tx_norm_000062",
+    "input_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      0.29911299999999996
+    ],
+    "output_amounts": [
+      0.299013
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000063",
+    "timestamp": "2026-01-01T11:09:09+00:00",
+    "txid": "tx_norm_000063",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "input_amounts": [
+      1.212586
+    ],
+    "output_amounts": [
+      1.212486
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000064",
+    "timestamp": "2026-01-01T11:09:22+00:00",
+    "txid": "tx_norm_000064",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "input_amounts": [
+      2.027463
+    ],
+    "output_amounts": [
+      2.027363
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000065",
+    "timestamp": "2026-01-01T11:11:15+00:00",
+    "txid": "tx_norm_000065",
+    "input_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "output_addresses": [
+      "bc1qakj6y5prmulu02nlnsfnhnayhtpa32gh7mcqrv"
+    ],
+    "input_amounts": [
+      0.28241299999999997
+    ],
+    "output_amounts": [
+      0.282313
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000066",
+    "timestamp": "2026-01-01T11:12:30+00:00",
+    "txid": "tx_norm_000066",
+    "input_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      1.404124
+    ],
+    "output_amounts": [
+      1.404024
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000067",
+    "timestamp": "2026-01-01T11:12:58+00:00",
+    "txid": "tx_norm_000067",
+    "input_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "output_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "input_amounts": [
+      1.086115
+    ],
+    "output_amounts": [
+      1.086015
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000068",
+    "timestamp": "2026-01-01T11:14:21+00:00",
+    "txid": "tx_norm_000068",
+    "input_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "output_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "input_amounts": [
+      1.484686
+    ],
+    "output_amounts": [
+      1.484586
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000069",
+    "timestamp": "2026-01-01T11:16:02+00:00",
+    "txid": "tx_norm_000069",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      1.447696
+    ],
+    "output_amounts": [
+      1.447596
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000070",
+    "timestamp": "2026-01-01T11:16:32+00:00",
+    "txid": "tx_norm_000070",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "input_amounts": [
+      0.66336
+    ],
+    "output_amounts": [
+      0.66326
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000071",
+    "timestamp": "2026-01-01T11:17:26+00:00",
+    "txid": "tx_norm_000071",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      1.4717419999999999
+    ],
+    "output_amounts": [
+      1.471642
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000072",
+    "timestamp": "2026-01-01T11:18:49+00:00",
+    "txid": "tx_norm_000072",
+    "input_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      1.683654
+    ],
+    "output_amounts": [
+      1.683554
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000073",
+    "timestamp": "2026-01-01T11:19:41+00:00",
+    "txid": "tx_norm_000073",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "input_amounts": [
+      1.282054
+    ],
+    "output_amounts": [
+      1.281954
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000074",
+    "timestamp": "2026-01-01T11:20:09+00:00",
+    "txid": "tx_norm_000074",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qdtkm3azrjsu3zngpdwsn6yfx2456cqdywv9nk5"
+    ],
+    "input_amounts": [
+      1.348174
+    ],
+    "output_amounts": [
+      1.348074
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000075",
+    "timestamp": "2026-01-01T11:20:50+00:00",
+    "txid": "tx_norm_000075",
+    "input_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      0.793404
+    ],
+    "output_amounts": [
+      0.793304
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000076",
+    "timestamp": "2026-01-01T11:21:12+00:00",
+    "txid": "tx_norm_000076",
+    "input_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      2.410034
+    ],
+    "output_amounts": [
+      2.409934
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000077",
+    "timestamp": "2026-01-01T11:22:47+00:00",
+    "txid": "tx_norm_000077",
+    "input_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "output_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "input_amounts": [
+      0.42656099999999997
+    ],
+    "output_amounts": [
+      0.426461
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000078",
+    "timestamp": "2026-01-01T11:23:27+00:00",
+    "txid": "tx_norm_000078",
+    "input_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      0.728889
+    ],
+    "output_amounts": [
+      0.728789
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000079",
+    "timestamp": "2026-01-01T11:24:37+00:00",
+    "txid": "tx_norm_000079",
+    "input_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      0.294475
+    ],
+    "output_amounts": [
+      0.294375
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000080",
+    "timestamp": "2026-01-01T11:25:51+00:00",
+    "txid": "tx_norm_000080",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      0.265117
+    ],
+    "output_amounts": [
+      0.265017
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000081",
+    "timestamp": "2026-01-01T11:26:53+00:00",
+    "txid": "tx_norm_000081",
+    "input_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "output_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "input_amounts": [
+      2.1569770000000004
+    ],
+    "output_amounts": [
+      2.156877
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000082",
+    "timestamp": "2026-01-01T11:28:48+00:00",
+    "txid": "tx_norm_000082",
+    "input_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      0.532697
+    ],
+    "output_amounts": [
+      0.532597
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000083",
+    "timestamp": "2026-01-01T11:29:14+00:00",
+    "txid": "tx_norm_000083",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "input_amounts": [
+      1.964375
+    ],
+    "output_amounts": [
+      1.964275
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000084",
+    "timestamp": "2026-01-01T11:29:54+00:00",
+    "txid": "tx_norm_000084",
+    "input_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "output_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "input_amounts": [
+      0.42935999999999996
+    ],
+    "output_amounts": [
+      0.42926
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000085",
+    "timestamp": "2026-01-01T11:31:48+00:00",
+    "txid": "tx_norm_000085",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      2.0399000000000003
+    ],
+    "output_amounts": [
+      2.0398
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000086",
+    "timestamp": "2026-01-01T11:33:29+00:00",
+    "txid": "tx_norm_000086",
+    "input_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "output_addresses": [
+      "bc1qxvanm5sksj0c0xwua2wy3h3ss5hk9vf7kr7azn"
+    ],
+    "input_amounts": [
+      2.4813910000000003
+    ],
+    "output_amounts": [
+      2.481291
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000087",
+    "timestamp": "2026-01-01T11:33:52+00:00",
+    "txid": "tx_norm_000087",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "input_amounts": [
+      2.07302
+    ],
+    "output_amounts": [
+      2.07292
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000088",
+    "timestamp": "2026-01-01T11:35:10+00:00",
+    "txid": "tx_norm_000088",
+    "input_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "output_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "input_amounts": [
+      1.573354
+    ],
+    "output_amounts": [
+      1.573254
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000089",
+    "timestamp": "2026-01-01T11:36:20+00:00",
+    "txid": "tx_norm_000089",
+    "input_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "output_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "input_amounts": [
+      1.739912
+    ],
+    "output_amounts": [
+      1.739812
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000090",
+    "timestamp": "2026-01-01T11:36:25+00:00",
+    "txid": "tx_norm_000090",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "input_amounts": [
+      0.242023
+    ],
+    "output_amounts": [
+      0.241923
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000091",
+    "timestamp": "2026-01-01T11:38:11+00:00",
+    "txid": "tx_norm_000091",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      0.552497
+    ],
+    "output_amounts": [
+      0.552397
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000092",
+    "timestamp": "2026-01-01T11:40:02+00:00",
+    "txid": "tx_norm_000092",
+    "input_addresses": [
+      "bc1q0gma8qqgpxtnpxfknxu36arla4qqyjh32fc93y"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      1.372903
+    ],
+    "output_amounts": [
+      1.372803
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000093",
+    "timestamp": "2026-01-01T11:41:56+00:00",
+    "txid": "tx_norm_000093",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "input_amounts": [
+      2.236545
+    ],
+    "output_amounts": [
+      2.236445
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000094",
+    "timestamp": "2026-01-01T11:42:03+00:00",
+    "txid": "tx_norm_000094",
+    "input_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "output_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "input_amounts": [
+      1.108902
+    ],
+    "output_amounts": [
+      1.108802
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000095",
+    "timestamp": "2026-01-01T11:43:02+00:00",
+    "txid": "tx_norm_000095",
+    "input_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "output_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "input_amounts": [
+      2.274524
+    ],
+    "output_amounts": [
+      2.274424
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000096",
+    "timestamp": "2026-01-01T11:44:30+00:00",
+    "txid": "tx_norm_000096",
+    "input_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      0.215327
+    ],
+    "output_amounts": [
+      0.215227
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000097",
+    "timestamp": "2026-01-01T11:45:55+00:00",
+    "txid": "tx_norm_000097",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      1.751709
+    ],
+    "output_amounts": [
+      1.751609
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000098",
+    "timestamp": "2026-01-01T11:46:27+00:00",
+    "txid": "tx_norm_000098",
+    "input_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      0.340522
+    ],
+    "output_amounts": [
+      0.340422
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000099",
+    "timestamp": "2026-01-01T11:48:01+00:00",
+    "txid": "tx_norm_000099",
+    "input_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "output_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "input_amounts": [
+      2.470606
+    ],
+    "output_amounts": [
+      2.470506
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000100",
+    "timestamp": "2026-01-01T11:48:55+00:00",
+    "txid": "tx_norm_000100",
+    "input_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      2.0169330000000003
+    ],
+    "output_amounts": [
+      2.016833
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000101",
+    "timestamp": "2026-01-01T11:49:47+00:00",
+    "txid": "tx_norm_000101",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "input_amounts": [
+      0.963075
+    ],
+    "output_amounts": [
+      0.962975
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000102",
+    "timestamp": "2026-01-01T11:50:00+00:00",
+    "txid": "tx_norm_000102",
+    "input_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      0.031202
+    ],
+    "output_amounts": [
+      0.031102
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000103",
+    "timestamp": "2026-01-01T11:50:57+00:00",
+    "txid": "tx_norm_000103",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      1.111636
+    ],
+    "output_amounts": [
+      1.111536
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000104",
+    "timestamp": "2026-01-01T11:52:35+00:00",
+    "txid": "tx_norm_000104",
+    "input_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      2.408589
+    ],
+    "output_amounts": [
+      2.408489
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000105",
+    "timestamp": "2026-01-01T11:53:11+00:00",
+    "txid": "tx_norm_000105",
+    "input_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "output_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "input_amounts": [
+      1.50412
+    ],
+    "output_amounts": [
+      1.50402
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000106",
+    "timestamp": "2026-01-01T11:53:42+00:00",
+    "txid": "tx_norm_000106",
+    "input_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "output_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "input_amounts": [
+      1.278811
+    ],
+    "output_amounts": [
+      1.278711
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000107",
+    "timestamp": "2026-01-01T11:54:50+00:00",
+    "txid": "tx_norm_000107",
+    "input_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "output_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "input_amounts": [
+      0.610394
+    ],
+    "output_amounts": [
+      0.610294
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000108",
+    "timestamp": "2026-01-01T11:55:35+00:00",
+    "txid": "tx_norm_000108",
+    "input_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      2.1535270000000004
+    ],
+    "output_amounts": [
+      2.153427
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000109",
+    "timestamp": "2026-01-01T11:57:17+00:00",
+    "txid": "tx_norm_000109",
+    "input_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      0.051657
+    ],
+    "output_amounts": [
+      0.051557
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000110",
+    "timestamp": "2026-01-01T11:57:55+00:00",
+    "txid": "tx_norm_000110",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "input_amounts": [
+      2.307322
+    ],
+    "output_amounts": [
+      2.307222
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000111",
+    "timestamp": "2026-01-01T11:59:38+00:00",
+    "txid": "tx_norm_000111",
+    "input_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      1.757608
+    ],
+    "output_amounts": [
+      1.757508
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000112",
+    "timestamp": "2026-01-01T12:00:51+00:00",
+    "txid": "tx_norm_000112",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "input_amounts": [
+      0.390274
+    ],
+    "output_amounts": [
+      0.390174
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000113",
+    "timestamp": "2026-01-01T12:01:06+00:00",
+    "txid": "tx_norm_000113",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "input_amounts": [
+      2.4361400000000004
+    ],
+    "output_amounts": [
+      2.43604
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000114",
+    "timestamp": "2026-01-01T12:01:50+00:00",
+    "txid": "tx_norm_000114",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1q0v5596p00t8c62rjrhsj4jy2tvjgy2hephx33m"
+    ],
+    "input_amounts": [
+      1.827696
+    ],
+    "output_amounts": [
+      1.827596
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000115",
+    "timestamp": "2026-01-01T12:02:09+00:00",
+    "txid": "tx_norm_000115",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "input_amounts": [
+      1.526093
+    ],
+    "output_amounts": [
+      1.525993
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000116",
+    "timestamp": "2026-01-01T12:02:15+00:00",
+    "txid": "tx_norm_000116",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "input_amounts": [
+      1.756834
+    ],
+    "output_amounts": [
+      1.756734
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000117",
+    "timestamp": "2026-01-01T12:02:41+00:00",
+    "txid": "tx_norm_000117",
+    "input_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "output_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "input_amounts": [
+      1.877043
+    ],
+    "output_amounts": [
+      1.876943
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000118",
+    "timestamp": "2026-01-01T12:04:29+00:00",
+    "txid": "tx_norm_000118",
+    "input_addresses": [
+      "bc1q0v5596p00t8c62rjrhsj4jy2tvjgy2hephx33m"
+    ],
+    "output_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "input_amounts": [
+      1.314497
+    ],
+    "output_amounts": [
+      1.314397
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000119",
+    "timestamp": "2026-01-01T12:05:32+00:00",
+    "txid": "tx_norm_000119",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qvm8x5g990twp6gdlnf9v7eh8llzazp9lpr2mhw"
+    ],
+    "input_amounts": [
+      0.148143
+    ],
+    "output_amounts": [
+      0.148043
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000120",
+    "timestamp": "2026-01-01T12:07:15+00:00",
+    "txid": "tx_norm_000120",
+    "input_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      1.68866
+    ],
+    "output_amounts": [
+      1.68856
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000121",
+    "timestamp": "2026-01-01T12:08:54+00:00",
+    "txid": "tx_norm_000121",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qn098rpw3f07j07nk8lt0tqc5yc34vmtrkzekum"
+    ],
+    "input_amounts": [
+      0.119754
+    ],
+    "output_amounts": [
+      0.119654
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000122",
+    "timestamp": "2026-01-01T12:09:48+00:00",
+    "txid": "tx_norm_000122",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      2.3286890000000002
+    ],
+    "output_amounts": [
+      2.328589
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000123",
+    "timestamp": "2026-01-01T12:10:21+00:00",
+    "txid": "tx_norm_000123",
+    "input_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "output_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "input_amounts": [
+      1.046579
+    ],
+    "output_amounts": [
+      1.046479
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000124",
+    "timestamp": "2026-01-01T12:10:41+00:00",
+    "txid": "tx_norm_000124",
+    "input_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      2.255933
+    ],
+    "output_amounts": [
+      2.255833
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000125",
+    "timestamp": "2026-01-01T12:12:38+00:00",
+    "txid": "tx_norm_000125",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1q0gma8qqgpxtnpxfknxu36arla4qqyjh32fc93y"
+    ],
+    "input_amounts": [
+      1.936183
+    ],
+    "output_amounts": [
+      1.936083
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000126",
+    "timestamp": "2026-01-01T12:13:30+00:00",
+    "txid": "tx_norm_000126",
+    "input_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "output_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "input_amounts": [
+      1.413979
+    ],
+    "output_amounts": [
+      1.413879
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000127",
+    "timestamp": "2026-01-01T12:14:50+00:00",
+    "txid": "tx_norm_000127",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      1.833934
+    ],
+    "output_amounts": [
+      1.833834
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000128",
+    "timestamp": "2026-01-01T12:14:58+00:00",
+    "txid": "tx_norm_000128",
+    "input_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      0.872695
+    ],
+    "output_amounts": [
+      0.872595
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000129",
+    "timestamp": "2026-01-01T12:16:51+00:00",
+    "txid": "tx_norm_000129",
+    "input_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "output_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "input_amounts": [
+      0.775801
+    ],
+    "output_amounts": [
+      0.775701
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000130",
+    "timestamp": "2026-01-01T12:17:14+00:00",
+    "txid": "tx_norm_000130",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "input_amounts": [
+      0.24173599999999998
+    ],
+    "output_amounts": [
+      0.241636
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000131",
+    "timestamp": "2026-01-01T12:18:54+00:00",
+    "txid": "tx_norm_000131",
+    "input_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "output_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "input_amounts": [
+      0.248087
+    ],
+    "output_amounts": [
+      0.247987
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000132",
+    "timestamp": "2026-01-01T12:20:43+00:00",
+    "txid": "tx_norm_000132",
+    "input_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      1.48392
+    ],
+    "output_amounts": [
+      1.48382
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000133",
+    "timestamp": "2026-01-01T12:22:12+00:00",
+    "txid": "tx_norm_000133",
+    "input_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      0.7363729999999999
+    ],
+    "output_amounts": [
+      0.736273
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000134",
+    "timestamp": "2026-01-01T12:23:14+00:00",
+    "txid": "tx_norm_000134",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "input_amounts": [
+      0.196072
+    ],
+    "output_amounts": [
+      0.195972
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000135",
+    "timestamp": "2026-01-01T12:23:32+00:00",
+    "txid": "tx_norm_000135",
+    "input_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "output_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "input_amounts": [
+      1.170577
+    ],
+    "output_amounts": [
+      1.170477
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000136",
+    "timestamp": "2026-01-01T12:24:16+00:00",
+    "txid": "tx_norm_000136",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      2.132781
+    ],
+    "output_amounts": [
+      2.132681
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000137",
+    "timestamp": "2026-01-01T12:26:04+00:00",
+    "txid": "tx_norm_000137",
+    "input_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "output_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "input_amounts": [
+      2.067803
+    ],
+    "output_amounts": [
+      2.067703
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000138",
+    "timestamp": "2026-01-01T12:26:20+00:00",
+    "txid": "tx_norm_000138",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "input_amounts": [
+      2.4214160000000002
+    ],
+    "output_amounts": [
+      2.421316
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000139",
+    "timestamp": "2026-01-01T12:28:09+00:00",
+    "txid": "tx_norm_000139",
+    "input_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "output_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "input_amounts": [
+      2.380821
+    ],
+    "output_amounts": [
+      2.380721
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000140",
+    "timestamp": "2026-01-01T12:28:26+00:00",
+    "txid": "tx_norm_000140",
+    "input_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "input_amounts": [
+      2.011803
+    ],
+    "output_amounts": [
+      2.011703
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000141",
+    "timestamp": "2026-01-01T12:28:32+00:00",
+    "txid": "tx_norm_000141",
+    "input_addresses": [
+      "bc1qxvanm5sksj0c0xwua2wy3h3ss5hk9vf7kr7azn"
+    ],
+    "output_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "input_amounts": [
+      0.33558099999999996
+    ],
+    "output_amounts": [
+      0.335481
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000142",
+    "timestamp": "2026-01-01T12:29:51+00:00",
+    "txid": "tx_norm_000142",
+    "input_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      2.2944970000000002
+    ],
+    "output_amounts": [
+      2.294397
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000143",
+    "timestamp": "2026-01-01T12:30:04+00:00",
+    "txid": "tx_norm_000143",
+    "input_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "output_addresses": [
+      "bc1qakj6y5prmulu02nlnsfnhnayhtpa32gh7mcqrv"
+    ],
+    "input_amounts": [
+      1.114244
+    ],
+    "output_amounts": [
+      1.114144
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000144",
+    "timestamp": "2026-01-01T12:32:04+00:00",
+    "txid": "tx_norm_000144",
+    "input_addresses": [
+      "bc1qjuaalzh5kdkkgc7ql8s2rqtepuzh2jlvvgjgrf"
+    ],
+    "output_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "input_amounts": [
+      0.116414
+    ],
+    "output_amounts": [
+      0.116314
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000145",
+    "timestamp": "2026-01-01T12:33:12+00:00",
+    "txid": "tx_norm_000145",
+    "input_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      1.7113
+    ],
+    "output_amounts": [
+      1.7112
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000146",
+    "timestamp": "2026-01-01T12:34:14+00:00",
+    "txid": "tx_norm_000146",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "input_amounts": [
+      1.539225
+    ],
+    "output_amounts": [
+      1.539125
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000147",
+    "timestamp": "2026-01-01T12:36:11+00:00",
+    "txid": "tx_norm_000147",
+    "input_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "output_addresses": [
+      "bc1qr7fcdrsl326mp9phg9s4faphp2em0a759c0r6e"
+    ],
+    "input_amounts": [
+      0.161938
+    ],
+    "output_amounts": [
+      0.161838
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000148",
+    "timestamp": "2026-01-01T12:36:47+00:00",
+    "txid": "tx_norm_000148",
+    "input_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k"
+    ],
+    "output_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "input_amounts": [
+      1.989267
+    ],
+    "output_amounts": [
+      1.989167
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000149",
+    "timestamp": "2026-01-01T12:38:32+00:00",
+    "txid": "tx_norm_000149",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      2.2826660000000003
+    ],
+    "output_amounts": [
+      2.282566
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000150",
+    "timestamp": "2026-01-01T12:39:17+00:00",
+    "txid": "tx_norm_000150",
+    "input_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "output_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "input_amounts": [
+      0.083066
+    ],
+    "output_amounts": [
+      0.082966
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000151",
+    "timestamp": "2026-01-01T12:40:07+00:00",
+    "txid": "tx_norm_000151",
+    "input_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      2.499118
+    ],
+    "output_amounts": [
+      2.499018
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000152",
+    "timestamp": "2026-01-01T12:40:46+00:00",
+    "txid": "tx_norm_000152",
+    "input_addresses": [
+      "bc1qyqemyaetupurpjnfdd67yh853v4suw2cs5e6us"
+    ],
+    "output_addresses": [
+      "bc1qx6w6xzehxyxw0l4zazkhyvg746g96rtls6vwuj"
+    ],
+    "input_amounts": [
+      0.149313
+    ],
+    "output_amounts": [
+      0.149213
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000153",
+    "timestamp": "2026-01-01T12:42:38+00:00",
+    "txid": "tx_norm_000153",
+    "input_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      0.599112
+    ],
+    "output_amounts": [
+      0.599012
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000154",
+    "timestamp": "2026-01-01T12:42:46+00:00",
+    "txid": "tx_norm_000154",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "input_amounts": [
+      0.8857889999999999
+    ],
+    "output_amounts": [
+      0.885689
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000155",
+    "timestamp": "2026-01-01T12:44:00+00:00",
+    "txid": "tx_norm_000155",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "input_amounts": [
+      1.231287
+    ],
+    "output_amounts": [
+      1.231187
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000156",
+    "timestamp": "2026-01-01T12:44:34+00:00",
+    "txid": "tx_norm_000156",
+    "input_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "output_addresses": [
+      "bc1ql7qs6mr4uy40apyeq3qn4svm4ztdfdjcvu4ynu"
+    ],
+    "input_amounts": [
+      0.059721
+    ],
+    "output_amounts": [
+      0.059621
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000157",
+    "timestamp": "2026-01-01T12:45:22+00:00",
+    "txid": "tx_norm_000157",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "input_amounts": [
+      2.297864
+    ],
+    "output_amounts": [
+      2.297764
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000158",
+    "timestamp": "2026-01-01T12:46:42+00:00",
+    "txid": "tx_norm_000158",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "input_amounts": [
+      1.938273
+    ],
+    "output_amounts": [
+      1.938173
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000159",
+    "timestamp": "2026-01-01T12:48:02+00:00",
+    "txid": "tx_norm_000159",
+    "input_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      0.761495
+    ],
+    "output_amounts": [
+      0.761395
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000160",
+    "timestamp": "2026-01-01T12:48:27+00:00",
+    "txid": "tx_norm_000160",
+    "input_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "output_addresses": [
+      "bc1q0v5596p00t8c62rjrhsj4jy2tvjgy2hephx33m"
+    ],
+    "input_amounts": [
+      1.9817879999999999
+    ],
+    "output_amounts": [
+      1.981688
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000161",
+    "timestamp": "2026-01-01T12:50:00+00:00",
+    "txid": "tx_norm_000161",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      0.5659609999999999
+    ],
+    "output_amounts": [
+      0.565861
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000162",
+    "timestamp": "2026-01-01T12:50:21+00:00",
+    "txid": "tx_norm_000162",
+    "input_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      0.014577
+    ],
+    "output_amounts": [
+      0.014477
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000163",
+    "timestamp": "2026-01-01T12:50:49+00:00",
+    "txid": "tx_norm_000163",
+    "input_addresses": [
+      "bc1qnt3sga272xjzk9s7dsvc4dwrwezhhxjtr3mukc"
+    ],
+    "output_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "input_amounts": [
+      2.3034850000000002
+    ],
+    "output_amounts": [
+      2.303385
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000164",
+    "timestamp": "2026-01-01T12:51:57+00:00",
+    "txid": "tx_norm_000164",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "input_amounts": [
+      1.866005
+    ],
+    "output_amounts": [
+      1.865905
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000165",
+    "timestamp": "2026-01-01T12:53:47+00:00",
+    "txid": "tx_norm_000165",
+    "input_addresses": [
+      "bc1qkqaudpzltrq0hytslrl6nmu5p2y40c5qfsxvr2"
+    ],
+    "output_addresses": [
+      "bc1qakj6y5prmulu02nlnsfnhnayhtpa32gh7mcqrv"
+    ],
+    "input_amounts": [
+      1.601466
+    ],
+    "output_amounts": [
+      1.601366
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000166",
+    "timestamp": "2026-01-01T12:54:23+00:00",
+    "txid": "tx_norm_000166",
+    "input_addresses": [
+      "bc1qrsdel7k3js9zp4zetcys7jj25chgmjcm6zracu"
+    ],
+    "output_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "input_amounts": [
+      0.882798
+    ],
+    "output_amounts": [
+      0.882698
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000167",
+    "timestamp": "2026-01-01T12:55:24+00:00",
+    "txid": "tx_norm_000167",
+    "input_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "output_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "input_amounts": [
+      2.4231640000000003
+    ],
+    "output_amounts": [
+      2.423064
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000168",
+    "timestamp": "2026-01-01T12:56:17+00:00",
+    "txid": "tx_norm_000168",
+    "input_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "output_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "input_amounts": [
+      1.974038
+    ],
+    "output_amounts": [
+      1.973938
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000169",
+    "timestamp": "2026-01-01T12:57:19+00:00",
+    "txid": "tx_norm_000169",
+    "input_addresses": [
+      "bc1qgj48cl883n8wv38p75xlhtt74ffgrpz4ecv87g"
+    ],
+    "output_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "input_amounts": [
+      0.744422
+    ],
+    "output_amounts": [
+      0.744322
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000170",
+    "timestamp": "2026-01-01T12:59:17+00:00",
+    "txid": "tx_norm_000170",
+    "input_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "output_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "input_amounts": [
+      1.832743
+    ],
+    "output_amounts": [
+      1.832643
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000171",
+    "timestamp": "2026-01-01T13:00:52+00:00",
+    "txid": "tx_norm_000171",
+    "input_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      2.3567810000000002
+    ],
+    "output_amounts": [
+      2.356681
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000172",
+    "timestamp": "2026-01-01T13:01:39+00:00",
+    "txid": "tx_norm_000172",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1qsjn93a9ck58qq3fkf7fwlqvse0dsvyfrkm88f0"
+    ],
+    "input_amounts": [
+      1.029207
+    ],
+    "output_amounts": [
+      1.029107
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000173",
+    "timestamp": "2026-01-01T13:02:22+00:00",
+    "txid": "tx_norm_000173",
+    "input_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "input_amounts": [
+      0.13369199999999998
+    ],
+    "output_amounts": [
+      0.133592
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000174",
+    "timestamp": "2026-01-01T13:02:27+00:00",
+    "txid": "tx_norm_000174",
+    "input_addresses": [
+      "bc1q0v5596p00t8c62rjrhsj4jy2tvjgy2hephx33m"
+    ],
+    "output_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "input_amounts": [
+      0.743528
+    ],
+    "output_amounts": [
+      0.743428
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000175",
+    "timestamp": "2026-01-01T13:02:35+00:00",
+    "txid": "tx_norm_000175",
+    "input_addresses": [
+      "bc1qcpe6g5m0el0n5g2e7csesu930kzdnsnsy7055p"
+    ],
+    "output_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "input_amounts": [
+      1.599195
+    ],
+    "output_amounts": [
+      1.599095
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000176",
+    "timestamp": "2026-01-01T13:03:40+00:00",
+    "txid": "tx_norm_000176",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qz5dkcg984aem8v6clcshjha0yjy7d2hwnhkvfw"
+    ],
+    "input_amounts": [
+      0.669961
+    ],
+    "output_amounts": [
+      0.669861
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000177",
+    "timestamp": "2026-01-01T13:04:32+00:00",
+    "txid": "tx_norm_000177",
+    "input_addresses": [
+      "bc1qv3fn7qh8n0ss4f6yj28vgtpzmywmrjukwrh98n"
+    ],
+    "output_addresses": [
+      "bc1qdpsvrymdl7p84vdsltvzumn0xu96qac0vle5n0"
+    ],
+    "input_amounts": [
+      0.121196
+    ],
+    "output_amounts": [
+      0.121096
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000178",
+    "timestamp": "2026-01-01T13:04:44+00:00",
+    "txid": "tx_norm_000178",
+    "input_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "output_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "input_amounts": [
+      1.744313
+    ],
+    "output_amounts": [
+      1.744213
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000179",
+    "timestamp": "2026-01-01T13:06:14+00:00",
+    "txid": "tx_norm_000179",
+    "input_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "output_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "input_amounts": [
+      1.040927
+    ],
+    "output_amounts": [
+      1.040827
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000180",
+    "timestamp": "2026-01-01T13:08:03+00:00",
+    "txid": "tx_norm_000180",
+    "input_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "output_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "input_amounts": [
+      2.4145130000000004
+    ],
+    "output_amounts": [
+      2.414413
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000181",
+    "timestamp": "2026-01-01T13:08:46+00:00",
+    "txid": "tx_norm_000181",
+    "input_addresses": [
+      "bc1qf98xgvk2zuzxv6h7e2ez9tgfyzkq5aylkr2ljv"
+    ],
+    "output_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "input_amounts": [
+      2.2580150000000003
+    ],
+    "output_amounts": [
+      2.257915
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000182",
+    "timestamp": "2026-01-01T13:10:17+00:00",
+    "txid": "tx_norm_000182",
+    "input_addresses": [
+      "bc1q3pamfqd2vdz9zy3ndtpy5mt23sdelmpydsljen"
+    ],
+    "output_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "input_amounts": [
+      0.309602
+    ],
+    "output_amounts": [
+      0.309502
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000183",
+    "timestamp": "2026-01-01T13:10:38+00:00",
+    "txid": "tx_norm_000183",
+    "input_addresses": [
+      "bc1qxg98k9lwe8zj324ntf3ezjzv0rpk9n4fgyw9j6"
+    ],
+    "output_addresses": [
+      "bc1q39nkczjgm4qvnsr7g8cgf4fpd5x3u34rtklkc4"
+    ],
+    "input_amounts": [
+      0.20523799999999998
+    ],
+    "output_amounts": [
+      0.205138
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000184",
+    "timestamp": "2026-01-01T13:11:16+00:00",
+    "txid": "tx_norm_000184",
+    "input_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "output_addresses": [
+      "bc1qqdg9h7kxq5ml8pjn2fq4s0kxfxwh7ycnx3lkrx"
+    ],
+    "input_amounts": [
+      2.2863930000000003
+    ],
+    "output_amounts": [
+      2.286293
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000185",
+    "timestamp": "2026-01-01T13:12:10+00:00",
+    "txid": "tx_norm_000185",
+    "input_addresses": [
+      "bc1qt6gfp8gargkathudyzgaejyut59nvk4vvas9w5"
+    ],
+    "output_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "input_amounts": [
+      1.384715
+    ],
+    "output_amounts": [
+      1.384615
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000186",
+    "timestamp": "2026-01-01T13:13:21+00:00",
+    "txid": "tx_norm_000186",
+    "input_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "output_addresses": [
+      "bc1qmzn0uapy544k9mq7n9hwv3f90sn9rkf03wwkul"
+    ],
+    "input_amounts": [
+      1.042062
+    ],
+    "output_amounts": [
+      1.041962
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000187",
+    "timestamp": "2026-01-01T13:14:41+00:00",
+    "txid": "tx_norm_000187",
+    "input_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "output_addresses": [
+      "bc1q3p65c898syar0nq24aejwqa4xam855rmfkhkp7"
+    ],
+    "input_amounts": [
+      2.4125310000000004
+    ],
+    "output_amounts": [
+      2.412431
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000188",
+    "timestamp": "2026-01-01T13:14:59+00:00",
+    "txid": "tx_norm_000188",
+    "input_addresses": [
+      "bc1qfy8gd02j8zd0xunt5auq5qg039ukrj4aa2ftg4"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq"
+    ],
+    "input_amounts": [
+      1.966607
+    ],
+    "output_amounts": [
+      1.966507
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000189",
+    "timestamp": "2026-01-01T13:16:27+00:00",
+    "txid": "tx_norm_000189",
+    "input_addresses": [
+      "bc1qqjut3v20xvllqf40ctmux3v8ljeacc6j4jwdru"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      1.526416
+    ],
+    "output_amounts": [
+      1.526316
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000190",
+    "timestamp": "2026-01-01T13:17:07+00:00",
+    "txid": "tx_norm_000190",
+    "input_addresses": [
+      "bc1qrzytdt0kgppluy480wkx83uxaf5yah4w5gpryf"
+    ],
+    "output_addresses": [
+      "bc1q07cvy9nezky4z6y94frcmjel9q0xkrrpd3pccv"
+    ],
+    "input_amounts": [
+      1.549529
+    ],
+    "output_amounts": [
+      1.549429
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000191",
+    "timestamp": "2026-01-01T13:18:40+00:00",
+    "txid": "tx_norm_000191",
+    "input_addresses": [
+      "bc1qqfry9tkhfr9vu3w8gme0v67tcwq90y3rhsqnht"
+    ],
+    "output_addresses": [
+      "bc1qxvanm5sksj0c0xwua2wy3h3ss5hk9vf7kr7azn"
+    ],
+    "input_amounts": [
+      1.867017
+    ],
+    "output_amounts": [
+      1.866917
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000192",
+    "timestamp": "2026-01-01T13:19:24+00:00",
+    "txid": "tx_norm_000192",
+    "input_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "output_addresses": [
+      "bc1qu857msn6shssgxlnmvn53ga92jag2u3vvmjgkt"
+    ],
+    "input_amounts": [
+      2.1471050000000003
+    ],
+    "output_amounts": [
+      2.147005
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000193",
+    "timestamp": "2026-01-01T13:21:08+00:00",
+    "txid": "tx_norm_000193",
+    "input_addresses": [
+      "bc1qsns7kxgq4zm86kk3zxg4uhqj9uz8kexjwv9tfx"
+    ],
+    "output_addresses": [
+      "bc1qvlhg62yhue3n25laz4smt8jggvzammry77p663"
+    ],
+    "input_amounts": [
+      1.824811
+    ],
+    "output_amounts": [
+      1.824711
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000194",
+    "timestamp": "2026-01-01T13:22:58+00:00",
+    "txid": "tx_norm_000194",
+    "input_addresses": [
+      "bc1qr5f4hfy2dgyv4pkzde74vgpnm0t85l3s77vc5w"
+    ],
+    "output_addresses": [
+      "bc1qx6w6xzehxyxw0l4zazkhyvg746g96rtls6vwuj"
+    ],
+    "input_amounts": [
+      1.216406
+    ],
+    "output_amounts": [
+      1.216306
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000195",
+    "timestamp": "2026-01-01T13:23:11+00:00",
+    "txid": "tx_norm_000195",
+    "input_addresses": [
+      "bc1qulyzp92shnx6lnh3dcpvcqayukgcczejzpkf7d"
+    ],
+    "output_addresses": [
+      "bc1q57cpjc6xcdsrnqm78k8zaa7qcdxt94pezuytaa"
+    ],
+    "input_amounts": [
+      1.27202
+    ],
+    "output_amounts": [
+      1.27192
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000196",
+    "timestamp": "2026-01-01T13:25:04+00:00",
+    "txid": "tx_norm_000196",
+    "input_addresses": [
+      "bc1qwgtnch524wcqj68ggj6dafcmtn34parpxvcl5d"
+    ],
+    "output_addresses": [
+      "bc1qwm0j85fm8fp3z3jjzkehnz90tdrnsrc2ku6sgq"
+    ],
+    "input_amounts": [
+      0.082181
+    ],
+    "output_amounts": [
+      0.082081
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000197",
+    "timestamp": "2026-01-01T13:26:07+00:00",
+    "txid": "tx_norm_000197",
+    "input_addresses": [
+      "bc1qxvanm5sksj0c0xwua2wy3h3ss5hk9vf7kr7azn"
+    ],
+    "output_addresses": [
+      "bc1qatmdnmprpunwnaglr3ar65kzjxu9uhtrc4y5yv"
+    ],
+    "input_amounts": [
+      1.764639
+    ],
+    "output_amounts": [
+      1.764539
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000198",
+    "timestamp": "2026-01-01T13:27:39+00:00",
+    "txid": "tx_norm_000198",
+    "input_addresses": [
+      "bc1qvlq28a3849ndd79xnm6r6eznkpus82c97ywcne"
+    ],
+    "output_addresses": [
+      "bc1q38qalhjfrcq99474ks67hrzja47860k9zkq5vh"
+    ],
+    "input_amounts": [
+      0.937542
+    ],
+    "output_amounts": [
+      0.937442
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000199",
+    "timestamp": "2026-01-01T13:28:28+00:00",
+    "txid": "tx_norm_000199",
+    "input_addresses": [
+      "bc1qn5hzcqnvvvecqsv23nxzrf4nvgqw2tad5jlt63"
+    ],
+    "output_addresses": [
+      "bc1qraafea5fypwmak0aflngg7hwt63jncusp8708h"
+    ],
+    "input_amounts": [
+      2.095858
+    ],
+    "output_amounts": [
+      2.095758
+    ],
+    "fee": 0.0001,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000200",
+    "timestamp": "2026-01-01T13:28:40+00:00",
+    "txid": "tx_peel_000",
+    "input_addresses": [
+      "bc1q_peel_e6lyvnp9f0ss0xnm09taynfed9gpue4jpudnma"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq",
+      "bc1q_peel_43znv9qwa5swttmpprnz9fe2ql7r8ktxpjvuw6"
+    ],
+    "input_amounts": [
+      10.0
+    ],
+    "output_amounts": [
+      0.5,
+      9.4998
+    ],
+    "fee": 0.0002,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000201",
+    "timestamp": "2026-01-01T13:28:52+00:00",
+    "txid": "tx_peel_001",
+    "input_addresses": [
+      "bc1q_peel_43znv9qwa5swttmpprnz9fe2ql7r8ktxpjvuw6"
+    ],
+    "output_addresses": [
+      "bc1q84rhek99gzaxh4vgwg3pvcd3kwvqxntj475t0k",
+      "bc1q_peel_59ts6pc3dratc9avhvly3wjvea2v57flxgcqsh"
+    ],
+    "input_amounts": [
+      9.4998
+    ],
+    "output_amounts": [
+      0.5,
+      8.9996
+    ],
+    "fee": 0.0002,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000202",
+    "timestamp": "2026-01-01T13:29:04+00:00",
+    "txid": "tx_peel_002",
+    "input_addresses": [
+      "bc1q_peel_59ts6pc3dratc9avhvly3wjvea2v57flxgcqsh"
+    ],
+    "output_addresses": [
+      "bc1q55awtvw784swfm5xvztw0rcxtvt9t4vv8ugat8",
+      "bc1q_peel_c2g7sl6ts5fffh0krywsj00r8wa4ja32ygjjfp"
+    ],
+    "input_amounts": [
+      8.9996
+    ],
+    "output_amounts": [
+      0.5,
+      8.4994
+    ],
+    "fee": 0.0002,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000203",
+    "timestamp": "2026-01-01T13:29:16+00:00",
+    "txid": "tx_peel_003",
+    "input_addresses": [
+      "bc1q_peel_c2g7sl6ts5fffh0krywsj00r8wa4ja32ygjjfp"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq",
+      "bc1q_peel_zhs6xt08z70j4qtensmm24u24g49q7p0f4jmqf"
+    ],
+    "input_amounts": [
+      8.4994
+    ],
+    "output_amounts": [
+      0.5,
+      7.9992
+    ],
+    "fee": 0.0002,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000204",
+    "timestamp": "2026-01-01T13:29:28+00:00",
+    "txid": "tx_peel_004",
+    "input_addresses": [
+      "bc1q_peel_zhs6xt08z70j4qtensmm24u24g49q7p0f4jmqf"
+    ],
+    "output_addresses": [
+      "bc1q6y36mp84w8mmfljx7q8epacs3gzz379xwwd6uq",
+      "bc1q_peel_r444779j7qa2h7xc0pxup53jr498zag462atcr"
+    ],
+    "input_amounts": [
+      7.9992
+    ],
+    "output_amounts": [
+      0.5,
+      7.499
+    ],
+    "fee": 0.0002,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000205",
+    "timestamp": "2026-01-01T13:29:28.400000+00:00",
+    "txid": "tx_dust_000",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qwg3n0vjrr8yvjqmfrhpn5uwm0xjhh6scc9jkeu"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000206",
+    "timestamp": "2026-01-01T13:29:28.800000+00:00",
+    "txid": "tx_dust_001",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qgtgvg4hn4fk03mmaj7pyd28gkmhpq4s8cuyajq"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000207",
+    "timestamp": "2026-01-01T13:29:29.200000+00:00",
+    "txid": "tx_dust_002",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qwhurf974v7u7cs2np4wgljy0rkflxsxq6u4pmc"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000208",
+    "timestamp": "2026-01-01T13:29:29.600000+00:00",
+    "txid": "tx_dust_003",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qfmq8ecat5mwjukcrk77qpx5qz6knqsklyqpwkw"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000209",
+    "timestamp": "2026-01-01T13:29:30+00:00",
+    "txid": "tx_dust_004",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qtj05p7s6a9uqas2u4vrvrk8ttapxeyzck09msv"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000210",
+    "timestamp": "2026-01-01T13:29:30.400000+00:00",
+    "txid": "tx_dust_005",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qxqnskmsya6p66jefk5l9cq55c2xmphldtc863j"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000211",
+    "timestamp": "2026-01-01T13:29:30.800000+00:00",
+    "txid": "tx_dust_006",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qkedwpcaymhksn4d8nx82wet49r0jsjjhanc34z"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000212",
+    "timestamp": "2026-01-01T13:29:31.200000+00:00",
+    "txid": "tx_dust_007",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qk03psvf4kqzsnyr5gc32tkl89enf0pknmslq3x"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000213",
+    "timestamp": "2026-01-01T13:29:31.600000+00:00",
+    "txid": "tx_dust_008",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qapmaxeu068rtvanawyvny0v52lek37rr7wv56m"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000214",
+    "timestamp": "2026-01-01T13:29:32+00:00",
+    "txid": "tx_dust_009",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q76tvvxzgka34rhc5n4mwcgmalldcf088rfu5rw"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000215",
+    "timestamp": "2026-01-01T13:29:32.400000+00:00",
+    "txid": "tx_dust_010",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qgsh4n39uw7rnrwvnuls729wkn5ewlv5j3d08yz"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000216",
+    "timestamp": "2026-01-01T13:29:32.800000+00:00",
+    "txid": "tx_dust_011",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q6jg6ypyrhd8h3d27xdhg2zcqjuu9k6ndnujexj"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000217",
+    "timestamp": "2026-01-01T13:29:33.200000+00:00",
+    "txid": "tx_dust_012",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qudtw0wg8j956mupfc4phlnf85l5jw56xjeznwr"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000218",
+    "timestamp": "2026-01-01T13:29:33.600000+00:00",
+    "txid": "tx_dust_013",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qy7mhh8f5lsmj6pxm3e50jxpum6wmwks3pwk0yp"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000219",
+    "timestamp": "2026-01-01T13:29:34+00:00",
+    "txid": "tx_dust_014",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qjd2j8ttelrsq45h8vawf7qtl40nqcd5n9vfd9p"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000220",
+    "timestamp": "2026-01-01T13:29:34.400000+00:00",
+    "txid": "tx_dust_015",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q7kk6khzlse5v48ty4jttmp2entuhm39dmrxena"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000221",
+    "timestamp": "2026-01-01T13:29:34.800000+00:00",
+    "txid": "tx_dust_016",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q2s6h0vxj7tjqmpdnz39epe70qxkrkldu8yge06"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000222",
+    "timestamp": "2026-01-01T13:29:35.200000+00:00",
+    "txid": "tx_dust_017",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q43aytywulqylssyggl043nzp8cyj0u83pu3xhd"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000223",
+    "timestamp": "2026-01-01T13:29:35.600000+00:00",
+    "txid": "tx_dust_018",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1q9ypxh7rv778m54xppmsk2hmhzwvhzx98l2thkj"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000224",
+    "timestamp": "2026-01-01T13:29:36+00:00",
+    "txid": "tx_dust_019",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qvsg4jc0pe4dv699yc6ffsdeglzpurtkv7trh0f"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000225",
+    "timestamp": "2026-01-01T13:29:36.400000+00:00",
+    "txid": "tx_dust_020",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qzvjrtakleq2uhngcdkx904vy7ln6sdphrwean5"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000226",
+    "timestamp": "2026-01-01T13:29:36.800000+00:00",
+    "txid": "tx_dust_021",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qnxfmex3ccnqmewsyrjg6v589rr7e4xh2sjz4m3"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000227",
+    "timestamp": "2026-01-01T13:29:37.200000+00:00",
+    "txid": "tx_dust_022",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qa8an5u0pvchzk9gzq6mnnljnadktgd9a0uvdh0"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000228",
+    "timestamp": "2026-01-01T13:29:37.600000+00:00",
+    "txid": "tx_dust_023",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qyh0fa80dfke6ree9f8sxtpartfv6anm9m702k6"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000229",
+    "timestamp": "2026-01-01T13:29:38+00:00",
+    "txid": "tx_dust_024",
+    "input_addresses": [
+      "bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh"
+    ],
+    "output_addresses": [
+      "bc1qa5g0307fthdq23s59ek6w9e0zqez8z7r4p7eyx"
+    ],
+    "input_amounts": [
+      5.5e-05
+    ],
+    "output_amounts": [
+      5.46e-05
+    ],
+    "fee": 4e-07,
+    "script_type": "P2WPKH"
+  },
+  {
+    "record_id": "tx-rec-000230",
+    "timestamp": "2026-01-01T13:34:38+00:00",
+    "txid": "tx_dispersal_001",
+    "input_addresses": [
+      "bc1q_dispersal_n2xj9n7wv74nc694t02thmd363mxzn2nqt58zt"
+    ],
+    "output_addresses": [
+      "bc1qstg7qd5whgaq76dr9uxk35a9d0ne60vs8rpkej",
+      "bc1qhkmcn4j3u5v7h4lupjq9dm3x7hw3t2kyfdqu92",
+      "bc1q3ayy4rk7j8n6rf4ndgpw66ec6zgdczcdsfrml7",
+      "bc1qsx9ygerzmjzaa8v0uq9kkx52d5dl8t3exrrt6u",
+      "bc1qqlxmarl32sdufvv8nm0sea2k5j82regmj8ae53",
+      "bc1ql2e3js55khn7mr83scx3pfdcm0azmzg52u7dsv",
+      "bc1q42yxvu0q4g07k7j9hr5q0lp26atm2n0e9vpv0v",
+      "bc1qn8ez4cvk6jgx08jce6ddn8zjtnwwu0k95wp3ey",
+      "bc1qmn885zxck75ktvaqj5zz5xxcky4cwrswffgxwx",
+      "bc1q9s46sm9l88pdqhjmqdvh572s09frzs3xzvhcg8",
+      "bc1qe2recmrmjwtjgu2zjerkjn2aeaugfm2j5ugr4s",
+      "bc1qyq5fg6lq7g9qxtq44gdjetjyeesxlp5v6qfasg",
+      "bc1qn457m9gvk0w8lhf3m8kmku25n2vpuax2f6pmqm",
+      "bc1qt6glx3ade3fka5q9jjqm4rnzhqxzamcjzd5ljn",
+      "bc1qh6mqz00n4vtzfckn07atajc0pcrm06ccpxtnhn",
+      "bc1qwkctfruarck7ptwdz90znulemvsqc2fh8gy7a4",
+      "bc1qtsxg0hj7xrjs5vuyp5rgqj0xpm3g2jpalawc79",
+      "bc1qcg4590mj7dc5qa83mcg5hp42f6mluqmauqpkzs",
+      "bc1qg5uxggpqg88vmxeqptwg0hdg6sm54utcntkefm",
+      "bc1qkzecultftk8p3xlhlgku6y34usehp3uwwn055k",
+      "bc1qel7pclxayfzd30ze5adk2qudvv8qeceekph7ex",
+      "bc1qu5zp530rhfz3nfgtmf6jkgd6mlv8jfkdzlq4hq",
+      "bc1q5rzzsg3w3hry3nta2cshjhrfyta2xrrl2h62zt",
+      "bc1qma3jv959v046l5gt9qhtvc35x5hzs8gn7rdns4",
+      "bc1q6earskeqh5v0xgpyp2xnyfxvc94nesrrl7cq6k",
+      "bc1qpu044g8a703ypuynq4v5pwlywq9gxnx9fwsc63",
+      "bc1qsec2y9ghxm6h5s7nxq43l9gw5nxp9qwljyhfvs",
+      "bc1qtk0yuhlxdpeny3ky3gsn62e7qwnd3nr57rlh3k",
+      "bc1qakugz22t24tpgpv5lx25nhx2q562atg6lu4ht8",
+      "bc1qtftzpczl5utslc45fqkgx24vms0h063nwftsq7"
+    ],
+    "input_amounts": [
+      3.0005
+    ],
+    "output_amounts": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "fee": 0.0005,
+    "script_type": "P2WPKH"
+  }
+]

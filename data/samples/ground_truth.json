@@ -1,0 +1,17 @@
+[
+  {
+    "typology": "peeling_chain",
+    "primary_entity": "wallet:bc1q_peel_e6lyvnp9f0ss0xnm09taynfed9gpue4jpudnma",
+    "description": "Sequential peel chain offloading 0.5 BTC each hop with change"
+  },
+  {
+    "typology": "dust_flood",
+    "primary_entity": "wallet:bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh",
+    "description": "Burst of 25 sub-dust transactions at high rate"
+  },
+  {
+    "typology": "rapid_dispersal",
+    "primary_entity": "wallet:bc1q_dispersal_n2xj9n7wv74nc694t02thmd363mxzn2nqt58zt",
+    "description": "High fan-out dispersal sending 1 input to 30 outputs simultaneously"
+  }
+]

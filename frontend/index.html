@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcoin Investigation Platform - Intelligence Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Header & Brand Navigation -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">₿</div>
+      <div>
+        <div class="brand-title">Bitcoin Investigation Platform</div>
+      </div>
+      <span class="brand-badge">Forensic Intelligence</span>
+    </div>
+
+    <!-- View Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="upload-view">
+        <span>📥</span> Data Ingestion & Upload
+      </button>
+      <button class="tab-btn" data-tab="alerts-view">
+        <span>⚠️</span> Alerts & Evidence
+      </button>
+      <button class="tab-btn" data-tab="graph-view">
+        <span>🕸️</span> Entity Graph
+      </button>
+      <button class="tab-btn" data-tab="report-view">
+        <span>📄</span> Investigation Report
+      </button>
+    </nav>
+
+    <!-- Operational Status Indicators -->
+    <div class="header-status">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Offline Engine Live</span>
+      </div>
+      <a href="/docs" target="_blank" class="btn btn-outline btn-sm">REST API Docs</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- Top Summary Metrics Row -->
+    <section class="metrics-row">
+      <div class="metric-card cases">
+        <div class="metric-label">Total Alerts Flagged</div>
+        <div class="metric-val" id="metric-total-alerts">-</div>
+        <div class="metric-sub">Multi-engine scoring applied</div>
+      </div>
+      <div class="metric-card critical">
+        <div class="metric-label">Critical Priority (≥ 80)</div>
+        <div class="metric-val text-critical" id="metric-critical">-</div>
+        <div class="metric-sub">Immediate escalation required</div>
+      </div>
+      <div class="metric-card high">
+        <div class="metric-label">High Priority (60 - 79)</div>
+        <div class="metric-val text-high" id="metric-high">-</div>
+        <div class="metric-sub">High confidence typologies</div>
+      </div>
+      <div class="metric-card medium">
+        <div class="metric-label">Medium Priority (40 - 59)</div>
+        <div class="metric-val text-medium" id="metric-medium">-</div>
+        <div class="metric-sub">Anomalous behavioral clusters</div>
+      </div>
+    </section>
+
+    <!-- TAB 1: DATA INGESTION & UPLOAD VIEW -->
+    <section id="upload-view" class="view-section active">
+      <div class="dashboard-grid">
+        
+        <!-- Case Information & Quick Actions -->
+        <aside class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Active Investigation Case</h2>
+            <button id="btn-open-create-case" class="btn btn-outline btn-sm">+ New Case</button>
+          </div>
+          <div class="panel-body">
+            <div class="case-selector">
+              <label for="upload-case-select" class="form-label">Target Case</label>
+              <select id="upload-case-select" class="form-select"></select>
+            </div>
+
+            <div class="case-info-box">
+              <div class="case-info-row">
+                <span class="key">Title</span>
+                <span class="val" id="upload-case-name">-</span>
+              </div>
+              <div class="case-info-row">
+                <span class="key">Status</span>
+                <span class="val" id="upload-case-status">-</span>
+              </div>
+              <div class="case-info-row">
+                <span class="key">Case ID</span>
+                <span class="val" id="upload-case-id">-</span>
+              </div>
+            </div>
+
+            <!-- Ingested Datasets List -->
+            <div style="margin-bottom: 1.25rem;">
+              <span class="form-label">Attached Datasets in Case</span>
+              <div id="upload-case-datasets-list" style="background: var(--bg-card); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); max-height: 140px; overflow-y: auto;">
+                <span class="text-muted">No datasets uploaded yet</span>
+              </div>
+            </div>
+
+            <!-- Pre-packaged demo data loader -->
+            <div style="background: rgba(99, 102, 241, 0.08); border: 1px dashed var(--accent-indigo); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+              <div style="font-weight: 700; color: #fff; font-size: 0.85rem; margin-bottom: 0.3rem;">⚡ Quick Demonstration</div>
+              <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.4;">
+                Instantly load 231 synthetic Bitcoin transactions and 199 correlated network telemetry records with planted forensic anomalies.
+              </div>
+              <button id="btn-load-synthetic" class="btn btn-outline btn-sm" style="width: 100%; border-color: var(--accent-indigo); color: #a5b4fc;">
+                Load Pre-packaged Synthetic Datasets
+              </button>
+            </div>
+
+            <div>
+              <button id="btn-upload-execute-all" class="btn btn-indigo" style="width: 100%; font-size: 0.95rem; padding: 0.85rem;">
+                🚀 1-Click Upload & Run Analysis
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right: Drag & Drop Ingestion Dropzones -->
+        <section class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Data Ingestion Suite (CSV, JSON, XML)</h2>
+            <span class="brand-badge">Offline Forensic Parsers</span>
+          </div>
+          <div class="panel-body">
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Select or drop your Bitcoin blockchain transaction logs and network peer telemetry observations. The platform will automatically validate array parity, monetary conservation, and standardize timestamps.
+            </p>
+
+            <div class="upload-grid">
+              
+              <!-- Dropzone 1: Transactions -->
+              <div class="dropzone" id="dropzone-tx" onclick="document.getElementById('input-file-tx').click()">
+                <input type="file" id="input-file-tx" accept=".csv,.json,.xml" style="display: none;">
+                <div class="dropzone-icon">💰</div>
+                <div class="dropzone-title">Bitcoin Transactions</div>
+                <div class="dropzone-desc">Upload transaction logs (txid, input/output addresses & amounts, fees, timestamps)</div>
+                <div class="btn btn-outline btn-sm">Browse File</div>
+                <div id="tx-file-status" class="dropzone-file-status"></div>
+              </div>
+
+              <!-- Dropzone 2: Network Telemetry -->
+              <div class="dropzone" id="dropzone-net" onclick="document.getElementById('input-file-net').click()">
+                <input type="file" id="input-file-net" accept=".csv,.json,.xml" style="display: none;">
+                <div class="dropzone-icon">🌐</div>
+                <div class="dropzone-title">Network Telemetry</div>
+                <div class="dropzone-desc">Upload P2P traffic observations (src/dst IP, port, ASN, country, relayed txid)</div>
+                <div class="btn btn-outline btn-sm">Browse File</div>
+                <div id="net-file-status" class="dropzone-file-status"></div>
+              </div>
+
+              <!-- Dropzone 3: Combined / Single File -->
+              <div class="dropzone" id="dropzone-comb" onclick="document.getElementById('input-file-comb').click()">
+                <input type="file" id="input-file-comb" accept=".csv,.json,.xml" style="display: none;">
+                <div class="dropzone-icon">📑</div>
+                <div class="dropzone-title">Combined SIH Record</div>
+                <div class="dropzone-desc">Upload single merged dataset with both transaction and network metadata fields</div>
+                <div class="btn btn-outline btn-sm">Browse File</div>
+                <div id="comb-file-status" class="dropzone-file-status"></div>
+              </div>
+
+            </div>
+
+            <!-- Upload Action Bar -->
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+              <span id="upload-status-text" style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">No files queued</span>
+              <button id="btn-upload-only" class="btn btn-outline">Upload Files Only</button>
+              <button id="btn-upload-and-run" class="btn btn-primary">Upload & Run Analysis</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- TAB 2: ALERTS & EVIDENCE VIEW -->
+    <section id="alerts-view" class="view-section">
+      <div class="dashboard-grid">
+        
+        <!-- Left Column: Case Controls & Run Actions -->
+        <aside class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Investigative Case</h2>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <button class="btn btn-outline btn-sm" onclick="openCreateCaseModal()">+ New Case</button>
+              <span class="brand-badge" id="case-status">OPEN</span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="case-selector">
+              <label for="case-select" class="form-label">Active Case Selection</label>
+              <select id="case-select" class="form-select"></select>
+            </div>
+
+            <div class="case-info-box">
+              <div class="case-info-row">
+                <span class="key">Case Title</span>
+                <span class="val" id="case-name">-</span>
+              </div>
+              <div class="case-info-row">
+                <span class="key">Identifier</span>
+                <span class="val" id="case-id-display">-</span>
+              </div>
+              <div class="case-info-row">
+                <span class="key">Description</span>
+                <span class="val" id="case-desc" style="font-family: var(--font-sans);">-</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+              <span class="form-label">Ingested Case Datasets</span>
+              <div id="case-datasets-list" style="background: var(--bg-card); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); max-height: 120px; overflow-y: auto;">
+                <span class="text-muted">Loading datasets...</span>
+              </div>
+            </div>
+
+            <div>
+              <button id="btn-trigger-run" class="btn btn-indigo" style="width: 100%;">
+                Execute Analysis Pipeline
+              </button>
+              <div id="run-progress-status" style="font-size: 0.78rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem; font-family: var(--font-mono);">
+                Pipeline Ready
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Column: Ranked Alerts Table -->
+        <section class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Prioritized Forensic Alerts</h2>
+            <div class="filter-pills">
+              <button class="pill-btn active" data-severity="ALL">All</button>
+              <button class="pill-btn" data-severity="CRITICAL">Critical</button>
+              <button class="pill-btn" data-severity="HIGH">High</button>
+              <button class="pill-btn" data-severity="MEDIUM">Medium</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="alerts-table-wrapper">
+              <table class="alerts-table">
+                <thead>
+                  <tr>
+                    <th>Severity</th>
+                    <th>Priority Score</th>
+                    <th>Flagged Entity</th>
+                    <th>Forensic Rule / Findings</th>
+                    <th style="text-align: right;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="alerts-table-body">
+                  <tr>
+                    <td colspan="5" class="empty-state">Loading forensic alert matrix...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Expandable Evidence & Provenance Drawer -->
+            <div id="evidence-drawer" class="evidence-drawer" style="display: none;">
+              <div class="evidence-header">
+                <div class="evidence-title">
+                  <span>Forensic Evidence Pack</span>
+                  <span id="evidence-priority-tier" class="severity-tag severity-critical">CRITICAL</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div id="evidence-entity-id" style="font-family: var(--font-mono); color: var(--accent-blue); font-size: 0.85rem; font-weight: 600;">-</div>
+                  <button class="btn btn-outline btn-sm" id="btn-evidence-investigate" style="font-size: 0.72rem; padding: 2px 8px;">View in Graph →</button>
+                </div>
+              </div>
+
+              <!-- Score Breakdown Grid -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; text-align: center;">
+                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Anomaly (40%)</div>
+                  <div id="score-anomaly" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-blue); margin-top: 2px;">-</div>
+                  <span id="score-anomaly-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-anomaly-bar" class="score-mini-bar" style="background: var(--accent-blue);"></div></div>
+                </div>
+                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Behavior (30%)</div>
+                  <div id="score-behavior" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-gold); margin-top: 2px;">-</div>
+                  <span id="score-behavior-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-behavior-bar" class="score-mini-bar" style="background: var(--accent-gold);"></div></div>
+                </div>
+                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Graph (20%)</div>
+                  <div id="score-graph" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-indigo); margin-top: 2px;">-</div>
+                  <span id="score-graph-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-graph-bar" class="score-mini-bar" style="background: var(--accent-indigo);"></div></div>
+                </div>
+                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Network (10%)</div>
+                  <div id="score-network" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-green); margin-top: 2px;">-</div>
+                  <span id="score-network-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-network-bar" class="score-mini-bar" style="background: var(--accent-green);"></div></div>
+                </div>
+              </div>
+
+              <!-- Deterministic Explanations -->
+              <div style="margin-bottom: 1.25rem;">
+                <span class="form-label">Deterministic Forensic Findings & Rule Hits</span>
+                <div id="evidence-reasons-list"></div>
+              </div>
+
+              <!-- Cryptographic Provenance Records -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="form-label" style="margin: 0;">Evidence Chain of Custody (Cryptographic Provenance)</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span id="prov-count-badge" style="font-size:0.72rem; background:rgba(16,185,129,0.12); color:#10b981; border:1px solid rgba(16,185,129,0.3); padding:2px 8px; border-radius:4px; font-family:var(--font-mono);">Verified</span>
+                    <button class="btn btn-outline btn-sm" id="btn-copy-prov" onclick="copyAllProvenanceIds()" style="font-size:0.72rem; padding:2px 8px;">📋 Copy IDs</button>
+                  </div>
+                </div>
+                <div id="evidence-provenance-chips" style="background: #0d131f; border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 0.85rem;">
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Loading source record IDs...</span>
+                </div>
+                <pre id="evidence-provenance-box" style="display: none;"></pre>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- TAB 3: ENTITY GRAPH VIEW -->
+    <section id="graph-view" class="view-section">
+      <div class="panel">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <h2 class="panel-title">Forensic Entity Graph</h2>
+            
+            <!-- Search bar -->
+            <div style="display: flex; align-items: center; gap: 0.25rem;">
+              <input type="text" id="graph-search-input" placeholder="🔍 Search address, txid, IP..." style="background: var(--bg-input); border: 1px solid var(--border-color); color: #fff; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.78rem; width: 190px;">
+              <button id="btn-graph-search-clear" class="btn btn-outline btn-sm" style="padding: 0.3rem 0.5rem;" title="Clear Search">✕</button>
+            </div>
+
+            <!-- Filter Pills -->
+            <div style="display: flex; gap: 0.25rem; align-items: center;">
+              <span class="form-label" style="margin: 0; font-size: 0.72rem;">Filter:</span>
+              <button class="pill-btn active" id="btn-graph-filter-all" onclick="filterGraphType('ALL')">All</button>
+              <button class="pill-btn" id="btn-graph-filter-wallet" onclick="filterGraphType('wallet')">Wallets</button>
+              <button class="pill-btn" id="btn-graph-filter-tx" onclick="filterGraphType('transaction')">TXs</button>
+              <button class="pill-btn" id="btn-graph-filter-ip" onclick="filterGraphType('ip')">IPs</button>
+              <button class="pill-btn" id="btn-graph-filter-flagged" onclick="filterGraphType('FLAGGED')" style="color: var(--accent-orange); border-color: rgba(249,115,22,0.4);">⚠️ Flagged Only</button>
+            </div>
+          </div>
+
+          <!-- Controls: Layout Mode, Max Nodes, Zoom -->
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.3rem;">
+              <span class="form-label" style="margin: 0; font-size: 0.72rem;">Layout:</span>
+              <select id="graph-layout-mode" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; width: auto;">
+                <option value="force">Force-Directed</option>
+                <option value="flow">Flow / Sankey</option>
+                <option value="cluster">Community Clusters</option>
+              </select>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.3rem;">
+              <span class="form-label" style="margin: 0; font-size: 0.72rem;">Limit:</span>
+              <select id="graph-limit-select" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; width: auto;">
+                <option value="100">100</option>
+                <option value="250" selected>250</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 0.25rem; align-items: center; background: var(--bg-card); padding: 0.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <button id="btn-zoom-in" class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem;" title="Zoom In">+</button>
+              <span id="graph-zoom-level" style="font-family: var(--font-mono); font-size: 0.75rem; padding: 0 0.3rem; color: var(--text-secondary); min-width: 42px; text-align: center;">100%</span>
+              <button id="btn-zoom-out" class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem;" title="Zoom Out">−</button>
+              <button id="btn-reset-zoom" class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem;" title="Fit Graph to Viewport">⟲ Fit</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body" style="padding: 0;">
+          <div class="graph-viewport-card">
+            <canvas id="graph-canvas"></canvas>
+
+            <!-- Graph Legend -->
+            <div class="graph-legend">
+              <div class="legend-item"><span class="legend-color" style="background:#38bdf8;"></span><span>Wallet Address</span></div>
+              <div class="legend-item"><span class="legend-color" style="background:#f59e0b;"></span><span>Transaction (TXID)</span></div>
+              <div class="legend-item"><span class="legend-color" style="background:#ef4444;"></span><span>Relay / Node IP</span></div>
+              <div class="legend-item"><span class="legend-color" style="background:#a855f7;"></span><span>Country / ASN Hub</span></div>
+              <div class="legend-item"><span class="legend-color" style="border: 2px dashed #f97316; background: transparent; width:8px; height:8px;"></span><span>Flagged Alert Lead</span></div>
+            </div>
+
+            <!-- Hover Node Tooltip -->
+            <div id="graph-tooltip" style="position: absolute; display: none; pointer-events: none; background: rgba(10, 14, 23, 0.95); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; font-size: 0.75rem; z-index: 20; box-shadow: var(--shadow-md);"></div>
+
+            <!-- Node Inspector Drawer -->
+            <div id="graph-inspector" class="graph-inspector">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.4rem; margin-bottom: 0.75rem;">
+                <div class="inspector-title" style="margin: 0; border: none; padding: 0;">Entity Forensic Inspector</div>
+                <button class="btn btn-outline btn-sm" style="padding: 0.15rem 0.45rem; font-size: 0.75rem;" onclick="closeNodeInspector()">✕</button>
+              </div>
+
+              <!-- Entity Identification Badge -->
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;" id="inspector-node-type">WALLET</span>
+                <span id="inspector-severity-badge" class="severity-tag severity-low">LOW</span>
+              </div>
+              
+              <div style="font-family: var(--font-mono); font-size: 0.76rem; word-break: break-all; margin-bottom: 0.75rem; background: var(--bg-card); padding: 0.45rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                <span id="inspector-node-id">-</span>
+                <button id="btn-inspector-copy" class="btn btn-outline btn-sm" style="font-size: 0.68rem; padding: 0.15rem 0.4rem; margin-left: 0.5rem;" title="Copy ID">Copy</button>
+              </div>
+
+              <!-- Action Bar -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; margin-bottom: 0.85rem;">
+                <button id="btn-inspector-focus" class="btn btn-outline btn-sm" style="font-size: 0.72rem; padding: 0.35rem;">🎯 Focus Node</button>
+                <button id="btn-inspector-ego" class="btn btn-outline btn-sm" style="font-size: 0.72rem; padding: 0.35rem;">🌐 1-Hop Ego</button>
+              </div>
+
+              <div id="inspector-node-details"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: INVESTIGATION REPORT VIEW -->
+    <section id="report-view" class="view-section">
+      <div class="panel">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <h2 class="panel-title">Forensic Case Report</h2>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span class="form-label" style="margin: 0; font-size: 0.72rem;">Run:</span>
+              <select id="report-run-select" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; width: auto;">
+                <option value="">Latest Run</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <button id="btn-download-report-md" class="btn btn-outline btn-sm">📥 Download Markdown</button>
+            <button id="btn-download-report-json" class="btn btn-outline btn-sm">📥 Download JSON</button>
+            <button id="btn-copy-report" class="btn btn-outline btn-sm">📋 Copy Report</button>
+            <button id="btn-refresh-report" class="btn btn-outline btn-sm">🔄 Refresh</button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div id="report-markdown-content" class="report-markdown-view">
+            Select a case to view generated forensic reports.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Live Pipeline Execution Progress Modal -->
+  <div id="pipeline-modal" class="pipeline-modal-backdrop">
+    <div class="pipeline-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Forensic Analysis Pipeline In Progress</h3>
+        <span id="modal-run-id" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue);">-</span>
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Executing deterministic multi-engine correlation, graph construction, Isolation Forest anomaly scoring, and forensic explainability.
+      </p>
+
+      <!-- Multi-Step Stage Tracker -->
+      <div class="stage-step-list">
+        <div class="stage-step" id="step-ingestion">
+          <span class="stage-step-dot">1</span>
+          <span>Data Ingestion, Schema & Array Parity Validation</span>
+        </div>
+        <div class="stage-step" id="step-normalization">
+          <span class="stage-step-dot">2</span>
+          <span>Timezone UTC & IP Address Normalization</span>
+        </div>
+        <div class="stage-step" id="step-correlation">
+          <span class="stage-step-dot">3</span>
+          <span>Multi-Modal Telemetry Correlation & Offline GeoIP</span>
+        </div>
+        <div class="stage-step" id="step-graph_construction">
+          <span class="stage-step-dot">4</span>
+          <span>NetworkX Multi-Layer Entity Graph Construction</span>
+        </div>
+        <div class="stage-step" id="step-feature_extraction">
+          <span class="stage-step-dot">5</span>
+          <span>Feature Engineering (Transactions, Wallets, Network & Centralities)</span>
+        </div>
+        <div class="stage-step" id="step-detection_and_scoring">
+          <span class="stage-step-dot">6</span>
+          <span>Isolation Forest, Behavioral Rules & Priority Fusion</span>
+        </div>
+        <div class="stage-step" id="step-reporting_and_persistence">
+          <span class="stage-step-dot">7</span>
+          <span>Evidence Synthesis, Provenance & Case Report Export</span>
+        </div>
+      </div>
+
+      <!-- Live Log / Status -->
+      <div style="background: #090e18; border: 1px solid var(--border-color); padding: 0.75rem 1rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.78rem; color: #38bdf8; margin-bottom: 1.25rem;" id="modal-stage-detail">
+        Initializing pipeline runner...
+      </div>
+
+      <div style="display: flex; justify-content: flex-end;">
+        <button id="btn-close-modal" class="btn btn-outline btn-sm" style="display: none;" onclick="closePipelineModal()">
+          Close & View Intelligence
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create New Case Modal Dialog -->
+  <div id="create-case-modal" class="pipeline-modal-backdrop">
+    <div class="pipeline-modal-card" style="max-width: 520px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Create New Investigation Case</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeCreateCaseModal()" style="padding: 0.2rem 0.5rem;">✕</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label for="new-case-title" class="form-label">Case Name / Operation Title *</label>
+          <input type="text" id="new-case-title" class="form-input" placeholder="e.g. Operation Darknet Flow #44">
+        </div>
+        <div>
+          <label for="new-case-desc" class="form-label">Investigation Description</label>
+          <textarea id="new-case-desc" class="form-textarea" rows="3" placeholder="Case scope, targeted wallet clusters, forensic notes..."></textarea>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn btn-outline btn-sm" onclick="closeCreateCaseModal()">Cancel</button>
+        <button id="btn-submit-create-case" class="btn btn-primary btn-sm">Create & Open Case</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
