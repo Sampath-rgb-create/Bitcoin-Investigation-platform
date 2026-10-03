@@ -1,0 +1,16 @@
+{
+  "threshold": 0.675,
+  "selection_horizon": "T31-T34",
+  "objective": "validation-selected F1 optimization",
+  "metric_on_validation": {
+    "f1": 0.9547,
+    "pr_auc": 0.9559
+  },
+  "metric_on_untouched_test": {
+    "f1": 0.8000,
+    "precision": 0.9648,
+    "recall": 0.6833,
+    "false_positives": 27,
+    "precision_at_100": 1.0000
+  }
+}

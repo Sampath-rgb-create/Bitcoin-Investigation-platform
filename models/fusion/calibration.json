@@ -1,0 +1,31 @@
+{
+  "calibration_method": "Logistic meta-stacker probability calibration",
+  "brier_score": 0.0555,
+  "expected_calibration_error": 0.2085,
+  "triage_priority_tiers": [
+    {
+      "tier": "Tier 1: Immediate Triage",
+      "priority_score_range": [85.0, 100.0],
+      "empirical_illicit_rate": 0.9968,
+      "recommended_action": "Immediate analyst review; inspect associated network observations and graph neighborhood."
+    },
+    {
+      "tier": "Tier 2: Elevated Priority",
+      "priority_score_range": [60.0, 84.9],
+      "empirical_illicit_rate": 0.6121,
+      "recommended_action": "Secondary analyst queue; expand 2-hop counterparty transaction cluster."
+    },
+    {
+      "tier": "Tier 3: Routine Review",
+      "priority_score_range": [30.0, 59.9],
+      "empirical_illicit_rate": 0.0315,
+      "recommended_action": "Passive monitoring; log for batch temporal reconciliation."
+    },
+    {
+      "tier": "Tier 4: Low Model Priority",
+      "priority_score_range": [0.0, 29.9],
+      "empirical_illicit_rate": 0.0171,
+      "recommended_action": "Low model priority; no elevated review signal under current model."
+    }
+  ]
+}

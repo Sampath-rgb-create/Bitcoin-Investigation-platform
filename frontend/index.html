@@ -238,14 +238,33 @@
         </aside>
 
         <!-- Right Column: Ranked Alerts Table -->
+        <!-- Right Column: Ranked Alerts Table -->
         <section class="panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Prioritized Forensic Alerts</h2>
-            <div class="filter-pills">
-              <button class="pill-btn active" data-severity="ALL">All</button>
-              <button class="pill-btn" data-severity="CRITICAL">Critical</button>
-              <button class="pill-btn" data-severity="HIGH">High</button>
-              <button class="pill-btn" data-severity="MEDIUM">Medium</button>
+          <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <h2 class="panel-title">Forensic Intelligence Alerts</h2>
+              <button class="btn btn-outline btn-sm" id="btn-open-rules-manager" onclick="openRulesModal()" style="border-color: var(--accent-indigo); color: #a5b4fc;">
+                ⚙️ Investigator Rules
+              </button>
+            </div>
+            
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <!-- Score Stream Switcher -->
+              <div class="filter-pills" id="score-stream-pills" style="margin-right: 0.5rem;">
+                <button class="pill-btn active" data-score-stream="composite" title="Blended Composite Priority Score">🎯 Composite</button>
+                <button class="pill-btn" data-score-stream="supervised" title="9-Brain Supervised ML Stacker Score">🧠 Supervised ML</button>
+                <button class="pill-btn" data-score-stream="unsupervised" title="Tri-Domain Isolation Forest Anomaly Score">🔍 Unsupervised (IF)</button>
+                <button class="pill-btn" data-score-stream="graph" title="PageRank, Betweenness & Topological Flow">🕸️ Graph Flow</button>
+                <button class="pill-btn" data-score-stream="rule" title="Investigator Custom Rule Score">⚖️ Custom Rules</button>
+              </div>
+
+              <!-- Severity Filter -->
+              <div class="filter-pills">
+                <button class="pill-btn active" data-severity="ALL">All</button>
+                <button class="pill-btn" data-severity="CRITICAL">Critical</button>
+                <button class="pill-btn" data-severity="HIGH">High</button>
+                <button class="pill-btn" data-severity="MEDIUM">Medium</button>
+              </div>
             </div>
           </div>
           <div class="panel-body">
@@ -254,7 +273,7 @@
                 <thead>
                   <tr>
                     <th>Severity</th>
-                    <th>Priority Score</th>
+                    <th id="alerts-table-score-header">Score (Composite)</th>
                     <th>Flagged Entity</th>
                     <th>Forensic Rule / Findings</th>
                     <th style="text-align: right;">Action</th>
@@ -281,28 +300,34 @@
                 </div>
               </div>
 
-              <!-- Score Breakdown Grid -->
-              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; text-align: center;">
-                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Anomaly (40%)</div>
+              <!-- Multi-Stream Forensic Dimension Cards (Investigator Audit Matrix) -->
+              <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-bottom: 1.25rem; text-align: center;">
+                <div style="background: var(--bg-card); padding: 0.65rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Supervised ML</div>
+                  <div id="score-supervised" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:#818cf8; margin-top: 2px;">-</div>
+                  <span id="score-supervised-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-supervised-bar" class="score-mini-bar" style="background: #818cf8;"></div></div>
+                </div>
+                <div style="background: var(--bg-card); padding: 0.65rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Anomaly (IF)</div>
                   <div id="score-anomaly" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-blue); margin-top: 2px;">-</div>
                   <span id="score-anomaly-pts" class="score-pts-badge">-</span>
                   <div class="score-mini-track"><div id="score-anomaly-bar" class="score-mini-bar" style="background: var(--accent-blue);"></div></div>
                 </div>
-                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Behavior (30%)</div>
-                  <div id="score-behavior" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-gold); margin-top: 2px;">-</div>
-                  <span id="score-behavior-pts" class="score-pts-badge">-</span>
-                  <div class="score-mini-track"><div id="score-behavior-bar" class="score-mini-bar" style="background: var(--accent-gold);"></div></div>
-                </div>
-                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Graph (20%)</div>
+                <div style="background: var(--bg-card); padding: 0.65rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Graph Centrality</div>
                   <div id="score-graph" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-indigo); margin-top: 2px;">-</div>
                   <span id="score-graph-pts" class="score-pts-badge">-</span>
                   <div class="score-mini-track"><div id="score-graph-bar" class="score-mini-bar" style="background: var(--accent-indigo);"></div></div>
                 </div>
-                <div style="background: var(--bg-card); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                  <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Network (10%)</div>
+                <div style="background: var(--bg-card); padding: 0.65rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Custom Rules</div>
+                  <div id="score-custom-rule" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:#f43f5e; margin-top: 2px;">-</div>
+                  <span id="score-rule-pts" class="score-pts-badge">-</span>
+                  <div class="score-mini-track"><div id="score-rule-bar" class="score-mini-bar" style="background: #f43f5e;"></div></div>
+                </div>
+                <div style="background: var(--bg-card); padding: 0.65rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.5px;">Network Telemetry</div>
                   <div id="score-network" style="font-weight:700; font-family:var(--font-mono); font-size: 1.15rem; color:var(--accent-green); margin-top: 2px;">-</div>
                   <span id="score-network-pts" class="score-pts-badge">-</span>
                   <div class="score-mini-track"><div id="score-network-bar" class="score-mini-bar" style="background: var(--accent-green);"></div></div>
@@ -544,6 +569,107 @@
       <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
         <button class="btn btn-outline btn-sm" onclick="closeCreateCaseModal()">Cancel</button>
         <button id="btn-submit-create-case" class="btn btn-primary btn-sm">Create & Open Case</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Investigator Custom Rules Manager Modal -->
+  <div id="rules-manager-modal" class="pipeline-modal-backdrop">
+    <div class="pipeline-modal-card" style="max-width: 760px; width: 90%;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">⚙️ Dynamic Investigator Rules Manager</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">
+            Define custom forensic criteria directly from raw transaction & wallet properties from your domain knowledge.
+          </p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="closeRulesModal()" style="padding: 0.2rem 0.5rem;">✕</button>
+      </div>
+
+      <!-- Add New Rule Section -->
+      <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem;">
+        <div style="font-weight: 600; font-size: 0.85rem; color: #a5b4fc; margin-bottom: 0.75rem;">+ Define New Forensic Rule</div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1.5fr 1fr 1.5fr; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <div>
+            <label class="form-label" style="font-size: 0.72rem;">Rule Name</label>
+            <input type="text" id="rule-name-input" class="form-input" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" placeholder="e.g. Extreme Dust Fan-out">
+          </div>
+          <div>
+            <label class="form-label" style="font-size: 0.72rem;">Target</label>
+            <select id="rule-target-select" class="form-select" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">
+              <option value="wallet">Wallet</option>
+              <option value="transaction">Transaction</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" style="font-size: 0.72rem;">Field</label>
+            <select id="rule-field-select" class="form-select" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">
+              <option value="fan_out">fan_out</option>
+              <option value="fan_in">fan_in</option>
+              <option value="transaction_count">transaction_count</option>
+              <option value="transaction_rate">transaction_rate</option>
+              <option value="total_received">total_received</option>
+              <option value="total_sent">total_sent</option>
+              <option value="fee">fee (tx)</option>
+              <option value="amount">amount (tx)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" style="font-size: 0.72rem;">Operator</label>
+            <select id="rule-op-select" class="form-select" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">
+              <option value=">">&gt;</option>
+              <option value=">=">&gt;=</option>
+              <option value="<">&lt;</option>
+              <option value="<=">&lt;=</option>
+              <option value="==">==</option>
+              <option value="!=">!=</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" style="font-size: 0.72rem;">Threshold</label>
+            <input type="number" step="any" id="rule-threshold-input" class="form-input" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" placeholder="e.g. 10.0">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <label class="form-label" style="font-size: 0.72rem; margin: 0;">Severity:</label>
+            <select id="rule-severity-select" class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; width: auto;">
+              <option value="critical">Critical</option>
+              <option value="high" selected>High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-create-rule" onclick="submitCreateRule()">Save & Add Rule</button>
+        </div>
+      </div>
+
+      <!-- Active Rules List Table -->
+      <div>
+        <div style="font-weight: 600; font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem;">Current Rules for Case</div>
+        <div style="max-height: 220px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+            <thead>
+              <tr style="background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid var(--border-color); text-align: left;">
+                <th style="padding: 0.5rem 0.75rem;">Name</th>
+                <th style="padding: 0.5rem 0.75rem;">Condition</th>
+                <th style="padding: 0.5rem 0.75rem;">Severity</th>
+                <th style="padding: 0.5rem 0.75rem;">Status</th>
+                <th style="padding: 0.5rem 0.75rem; text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="rules-table-body">
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 1.5rem; color: var(--text-muted);">Loading custom rules...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+        <button class="btn btn-outline btn-sm" onclick="closeRulesModal()">Close</button>
       </div>
     </div>
   </div>

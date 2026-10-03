@@ -25,14 +25,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
+import numpy as np
 import pandas as pd
 from sqlalchemy.orm import Session
 
 from backend.app.core.config import settings
-from backend.app.db.models import Alert, AnalysisRun, Dataset
+from backend.app.db.models import Alert, AnalysisRun, Dataset, CustomRule
 from backend.app.schemas.dataset import ValidationReport
 from backend.app.services.correlation import CorrelationEngine
 from backend.app.services.detectors.behavior_rules import BehaviorRulesDetector
+from backend.app.services.rules_engine import DynamicRulesEngine
 from backend.app.services.detectors.graph_signals import GraphSignalsDetector
 from backend.app.services.detectors.isolation_forest import IsolationForestDetector
 from backend.app.services.detectors.network_signals import NetworkSignalsDetector
@@ -42,6 +44,7 @@ from backend.app.services.features import FeatureEngine
 from backend.app.services.geoip import GeoIPService
 from backend.app.services.graph_builder import EntityGraphBuilder
 from backend.app.services.ingestion import get_adapter_for_format
+from backend.app.services.ml_inference import ml_engine
 from backend.app.services.report import ReportGenerator
 from backend.app.storage.case_store import case_store
 from backend.app.storage.parquet_store import parquet_store
@@ -376,6 +379,36 @@ class AnalysisPipeline:
         # 2. Deterministic Behavioral Rules
         rules_detector = BehaviorRulesDetector()
 
+        # Load investigator custom rules if DB is available
+        custom_rules_list = []
+        if self.db:
+            try:
+                db_rules = (
+                    self.db.query(CustomRule)
+                    .filter(
+                        (CustomRule.case_id == self.case_id) | (CustomRule.case_id.is_(None)),
+                        CustomRule.enabled == 1,
+                    )
+                    .all()
+                )
+                for r in db_rules:
+                    custom_rules_list.append({
+                        "id": r.id,
+                        "name": r.name,
+                        "description": r.description,
+                        "target_entity": r.target_entity,
+                        "field": r.field,
+                        "operator": r.operator,
+                        "threshold": r.threshold,
+                        "severity": r.severity,
+                        "weight": r.weight,
+                        "enabled": r.enabled,
+                    })
+            except Exception as e:
+                logger.warning(f"Could not load custom rules from DB: {e}")
+
+        dynamic_engine = DynamicRulesEngine(custom_rules_list)
+
         # 3. Graph Signals
         graph_detector = GraphSignalsDetector()
         scored_graph = graph_detector.evaluate(wallet_df, graph_df)
@@ -403,8 +436,9 @@ class AnalysisPipeline:
         for _, w_row in wallet_df.iterrows():
             entity_id = w_row["entity_id"]
             addr = w_row["wallet_address"]
+            w_dict = w_row.to_dict()
 
-            # Anomaly score
+            # Anomaly score (Unsupervised)
             iso_match = scored_iso[scored_iso["entity_id"] == entity_id]
             a_score = float(iso_match.iloc[0]["anomaly_score"]) if not iso_match.empty else 0.0
 
@@ -412,6 +446,12 @@ class AnalysisPipeline:
             rule_results = rules_detector.evaluate_wallet(w_row, transactions)
             b_score = rules_detector.compute_behavior_score(rule_results)
             triggered_rules = [r for r in rule_results if r.get("triggered")]
+
+            # Custom Investigator Rules evaluation
+            dyn_hits = dynamic_engine.evaluate_wallet(w_dict, entity_id=entity_id)
+            r_score = dynamic_engine.compute_rule_score(dyn_hits)
+            if dyn_hits:
+                triggered_rules.extend(dyn_hits)
 
             # Graph score
             g_match = scored_graph[scored_graph["entity_id"] == entity_id]
@@ -422,12 +462,44 @@ class AnalysisPipeline:
             n_score = float(n_match.iloc[0]["network_score"]) if not n_match.empty else 0.0
             corr_strength = float(n_match.iloc[0]["correlation_strength"]) if not n_match.empty else 0.0
 
+            # Supervised Multi-Brain probability
+            sup_prob = 0.0
+            if ml_engine and ml_engine.is_ready:
+                # Use wallet 55-dim features if available or dummy vector
+                try:
+                    w_vals = np.array([float(w_row.get(col, 0.0) or 0.0) for col in cols]) if cols else np.zeros(55)
+                    if len(w_vals) < 55:
+                        w_vals = np.pad(w_vals, (0, 55 - len(w_vals)))
+                    elif len(w_vals) > 55:
+                        w_vals = w_vals[:55]
+                    sup_prob = float(ml_engine.predict_wallet(w_vals))
+                except Exception:
+                    sup_prob = 0.0
+
+            # If multi-domain ML engine is active, blend trained Isolation Forests into anomaly score
+            if ml_engine and ml_engine.isolation_forests_available:
+                w_vals = np.array([float(w_row.get(col, 0.0) or 0.0) for col in cols]) if cols else np.zeros(55)
+                if len(w_vals) < 55:
+                    w_vals = np.pad(w_vals, (0, 55 - len(w_vals)))
+                elif len(w_vals) > 55:
+                    w_vals = w_vals[:55]
+                ml_anom_wal = ml_engine.score_isolation_forest_wallet(w_vals)
+                a_score = round(0.50 * a_score + 0.50 * ml_anom_wal, 4)
+
+            # Separate scores normalized 0 - 100
+            supervised_score_100 = round(sup_prob * 100.0, 2)
+            unsupervised_score_100 = round(a_score * 100.0, 2)
+            graph_score_100 = round(g_score * 100.0, 2)
+            rule_score_100 = round(r_score, 2)
+
             # Priority score & severity tier
             p_score, tier, components = scorer.compute_priority(
                 anomaly_score=a_score,
                 behavior_score=b_score,
                 graph_score=g_score,
                 network_score=n_score,
+                supervised_score=sup_prob if sup_prob > 0 else None,
+                rule_score=rule_score_100 if rule_score_100 > 0 else None,
             )
 
             # Compile Evidence Pack
@@ -465,9 +537,12 @@ class AnalysisPipeline:
                     "wallet_address": addr,
                     "severity": tier,
                     "priority_score": p_score,
+                    "supervised_score": supervised_score_100,
+                    "unsupervised_score": unsupervised_score_100,
                     "anomaly_score": a_score,
                     "behavior_score": b_score,
-                    "graph_score": g_score,
+                    "graph_score": graph_score_100,
+                    "rule_score": rule_score_100,
                     "network_score": n_score,
                     "correlation_strength": corr_strength,
                     "evidence_coverage": min(1.0, len(evidence_pack) / 5.0),
@@ -522,9 +597,12 @@ class AnalysisPipeline:
                         entity_id=a["entity_id"],
                         severity=a["severity"],
                         priority_score=a["priority_score"],
+                        supervised_score=a.get("supervised_score", 0.0),
+                        unsupervised_score=a.get("unsupervised_score", 0.0),
                         anomaly_score=a["anomaly_score"],
                         behavior_score=a["behavior_score"],
                         graph_score=a["graph_score"],
+                        rule_score=a.get("rule_score", 0.0),
                         network_score=a["network_score"],
                         correlation_strength=a.get("correlation_strength", 0.0),
                         evidence_coverage=a.get("evidence_coverage", 0.0),

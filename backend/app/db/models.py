@@ -111,9 +111,12 @@ class Alert(Base):
     entity_id = Column(String, nullable=False, index=True)  # e.g., 'wallet:W123'
     severity = Column(String, nullable=False)  # 'LOW', 'MEDIUM', 'HIGH', 'CRITICAL'
     priority_score = Column(Float, nullable=False)
+    supervised_score = Column(Float, nullable=False, default=0.0)
+    unsupervised_score = Column(Float, nullable=False, default=0.0)
     anomaly_score = Column(Float, nullable=False)
     behavior_score = Column(Float, nullable=False)
     graph_score = Column(Float, nullable=False)
+    rule_score = Column(Float, nullable=False, default=0.0)
     network_score = Column(Float, nullable=False)
     correlation_strength = Column(Float, nullable=False, default=0.0)
     evidence_coverage = Column(Float, nullable=False, default=0.0)
@@ -142,3 +145,22 @@ class Feedback(Base):
 
     alert = relationship("Alert", back_populates="feedbacks")
     user = relationship("User", back_populates="feedbacks")
+
+
+class CustomRule(Base):
+    __tablename__ = "custom_rules"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    case_id = Column(String, ForeignKey("cases.id"), nullable=True, index=True)  # null = global rule, or specific case
+    name = Column(String, nullable=False)
+    description = Column(Text, nullable=True)
+    target_entity = Column(String, nullable=False, default="wallet")  # 'wallet', 'transaction'
+    field = Column(String, nullable=False)  # e.g., 'transaction_count', 'amount', 'fan_out', 'fee', 'tx_rate'
+    operator = Column(String, nullable=False)  # '>', '>=', '<', '<=', '==', '!=', 'contains'
+    threshold = Column(Float, nullable=False)
+    severity = Column(String, nullable=False, default="medium")  # 'low', 'medium', 'high', 'critical'
+    weight = Column(Float, nullable=False, default=1.0)
+    enabled = Column(Integer, nullable=False, default=1)  # 1 = active, 0 = disabled
+    created_by = Column(String, ForeignKey("users.id"), nullable=True)
+    created_at = Column(String, nullable=False, default=utc_now_iso)
+    updated_at = Column(String, nullable=False, default=utc_now_iso, onupdate=utc_now_iso)

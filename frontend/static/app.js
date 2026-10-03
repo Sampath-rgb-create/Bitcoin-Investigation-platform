@@ -5,6 +5,9 @@ let alertsData = [];
 let graphData = { nodes: [], edges: [] };
 let selectedAlertId = null;
 
+let currentScoreStream = "composite"; // 'composite', 'supervised', 'unsupervised', 'graph', 'rule'
+let currentSeverityFilter = "ALL";
+
 // Staged files for upload
 let stagedFiles = {
   tx: null,
@@ -61,13 +64,37 @@ function setupEventListeners() {
     });
   }
 
-  // Filter buttons for Alerts
-  document.querySelectorAll(".pill-btn").forEach((btn) => {
+  // Score Stream Switcher buttons
+  const streamPills = document.querySelectorAll("#score-stream-pills .pill-btn");
+  streamPills.forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".pill-btn").forEach((b) => b.classList.remove("active"));
+      streamPills.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      const severity = btn.getAttribute("data-severity");
-      filterAlerts(severity);
+      currentScoreStream = btn.getAttribute("data-score-stream") || "composite";
+      
+      const headerEl = document.getElementById("alerts-table-score-header");
+      if (headerEl) {
+        const streamNames = {
+          composite: "Score (Composite)",
+          supervised: "Score (Supervised ML)",
+          unsupervised: "Score (Anomaly IF)",
+          graph: "Score (Graph Centrality)",
+          rule: "Score (Custom Rules)",
+        };
+        headerEl.textContent = streamNames[currentScoreStream] || "Score";
+      }
+      applyAlertFiltersAndSort();
+    });
+  });
+
+  // Severity filter buttons for Alerts
+  const severityPills = document.querySelectorAll(".filter-pills:not(#score-stream-pills) .pill-btn");
+  severityPills.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      severityPills.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentSeverityFilter = btn.getAttribute("data-severity") || "ALL";
+      applyAlertFiltersAndSort();
     });
   });
 
@@ -715,19 +742,53 @@ function renderMetrics(alerts, total) {
   if (medEl) medEl.textContent = mediumCount;
 }
 
+function getAlertDisplayScore(alert, stream) {
+  if (stream === "supervised") {
+    return alert.supervised_score !== undefined ? alert.supervised_score : ((alert.score_components && alert.score_components.supervised_score) || 0);
+  } else if (stream === "unsupervised") {
+    return alert.unsupervised_score !== undefined ? alert.unsupervised_score : ((alert.anomaly_score || 0) * (alert.anomaly_score <= 1.0 ? 100 : 1));
+  } else if (stream === "graph") {
+    return alert.graph_score !== undefined ? alert.graph_score : ((alert.score_components && alert.score_components.graph_score) || 0);
+  } else if (stream === "rule") {
+    return alert.rule_score !== undefined ? alert.rule_score : ((alert.score_components && alert.score_components.rule_score) || 0);
+  }
+  // Default composite priority score
+  return alert.priority_score || 0;
+}
+
+function applyAlertFiltersAndSort() {
+  let list = alertsData.slice();
+
+  // Apply severity filter
+  if (currentSeverityFilter && currentSeverityFilter !== "ALL") {
+    list = list.filter((a) => (a.severity || "").toUpperCase() === currentSeverityFilter.toUpperCase());
+  }
+
+  // Sort descending by selected score stream
+  list.sort((a, b) => {
+    const scoreA = getAlertDisplayScore(a, currentScoreStream);
+    const scoreB = getAlertDisplayScore(b, currentScoreStream);
+    return scoreB - scoreA;
+  });
+
+  renderAlertsTable(list);
+}
+
 function renderAlertsTable(alerts) {
   const tbody = document.getElementById("alerts-table-body");
   if (!tbody) return;
 
   if (!alerts || alerts.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" class="empty-state">No alerts generated for this case yet. Click "Execute Analysis Pipeline".</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="empty-state">No alerts match the criteria or generated yet.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = alerts
     .map((a) => {
       const sevClass = `severity-${(a.severity || "low").toLowerCase()}`;
-      const score = Math.round(a.priority_score || 0);
+      const streamVal = getAlertDisplayScore(a, currentScoreStream);
+      const score = Math.round(streamVal);
+
       let scoreColor = "#94a3b8";
       if (score >= 80) scoreColor = "#ef4444";
       else if (score >= 60) scoreColor = "#f97316";
@@ -736,7 +797,7 @@ function renderAlertsTable(alerts) {
       const reasonsList = a.top_reasons || a.reasons || [];
       const reasons = (Array.isArray(reasonsList) && reasonsList.length > 0)
         ? reasonsList.join(" • ")
-        : (typeof a.reasons === "string" ? a.reasons : (a.ollama_summary || "Multi-Dimensional Anomaly Signal"));
+        : (typeof a.reasons === "string" ? a.reasons : (a.ollama_summary || "Forensic Signal Detected"));
 
       return `
       <tr onclick="selectAlert('${a.alert_id}')" id="alert-row-${a.alert_id}">
@@ -745,9 +806,9 @@ function renderAlertsTable(alerts) {
         </td>
         <td>
           <span class="score-bar-container">
-            <span style="font-weight:700; color:${scoreColor}; font-family:var(--font-mono); width: 28px;">${score}</span>
+            <span style="font-weight:700; color:${scoreColor}; font-family:var(--font-mono); width: 34px;">${score}</span>
             <span class="score-bar-bg">
-              <span class="score-bar-fill" style="width: ${score}%; background: ${scoreColor};"></span>
+              <span class="score-bar-fill" style="width: ${Math.min(100, Math.max(0, score))}%; background: ${scoreColor};"></span>
             </span>
           </span>
         </td>
@@ -771,48 +832,57 @@ function renderAlertsTable(alerts) {
 }
 
 function filterAlerts(severity) {
-  if (!severity || severity === "ALL") {
-    renderAlertsTable(alertsData);
-  } else {
-    const filtered = alertsData.filter((a) => (a.severity || "").toUpperCase() === severity.toUpperCase());
-    renderAlertsTable(filtered);
-  }
+  currentSeverityFilter = severity || "ALL";
+  applyAlertFiltersAndSort();
 }
 
 let activeProvenanceRecords = [];
 
-function updateScoreCards(comp) {
-  const anom = comp && comp.anomaly_score !== undefined ? Number(comp.anomaly_score) : 0;
-  const behav = comp && comp.behavior_score !== undefined ? Number(comp.behavior_score) : 0;
-  const graph = comp && comp.graph_score !== undefined ? Number(comp.graph_score) : 0;
-  const net = comp && comp.network_score !== undefined ? Number(comp.network_score) : 0;
+function updateScoreCards(comp, alertObj) {
+  const sup = comp && comp.supervised_score !== undefined ? Number(comp.supervised_score) : (alertObj && alertObj.supervised_score !== undefined ? Number(alertObj.supervised_score) : 0);
+  const anomRaw = comp && comp.anomaly_score !== undefined ? Number(comp.anomaly_score) : 0;
+  const anom = comp && comp.unsupervised_score !== undefined ? Number(comp.unsupervised_score) : (anomRaw <= 1.0 ? anomRaw * 100 : anomRaw);
+  const graphRaw = comp && comp.graph_score !== undefined ? Number(comp.graph_score) : 0;
+  const graph = graphRaw <= 1.0 ? graphRaw * 100 : graphRaw;
+  const rule = comp && comp.rule_score !== undefined ? Number(comp.rule_score) : (alertObj && alertObj.rule_score !== undefined ? Number(alertObj.rule_score) : 0);
+  const netRaw = comp && comp.network_score !== undefined ? Number(comp.network_score) : 0;
+  const net = netRaw <= 1.0 ? netRaw * 100 : netRaw;
 
+  const elSup = document.getElementById("score-supervised");
   const elAnom = document.getElementById("score-anomaly");
-  const elBehav = document.getElementById("score-behavior");
   const elGraph = document.getElementById("score-graph");
+  const elRule = document.getElementById("score-custom-rule");
   const elNet = document.getElementById("score-network");
-  if (elAnom) elAnom.textContent = anom.toFixed(2);
-  if (elBehav) elBehav.textContent = behav.toFixed(2);
-  if (elGraph) elGraph.textContent = graph.toFixed(2);
-  if (elNet) elNet.textContent = net.toFixed(2);
 
+  if (elSup) elSup.textContent = sup.toFixed(1);
+  if (elAnom) elAnom.textContent = anom.toFixed(1);
+  if (elGraph) elGraph.textContent = graph.toFixed(1);
+  if (elRule) elRule.textContent = rule.toFixed(1);
+  if (elNet) elNet.textContent = net.toFixed(1);
+
+  const elSupPts = document.getElementById("score-supervised-pts");
   const elAnomPts = document.getElementById("score-anomaly-pts");
-  const elBehavPts = document.getElementById("score-behavior-pts");
   const elGraphPts = document.getElementById("score-graph-pts");
+  const elRulePts = document.getElementById("score-rule-pts");
   const elNetPts = document.getElementById("score-network-pts");
-  if (elAnomPts) elAnomPts.textContent = `+${(anom * 40).toFixed(1)} pts`;
-  if (elBehavPts) elBehavPts.textContent = `+${(behav * 30).toFixed(1)} pts`;
-  if (elGraphPts) elGraphPts.textContent = `+${(graph * 20).toFixed(1)} pts`;
-  if (elNetPts) elNetPts.textContent = `+${(net * 10).toFixed(1)} pts`;
 
+  if (elSupPts) elSupPts.textContent = `${sup.toFixed(1)} / 100`;
+  if (elAnomPts) elAnomPts.textContent = `${anom.toFixed(1)} / 100`;
+  if (elGraphPts) elGraphPts.textContent = `${graph.toFixed(1)} / 100`;
+  if (elRulePts) elRulePts.textContent = `${rule.toFixed(1)} / 100`;
+  if (elNetPts) elNetPts.textContent = `${net.toFixed(1)} / 100`;
+
+  const barSup = document.getElementById("score-supervised-bar");
   const barAnom = document.getElementById("score-anomaly-bar");
-  const barBehav = document.getElementById("score-behavior-bar");
   const barGraph = document.getElementById("score-graph-bar");
+  const barRule = document.getElementById("score-rule-bar");
   const barNet = document.getElementById("score-network-bar");
-  if (barAnom) barAnom.style.width = `${Math.min(100, Math.max(0, anom * 100))}%`;
-  if (barBehav) barBehav.style.width = `${Math.min(100, Math.max(0, behav * 100))}%`;
-  if (barGraph) barGraph.style.width = `${Math.min(100, Math.max(0, graph * 100))}%`;
-  if (barNet) barNet.style.width = `${Math.min(100, Math.max(0, net * 100))}%`;
+
+  if (barSup) barSup.style.width = `${Math.min(100, Math.max(0, sup))}%`;
+  if (barAnom) barAnom.style.width = `${Math.min(100, Math.max(0, anom))}%`;
+  if (barGraph) barGraph.style.width = `${Math.min(100, Math.max(0, graph))}%`;
+  if (barRule) barRule.style.width = `${Math.min(100, Math.max(0, rule))}%`;
+  if (barNet) barNet.style.width = `${Math.min(100, Math.max(0, net))}%`;
 }
 
 function toggleProvenanceList(total) {
@@ -867,19 +937,22 @@ async function selectAlert(alertId) {
 
   // Pre-fill score cards immediately with available data (zero latency/flicker)
   const initialComp = alert.score_components || {
+    supervised_score: alert.supervised_score || 0,
+    unsupervised_score: alert.unsupervised_score || (alert.anomaly_score || 0) * 100,
     anomaly_score: alert.anomaly_score || 0,
     behavior_score: alert.behavior_score || 0,
     graph_score: alert.graph_score || 0,
+    rule_score: alert.rule_score || 0,
     network_score: alert.network_score || 0
   };
-  updateScoreCards(initialComp);
+  updateScoreCards(initialComp, alert);
 
   try {
     const evidencePack = await apiFetch(`/cases/${currentCaseId}/alerts/${alertId}/evidence`);
     
     // Components
     const comp = evidencePack.score_components || initialComp;
-    updateScoreCards(comp);
+    updateScoreCards(comp, evidencePack);
 
     // Explanations
     const reasonsContainer = document.getElementById("evidence-reasons-list");
@@ -2196,4 +2269,131 @@ function copyReportText() {
     }
   });
 }
+
+// -------------------------------------------------------------
+// Investigator Custom Rules Manager Modal Logic
+// -------------------------------------------------------------
+function openRulesModal() {
+  if (!currentCaseId) {
+    alert("Please select or open an investigation case first.");
+    return;
+  }
+  const modal = document.getElementById("rules-manager-modal");
+  if (modal) {
+    modal.classList.add("active");
+    loadCaseRules(currentCaseId);
+  }
+}
+
+function closeRulesModal() {
+  const modal = document.getElementById("rules-manager-modal");
+  if (modal) modal.classList.remove("active");
+}
+
+async function loadCaseRules(caseId) {
+  const tbody = document.getElementById("rules-table-body");
+  if (!tbody) return;
+  try {
+    const rules = await apiFetch(`/cases/${caseId}/rules`);
+    if (!rules || rules.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 1.5rem; color: var(--text-muted);">No custom rules defined yet. Use the form above to add your own forensic heuristics.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = rules
+      .map((r) => {
+        const sevClass = `severity-${(r.severity || "medium").toLowerCase()}`;
+        return `
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 0.5rem 0.75rem; font-weight: 600; color: #fff;">
+              ${escapeHtml(r.name)}
+              <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 400;">${r.target_entity}</div>
+            </td>
+            <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono); color: var(--accent-blue);">
+              ${escapeHtml(r.field)} ${r.operator} ${r.threshold}
+            </td>
+            <td style="padding: 0.5rem 0.75rem;">
+              <span class="severity-tag ${sevClass}" style="font-size: 0.65rem; padding: 2px 6px;">${r.severity.toUpperCase()}</span>
+            </td>
+            <td style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">
+              ${r.enabled ? '<span style="color: #10b981;">● Active</span>' : '<span style="color: #64748b;">○ Disabled</span>'}
+            </td>
+            <td style="padding: 0.5rem 0.75rem; text-align: right;">
+              <button class="btn btn-outline btn-sm" style="font-size: 0.7rem; padding: 2px 8px; color: #ef4444; border-color: rgba(239, 68, 68, 0.4);" onclick="deleteRule('${r.id}')">
+                Delete
+              </button>
+            </td>
+          </tr>
+        `;
+      })
+      .join("");
+  } catch (err) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #ef4444; padding: 1rem;">Failed to load rules: ${escapeHtml(err.message)}</td></tr>`;
+  }
+}
+
+async function submitCreateRule() {
+  if (!currentCaseId) return;
+  const nameEl = document.getElementById("rule-name-input");
+  const targetEl = document.getElementById("rule-target-select");
+  const fieldEl = document.getElementById("rule-field-select");
+  const opEl = document.getElementById("rule-op-select");
+  const threshEl = document.getElementById("rule-threshold-input");
+  const sevEl = document.getElementById("rule-severity-select");
+  const btn = document.getElementById("btn-create-rule");
+
+  const name = nameEl ? nameEl.value.trim() : "";
+  const target_entity = targetEl ? targetEl.value : "wallet";
+  const field = fieldEl ? fieldEl.value : "fan_out";
+  const operator = opEl ? opEl.value : ">";
+  const threshold = threshEl ? parseFloat(threshEl.value) : NaN;
+  const severity = sevEl ? sevEl.value : "high";
+
+  if (!name) {
+    alert("Please provide a name for this custom rule.");
+    return;
+  }
+  if (isNaN(threshold)) {
+    alert("Please provide a valid numeric threshold.");
+    return;
+  }
+
+  if (btn) btn.disabled = true;
+
+  try {
+    await apiFetch(`/cases/${currentCaseId}/rules`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        target_entity,
+        field,
+        operator,
+        threshold,
+        severity,
+        weight: 1.0,
+        enabled: 1,
+      }),
+    });
+
+    if (nameEl) nameEl.value = "";
+    if (threshEl) threshEl.value = "";
+    loadCaseRules(currentCaseId);
+  } catch (err) {
+    alert("Could not save rule: " + err.message);
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+async function deleteRule(ruleId) {
+  if (!confirm("Are you sure you want to delete this custom rule?")) return;
+  try {
+    await apiFetch(`/cases/${currentCaseId}/rules/${ruleId}`, { method: "DELETE" });
+    loadCaseRules(currentCaseId);
+  } catch (err) {
+    alert("Could not delete rule: " + err.message);
+  }
+}
+
 

@@ -64,4 +64,5 @@ data/app.db-journal
 data/cases/*
 !data/cases/.gitkeep
 *.log
+*.zip
 

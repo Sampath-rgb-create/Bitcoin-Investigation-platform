@@ -11,9 +11,9 @@ from backend.app.storage.parquet_store import ParquetStore
 
 
 def test_case_store():
-    # Use temporary test dir under d:/Bitcoin-Investigation-platform/data/test_cases
-    test_dir = "d:/Bitcoin-Investigation-platform/data/test_cases"
-    store = CaseStore(base_data_dir=test_dir)
+    # Use temporary test dir
+    temp_base = tempfile.mkdtemp()
+    store = CaseStore(base_data_dir=temp_base)
     case_id = "test_case_001"
 
     try:
@@ -26,13 +26,12 @@ def test_case_store():
         assert case_id in store.list_cases()
     finally:
         store.delete_case(case_id)
-        if os.path.exists(test_dir):
-            shutil.rmtree(test_dir, ignore_errors=True)
+        shutil.rmtree(temp_base, ignore_errors=True)
 
 
 def test_file_store():
-    test_dir = "d:/Bitcoin-Investigation-platform/data/test_filestore"
-    cs = CaseStore(base_data_dir=test_dir)
+    temp_base = tempfile.mkdtemp()
+    cs = CaseStore(base_data_dir=temp_base)
     fs = FileStore()
     fs.case_store = cs
     case_id = "test_fs_01"
@@ -48,12 +47,12 @@ def test_file_store():
         assert fs.read_file_bytes(fpath) == raw_content
     finally:
         cs.delete_case(case_id)
-        if os.path.exists(test_dir):
-            shutil.rmtree(test_dir, ignore_errors=True)
+        shutil.rmtree(temp_base, ignore_errors=True)
 
 
 def test_parquet_store():
-    test_path = "d:/Bitcoin-Investigation-platform/data/test_parquet/sample.parquet"
+    temp_dir = tempfile.mkdtemp()
+    test_path = os.path.join(temp_dir, "sample.parquet")
     data = [
         {"txid": "tx1", "inputs": ["W1"], "outputs": ["W2", "W3"], "amount": 1.5},
         {"txid": "tx2", "inputs": ["W2"], "outputs": ["W4"], "amount": 0.5},

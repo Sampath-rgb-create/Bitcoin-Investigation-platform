@@ -54,6 +54,13 @@ class Settings(BaseSettings):
     OLLAMA_MODEL: str = "llama3:latest"
     LAYA_MODEL_PATH: Optional[str] = None
 
+    # Neo4j & GDS Investigation Database Settings (Decoupled Layer)
+    ENABLE_NEO4J: bool = False
+    NEO4J_URI: str = "bolt://localhost:7687"
+    NEO4J_USER: str = "neo4j"
+    NEO4J_PASSWORD: str = "password"
+    NEO4J_DATABASE: str = "neo4j"
+
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),
         env_file_encoding="utf-8",

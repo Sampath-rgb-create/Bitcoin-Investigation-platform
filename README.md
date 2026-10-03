@@ -249,12 +249,39 @@ Bitcoin-Investigation-platform/
 ├── scripts/
 │   ├── generate_1000_datasets.py     # Generates 1,000 transactions & network observations
 │   ├── generate_synthetic.py         # Base synthetic dataset generator
+│   ├── package_models.py             # Cross-laptop model bundle export, import & verification CLI
 │   └── seed_admin.py                 # Seeds default case & administrator credentials
 ├── environment.yml                   # Conda environment specifications
 ├── requirements.txt                  # Standard pip dependencies specification
 ├── .gitignore                        # Git exclusion rules
 └── README.md                         # Comprehensive platform documentation
 ```
+
+---
+
+## 💻 Cross-Laptop Model Transfer & Verification
+
+The platform supports 100% offline transfer of all trained models and neural weights between laptops.
+
+### Exporting Models from This Laptop:
+To create a self-contained, portable zip bundle containing all 16 ML model artifacts, PyTorch GNN architectures, and input feature schemas:
+```bash
+python scripts/package_models.py --export btc_models_bundle.zip
+```
+
+### Importing Models on Another Laptop:
+1. Copy `btc_models_bundle.zip` to the new laptop via USB drive or local network.
+2. In the platform root directory on the new laptop, run:
+```bash
+python scripts/package_models.py --import btc_models_bundle.zip
+```
+3. The tool automatically extracts the models into their exact expected paths and verifies checksums and inference readiness.
+
+### Verifying Model Integrity On Any Machine:
+```bash
+python scripts/package_models.py --verify
+```
+
 
 ---
 

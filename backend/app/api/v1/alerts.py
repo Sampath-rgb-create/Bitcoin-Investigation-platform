@@ -73,6 +73,11 @@ def list_case_alerts(
             except Exception:
                 pass
 
+        sup_score = round(float(getattr(a, "supervised_score", 0.0) or 0.0), 2)
+        unsup_score = round(float(getattr(a, "unsupervised_score", 0.0) or a.anomaly_score or 0.0) * (100.0 if (getattr(a, "unsupervised_score", 0.0) or a.anomaly_score or 0.0) <= 1.0 else 1.0), 2)
+        grp_score = round(float(a.graph_score or 0.0) * (100.0 if (a.graph_score or 0.0) <= 1.0 else 1.0), 2)
+        rl_score = round(float(getattr(a, "rule_score", 0.0) or 0.0), 2)
+
         items.append(
             AlertOut(
                 alert_id=a.id,
@@ -80,10 +85,17 @@ def list_case_alerts(
                 entity_id=a.entity_id,
                 severity=a.severity,
                 priority_score=a.priority_score,
+                supervised_score=sup_score,
+                unsupervised_score=unsup_score,
+                graph_score=grp_score,
+                rule_score=rl_score,
                 score_components=ScoreComponents(
+                    supervised_score=sup_score,
+                    unsupervised_score=unsup_score,
                     anomaly_score=a.anomaly_score or 0.0,
                     behavior_score=a.behavior_score or 0.0,
                     graph_score=a.graph_score or 0.0,
+                    rule_score=rl_score,
                     network_score=a.network_score or 0.0,
                 ),
                 correlation_strength=a.correlation_strength or 0.0,

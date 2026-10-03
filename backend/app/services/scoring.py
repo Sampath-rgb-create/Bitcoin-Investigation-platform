@@ -86,30 +86,55 @@ class PriorityFusionScorer:
         behavior_score: float,
         graph_score: float,
         network_score: float,
+        supervised_score: Optional[float] = None,
+        rule_score: Optional[float] = None,
     ) -> Tuple[float, str, Dict[str, float]]:
         """
         Compute weighted priority score, severity tier, and components.
+        Supports optional supervised multi-brain score from the frozen 9-brain stacker
+        and investigator dynamic rule score.
         """
         a = max(0.0, min(1.0, float(anomaly_score)))
         b = max(0.0, min(1.0, float(behavior_score)))
         g = max(0.0, min(1.0, float(graph_score)))
         n = max(0.0, min(1.0, float(network_score)))
+        rl = max(0.0, min(100.0, float(rule_score or 0.0)))
 
-        raw_sum = (
-            self.w_a * a
-            + self.w_b * b
-            + self.w_g * g
-            + self.w_n * n
-        )
-        priority_score = round(raw_sum * 100.0, 2)
+        if supervised_score is not None:
+            # When supervised multi-brain intelligence is available, blend it as primary evidence (35%)
+            s = max(0.0, min(1.0, float(supervised_score if supervised_score <= 1.0 else supervised_score / 100.0)))
+            raw_sum = (
+                0.35 * s
+                + 0.25 * a
+                + 0.20 * b
+                + 0.12 * g
+                + 0.08 * n
+            )
+        else:
+            raw_sum = (
+                self.w_a * a
+                + self.w_b * b
+                + self.w_g * g
+                + self.w_n * n
+            )
+
+        calc_priority = raw_sum * 100.0
+        if rl > 0:
+            calc_priority = 0.85 * calc_priority + 0.15 * rl
+
+        priority_score = round(calc_priority, 2)
         tier = self.get_severity_tier(priority_score)
 
         components = {
             "anomaly_score": round(a, 4),
+            "unsupervised_score": round(a * 100.0, 2),
             "behavior_score": round(b, 4),
-            "graph_score": round(g, 4),
+            "graph_score": round(g * 100.0, 2),
+            "rule_score": round(rl, 2),
             "network_score": round(n, 4),
         }
+        if supervised_score is not None:
+            components["supervised_score"] = round(s * 100.0, 2)
 
         return priority_score, tier, components
 

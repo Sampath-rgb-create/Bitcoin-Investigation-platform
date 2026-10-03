@@ -10,6 +10,7 @@ from backend.app.api.v1 import (
     graph,
     reports,
     feedback,
+    rules,
 )
 
 api_router = APIRouter()
@@ -23,3 +24,5 @@ api_router.include_router(wallets.router, tags=["wallets"])
 api_router.include_router(graph.router, tags=["graph"])
 api_router.include_router(reports.router, tags=["reports"])
 api_router.include_router(feedback.router, tags=["feedback"])
+api_router.include_router(rules.router, tags=["rules"])
+

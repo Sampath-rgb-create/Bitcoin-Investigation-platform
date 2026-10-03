@@ -147,6 +147,14 @@ def test_pipeline_end_to_end(test_db):
         for alert in db_alerts:
             assert alert.severity in ("CRITICAL", "HIGH", "MEDIUM", "LOW")
             assert 0.0 <= alert.priority_score <= 100.0
+            assert hasattr(alert, "supervised_score")
+            assert hasattr(alert, "unsupervised_score")
+            assert hasattr(alert, "graph_score")
+            assert hasattr(alert, "rule_score")
+            assert 0.0 <= alert.supervised_score <= 100.0
+            assert 0.0 <= alert.unsupervised_score <= 100.0
+            assert 0.0 <= alert.graph_score <= 100.0
+            assert 0.0 <= alert.rule_score <= 100.0
 
     finally:
         case_store.delete_case(case_id)

@@ -1,0 +1,19 @@
+{
+  "domain": "network",
+  "feature_count": 13,
+  "features": [
+    "num_inputs",
+    "unique_inputs",
+    "num_outputs",
+    "unique_outputs",
+    "total_degree",
+    "in_out_ratio",
+    "net_flow_direction",
+    "is_aggregation_pattern",
+    "is_peeling_chain_pattern",
+    "is_fan_out_dispersion",
+    "input_concentration",
+    "output_concentration",
+    "bipartite_entropy"
+  ]
+}

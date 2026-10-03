@@ -1,0 +1,135 @@
+{
+  "project": "SIH Bitcoin Multi-Brain Intelligence Architecture",
+  "dataset": "Elliptic++ (Transactions, Wallets, Bipartite Networks)",
+  "split_protocol": {
+    "train": "T1-T30",
+    "validation": "T31-T34",
+    "test": "T35-T49",
+    "notes": "Evaluation strictly forward-chronological; test horizon untouched during all training."
+  },
+  "models": {
+    "transaction": {
+      "rf": {
+        "file": "models/transaction/rf.joblib",
+        "type": "RandomForestClassifier",
+        "input_features": 182,
+        "n_estimators": 100,
+        "class_weight": "balanced"
+      },
+      "gatv2": {
+        "file": "models/transaction/gatv2.pt",
+        "architecture": "architectures/gatv2_model.py",
+        "class_name": "GATv2Model",
+        "input_dim": 182,
+        "hidden_dim": 32,
+        "heads": 4,
+        "num_classes": 2
+      },
+      "fgecgn": {
+        "file": "models/transaction/fgecgn.pt",
+        "architecture": "architectures/fgecgn_model.py",
+        "class_name": "FGEGCNModel",
+        "input_dim": 182,
+        "hidden_dim": 64,
+        "top_k": 50,
+        "num_classes": 2
+      }
+    },
+    "wallet": {
+      "actor_rf": {
+        "file": "models/wallet/actor_rf.joblib",
+        "type": "RandomForestClassifier",
+        "input_features": 55,
+        "n_estimators": 80,
+        "class_weight": "balanced"
+      },
+      "graphsage": {
+        "file": "models/wallet/graphsage.pt",
+        "architecture": "architectures/graphsage_model.py",
+        "class_name": "SparseGraphSAGE",
+        "input_dim": 55,
+        "hidden_dim": 64,
+        "num_classes": 2
+      },
+      "fgecgn": {
+        "file": "models/wallet/fgecgn.pt",
+        "architecture": "architectures/fgecgn_model.py",
+        "class_name": "FGEGCNModel",
+        "input_dim": 55,
+        "hidden_dim": 64,
+        "top_k": 50,
+        "num_classes": 2
+      }
+    },
+    "network": {
+      "rf": {
+        "file": "models/network/rf.joblib",
+        "type": "RandomForestClassifier",
+        "input_features": 13,
+        "n_estimators": 100,
+        "class_weight": "balanced"
+      },
+      "graphsage": {
+        "file": "models/network/graphsage.pt",
+        "architecture": "architectures/graphsage_model.py",
+        "class_name": "SparseGraphSAGE",
+        "input_dim": 13,
+        "hidden_dim": 32,
+        "num_classes": 2
+      },
+      "tgat": {
+        "file": "models/network/tgat.pt",
+        "architecture": "architectures/tgat_model.py",
+        "class_name": "TGATModel",
+        "input_dim": 13,
+        "hidden_dim": 32,
+        "time_dim": 16,
+        "heads": 2,
+        "num_classes": 2
+      }
+    },
+    "fusion": {
+      "file": "models/fusion/oof_meta_stacker.joblib",
+      "type": "LogisticRegression",
+      "penalty": "l2",
+      "C": 0.01,
+      "class_weight": "balanced",
+      "training_protocol": "4-Fold Temporal Walk-Forward Out-Of-Fold (OOF)",
+      "num_input_probabilities": 9,
+      "expected_probability_order": [
+        "RF_tx",
+        "GATv2_tx",
+        "FG_EGCN_tx",
+        "RF_wallet",
+        "GraphSAGE_wallet",
+        "FG_EGCN_wallet",
+        "RF_network",
+        "GraphSAGE_network",
+        "TGAT_network"
+      ]
+    },
+    "anomaly_layer": {
+      "transaction_if": {
+        "file": "models/transaction/isolation_forest.joblib",
+        "type": "IsolationForest",
+        "input_features": 182,
+        "n_estimators": 300,
+        "training": "Unsupervised T1-T30 label-free"
+      },
+      "wallet_if": {
+        "file": "models/wallet/isolation_forest.joblib",
+        "type": "IsolationForest",
+        "input_features": 55,
+        "n_estimators": 300,
+        "training": "Unsupervised T1-T30 label-free"
+      },
+      "network_if": {
+        "file": "models/network/isolation_forest.joblib",
+        "type": "IsolationForest",
+        "input_features": 13,
+        "n_estimators": 300,
+        "training": "Unsupervised T1-T30 label-free"
+      }
+    }
+  }
+}
