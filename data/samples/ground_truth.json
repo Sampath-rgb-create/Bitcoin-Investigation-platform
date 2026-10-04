@@ -1,17 +1,235 @@
-[
-  {
-    "typology": "peeling_chain",
-    "primary_entity": "wallet:bc1q_peel_e6lyvnp9f0ss0xnm09taynfed9gpue4jpudnma",
-    "description": "Sequential peel chain offloading 0.5 BTC each hop with change"
+{
+  "metadata": {
+    "generated_at": "2026-10-03T21:58:52.698836+00:00",
+    "total_transactions": 180,
+    "total_licit_transactions": 150,
+    "total_illicit_transactions": 30
   },
-  {
-    "typology": "dust_flood",
-    "primary_entity": "wallet:bc1q_dust_source_w05ncwy9rdc4eguqhfw65rzv4xhlgmsmvwrwhh",
-    "description": "Burst of 25 sub-dust transactions at high rate"
+  "illicit_entities": {
+    "wallets": [
+      {
+        "address": "bc1q_peel_master_source_x99a7b1c3e4d",
+        "role": "Peeling Chain Master Originator",
+        "typology": "peeling_chain"
+      },
+      {
+        "address": "bc1q_dust_botnet_origin_f83b1a9c4e20",
+        "role": "Dust Flood Controller",
+        "typology": "dust_flood"
+      },
+      {
+        "address": "bc1q_dispersal_launderer_w77d2f9a1b0c",
+        "role": "High Fan-Out Dispersal Source",
+        "typology": "rapid_dispersal"
+      },
+      {
+        "address": "bc1q_miner_siphon_collusion_000000fee",
+        "role": "Miner Collusion / Zero Fee Siphon",
+        "typology": "fee_anomaly"
+      }
+    ],
+    "ips": [
+      {
+        "ip": "198.51.100.42",
+        "description": "Bulletproof proxy originating sequential peeling hops",
+        "country": "NL",
+        "asn": "AS1103"
+      },
+      {
+        "ip": "203.0.113.99",
+        "description": "Anomalous relay host issuing rapid sub-dust transactions",
+        "country": "RU",
+        "asn": "AS12389"
+      },
+      {
+        "ip": "192.0.2.77",
+        "description": "Originating IP for large fan-out tumbler dispersal",
+        "country": "DE",
+        "asn": "AS24940"
+      },
+      {
+        "ip": "185.220.101.5",
+        "description": "Known Tor Exit Node relaying zero-fee whale transfer",
+        "country": "IS",
+        "asn": "AS39351"
+      }
+    ],
+    "transactions": [
+      "tx_illicit_peel_000",
+      "tx_illicit_peel_001",
+      "tx_illicit_peel_002",
+      "tx_illicit_peel_003",
+      "tx_illicit_peel_004",
+      "tx_illicit_peel_005",
+      "tx_illicit_peel_006",
+      "tx_illicit_peel_007",
+      "tx_illicit_dust_000",
+      "tx_illicit_dust_001",
+      "tx_illicit_dust_002",
+      "tx_illicit_dust_003",
+      "tx_illicit_dust_004",
+      "tx_illicit_dust_005",
+      "tx_illicit_dust_006",
+      "tx_illicit_dust_007",
+      "tx_illicit_dust_008",
+      "tx_illicit_dust_009",
+      "tx_illicit_dust_010",
+      "tx_illicit_dust_011",
+      "tx_illicit_dust_012",
+      "tx_illicit_dust_013",
+      "tx_illicit_dust_014",
+      "tx_illicit_dust_015",
+      "tx_illicit_dust_016",
+      "tx_illicit_dust_017",
+      "tx_illicit_dust_018",
+      "tx_illicit_dust_019",
+      "tx_illicit_dispersal_001",
+      "tx_illicit_zerofee_collusion_001"
+    ]
   },
-  {
-    "typology": "rapid_dispersal",
-    "primary_entity": "wallet:bc1q_dispersal_n2xj9n7wv74nc694t02thmd363mxzn2nqt58zt",
-    "description": "High fan-out dispersal sending 1 input to 30 outputs simultaneously"
-  }
-]
+  "licit_sample": {
+    "wallets": [
+      "bc1q_norm_n098rpw3f07j07nk8lt0tqc5yc34vmtrkz",
+      "bc1q_norm_ekumvlq28a3849ndd79xnm6r6eznkpus82",
+      "bc1q_norm_c97ywcnexg98k9lwe8zj324ntf3ezjzv0r",
+      "bc1q_norm_pk9n4fgyw9j6xvanm5sksj0c0xwua2wy3h",
+      "bc1q_norm_3ss5hk9vf7kr7azngj48cl883n8wv38p75",
+      "bc1q_norm_xlhtt74ffgrpz4ecv87gf98xgvk2zuzxv6",
+      "bc1q_norm_h7e2ez9tgfyzkq5aylkr2ljv6y36mp84w8",
+      "bc1q_norm_mmfljx7q8epacs3gzz379xwwd6uqmzn0ua",
+      "bc1q_norm_py544k9mq7n9hwv3f90sn9rkf03wwkul55",
+      "bc1q_norm_awtvw784swfm5xvztw0rcxtvt9t4vv8uga"
+    ],
+    "transactions": [
+      "tx_licit_0000",
+      "tx_licit_0001",
+      "tx_licit_0002",
+      "tx_licit_0003",
+      "tx_licit_0004",
+      "tx_licit_0005",
+      "tx_licit_0006",
+      "tx_licit_0007",
+      "tx_licit_0008",
+      "tx_licit_0009",
+      "tx_licit_0010",
+      "tx_licit_0011",
+      "tx_licit_0012",
+      "tx_licit_0013",
+      "tx_licit_0014"
+    ]
+  },
+  "planted_typologies": [
+    {
+      "typology": "PEELING_CHAIN",
+      "description": "Sequential rapid offloading of 0.75 BTC per hop across 8 continuous hops",
+      "primary_wallet": "bc1q_peel_master_source_x99a7b1c3e4d",
+      "associated_wallets": [
+        "bc1q_peel_master_source_x99a7b1c3e4d",
+        "bc1q_peel_hop_00_3940erzwhek4",
+        "bc1q_peel_hop_01_6477qrr9a82l",
+        "bc1q_peel_hop_02_g9ul5q4ptfs8",
+        "bc1q_peel_hop_03_fzfznu9xx3ee",
+        "bc1q_peel_hop_04_6empeewq2h9d",
+        "bc1q_peel_hop_05_qesjl6w7222d",
+        "bc1q_peel_hop_06_87njvyph56t8",
+        "bc1q_peel_hop_07_c9nyn7j82vte"
+      ],
+      "suspicious_ip": "198.51.100.42",
+      "txids": [
+        "tx_illicit_peel_000",
+        "tx_illicit_peel_001",
+        "tx_illicit_peel_002",
+        "tx_illicit_peel_003",
+        "tx_illicit_peel_004",
+        "tx_illicit_peel_005",
+        "tx_illicit_peel_006",
+        "tx_illicit_peel_007"
+      ],
+      "count": 8
+    },
+    {
+      "typology": "DUST_FLOOD",
+      "description": "Burst of 20 rapid sub-dust transactions (< 546 sats) to trace UTXO clustering",
+      "primary_wallet": "bc1q_dust_botnet_origin_f83b1a9c4e20",
+      "associated_wallets": [
+        "bc1q_dust_botnet_origin_f83b1a9c4e20"
+      ],
+      "suspicious_ip": "203.0.113.99",
+      "txids": [
+        "tx_illicit_dust_000",
+        "tx_illicit_dust_001",
+        "tx_illicit_dust_002",
+        "tx_illicit_dust_003",
+        "tx_illicit_dust_004",
+        "tx_illicit_dust_005",
+        "tx_illicit_dust_006",
+        "tx_illicit_dust_007",
+        "tx_illicit_dust_008",
+        "tx_illicit_dust_009",
+        "tx_illicit_dust_010",
+        "tx_illicit_dust_011",
+        "tx_illicit_dust_012",
+        "tx_illicit_dust_013",
+        "tx_illicit_dust_014",
+        "tx_illicit_dust_015",
+        "tx_illicit_dust_016",
+        "tx_illicit_dust_017",
+        "tx_illicit_dust_018",
+        "tx_illicit_dust_019"
+      ],
+      "count": 20
+    },
+    {
+      "typology": "RAPID_DISPERSAL",
+      "description": "1 input split into 25 simultaneous destination outputs (fan-out ratio 25:1)",
+      "primary_wallet": "bc1q_dispersal_launderer_w77d2f9a1b0c",
+      "associated_wallets": [
+        "bc1q_dispersal_launderer_w77d2f9a1b0c",
+        "bc1q_disp_sink_00_zc2g7sl6ts",
+        "bc1q_disp_sink_01_gjjfp5zhs6",
+        "bc1q_disp_sink_02_q7p0f4jmqf",
+        "bc1q_disp_sink_03_s3rwngz92u",
+        "bc1q_disp_sink_04_fw65rzv4xh",
+        "bc1q_disp_sink_05_qmfrhpn5uw",
+        "bc1q_disp_sink_06_e2kutynwkn",
+        "bc1q_disp_sink_07_f974v7u7cs",
+        "bc1q_disp_sink_08_wfmq8ecat5",
+        "bc1q_disp_sink_09_qpwkwf04e2",
+        "bc1q_disp_sink_10_ftpy2r7vvg",
+        "bc1q_disp_sink_11_xmsnuatk3q",
+        "bc1q_disp_sink_12_2wet49r0js",
+        "bc1q_disp_sink_13_p0q23693ux",
+        "bc1q_disp_sink_14_rtvanawyvn",
+        "bc1q_disp_sink_15_zkn3p97lyd",
+        "bc1q_disp_sink_16_sh4n39uw7r",
+        "bc1q_disp_sink_17_8yzps56llv",
+        "bc1q_disp_sink_18_elw39z8eud",
+        "bc1q_disp_sink_19_5jw56xjezn",
+        "bc1q_disp_sink_20_xpum6wmwks",
+        "bc1q_disp_sink_21_3mk90r0jje",
+        "bc1q_disp_sink_22_48ty4jttmp",
+        "bc1q_disp_sink_23_j7tjqmpdnz",
+        "bc1q_disp_sink_24_c4j9kt9geh"
+      ],
+      "suspicious_ip": "192.0.2.77",
+      "txids": [
+        "tx_illicit_dispersal_001"
+      ],
+      "count": 1
+    },
+    {
+      "typology": "FEE_ANOMALY_COLLUSION",
+      "description": "Whale 50.0 BTC transfer with 0.0 fee routed via Tor exit relay",
+      "primary_wallet": "bc1q_miner_siphon_collusion_000000fee",
+      "associated_wallets": [
+        "bc1q_miner_siphon_collusion_000000fee",
+        "bc1q_offshore_vault_destination_999999"
+      ],
+      "suspicious_ip": "185.220.101.5",
+      "txids": [
+        "tx_illicit_zerofee_collusion_001"
+      ],
+      "count": 1
+    }
+  ]
+}

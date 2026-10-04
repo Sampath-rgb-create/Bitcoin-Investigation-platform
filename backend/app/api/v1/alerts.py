@@ -43,6 +43,16 @@ def list_case_alerts(
 
     if run_id:
         query = query.filter(Alert.run_id == run_id)
+    else:
+        # Default to latest run for the case to avoid showing duplicate runs
+        latest_run = (
+            db.query(AnalysisRun)
+            .filter(AnalysisRun.case_id == case_id)
+            .order_by(AnalysisRun.created_at.desc())
+            .first()
+        )
+        if latest_run:
+            query = query.filter(Alert.run_id == latest_run.id)
     if severity:
         query = query.filter(Alert.severity == severity.upper())
     if min_priority_score is not None:

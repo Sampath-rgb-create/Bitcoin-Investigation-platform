@@ -189,8 +189,78 @@ class AnalysisPipeline:
     def _ingest_case_datasets(self) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
         """
         Reads all datasets associated with this case from the DB (or raw/ directory).
-        Validates, normalizes, and classifies them into transactions and network records.
+        Supports canonical 4-file format (transactions.csv, inputs.csv, outputs.csv, network.csv)
+        as well as legacy/single combined datasets.
         """
+        raw_dir = self.case_paths["raw"]
+        canonical_files = ["transactions.csv", "inputs.csv", "outputs.csv", "network.csv"]
+        has_canonical_4 = all(os.path.exists(os.path.join(raw_dir, f)) for f in canonical_files)
+
+        if has_canonical_4:
+            logger.info(f"Canonical 4-file format detected in {raw_dir}. Processing via Canonicalizer...")
+            from backend.app.services.new_pipeline.canonicalizer import Canonicalizer
+            canonical_dir = os.path.join(os.path.dirname(raw_dir), "canonical")
+            c = Canonicalizer(raw_dir=raw_dir, canonical_dir=canonical_dir)
+            paths = c.canonicalize()
+
+            df_tx = pd.read_parquet(paths["transactions"])
+            df_in = pd.read_parquet(paths["inputs"])
+            df_out = pd.read_parquet(paths["outputs"])
+            df_net = pd.read_parquet(paths["network"])
+
+            in_agg = (
+                df_in.groupby("txid")
+                .agg({"address": list, "amount": list})
+                .reset_index()
+                .rename(columns={"address": "input_addresses", "amount": "input_amounts"})
+            )
+            out_agg = (
+                df_out.groupby("txid")
+                .agg({"address": list, "amount": list})
+                .reset_index()
+                .rename(columns={"address": "output_addresses", "amount": "output_amounts"})
+            )
+
+            merged = df_tx.merge(in_agg, on="txid", how="left").merge(out_agg, on="txid", how="left")
+            merged["input_addresses"] = merged["input_addresses"].apply(lambda x: x if isinstance(x, list) else [])
+            merged["input_amounts"] = merged["input_amounts"].apply(lambda x: x if isinstance(x, list) else [])
+            merged["output_addresses"] = merged["output_addresses"].apply(lambda x: x if isinstance(x, list) else [])
+            merged["output_amounts"] = merged["output_amounts"].apply(lambda x: x if isinstance(x, list) else [])
+
+            # Generate record_id if missing
+            if "record_id" not in merged.columns:
+                merged["record_id"] = [f"tx-rec-{i:06d}" for i in range(len(merged))]
+
+            transactions = merged.to_dict("records")
+            network_observations = df_net.to_dict("records")
+            for idx, net in enumerate(network_observations):
+                if "record_id" not in net:
+                    net["record_id"] = f"net-rec-{idx:06d}"
+
+            # Update dataset counts in SQLite if attached
+            if self.db:
+                try:
+                    ds_records = self.db.query(Dataset).filter(Dataset.case_id == self.case_id).all()
+                    for ds in ds_records:
+                        base_name = os.path.basename(ds.source_path)
+                        if base_name == "transactions.csv":
+                            ds.row_count = len(df_tx)
+                            ds.accepted_rows = len(df_tx)
+                        elif base_name == "inputs.csv":
+                            ds.row_count = len(df_in)
+                            ds.accepted_rows = len(df_in)
+                        elif base_name == "outputs.csv":
+                            ds.row_count = len(df_out)
+                            ds.accepted_rows = len(df_out)
+                        elif base_name == "network.csv":
+                            ds.row_count = len(df_net)
+                            ds.accepted_rows = len(df_net)
+                    self.db.commit()
+                except Exception as e:
+                    logger.warning(f"Could not update dataset stats: {e}")
+
+            return transactions, network_observations
+
         transactions: List[Dict[str, Any]] = []
         network_observations: List[Dict[str, Any]] = []
 
@@ -206,7 +276,6 @@ class AnalysisPipeline:
         
         # If no DB records found, inspect raw/ directory directly
         if not raw_files:
-            raw_dir = self.case_paths["raw"]
             if os.path.exists(raw_dir):
                 for f in os.listdir(raw_dir):
                     fp = os.path.join(raw_dir, f)
@@ -551,6 +620,39 @@ class AnalysisPipeline:
                     "evidence_pack": evidence_pack,
                 }
             )
+
+        # 6. Transaction-level rule alerts (e.g. Fee Anomaly, Zero Fee Collusion)
+        tx_rules_hits = rules_detector.evaluate_transactions(transactions)
+        for tx_hit in tx_rules_hits:
+            if tx_hit.get("triggered"):
+                tx_entity_id = tx_hit["entity_id"]
+                tx_conf = tx_hit.get("confidence", 0.8)
+                tx_p_score = round(tx_conf * 80.0, 2)
+                tx_tier = PriorityFusionScorer.get_severity_tier(tx_p_score)
+                alerts.append(
+                    {
+                        "run_id": self.run_id,
+                        "entity_id": tx_entity_id,
+                        "wallet_address": "",
+                        "severity": tx_tier,
+                        "priority_score": tx_p_score,
+                        "supervised_score": round(tx_conf * 75.0, 2),
+                        "unsupervised_score": 60.0,
+                        "anomaly_score": 0.6,
+                        "behavior_score": tx_conf,
+                        "graph_score": 50.0,
+                        "rule_score": 85.0,
+                        "network_score": 0.5,
+                        "correlation_strength": 0.8,
+                        "evidence_coverage": 0.8,
+                        "reasons": [tx_hit.get("description", "Transaction anomaly detected.")],
+                        "explanation": {
+                            "summary": tx_hit.get("description", ""),
+                            "top_reasons": [{"text": tx_hit.get("description", ""), "score": tx_p_score}],
+                        },
+                        "evidence_pack": [tx_hit],
+                    }
+                )
 
         # Sort alerts descending by priority score
         alerts.sort(key=lambda x: x["priority_score"], reverse=True)

@@ -206,11 +206,13 @@ def load_synthetic_datasets(
 
     loaded_datasets = []
     sample_files = [
+        ("transactions.csv", "transaction", "csv"),
+        ("inputs.csv", "transaction", "csv"),
+        ("outputs.csv", "transaction", "csv"),
+        ("network.csv", "network", "csv"),
+        ("combined_1000.csv", "combined", "csv"),
         ("transactions_1000.csv", "transaction", "csv"),
         ("network_telemetry_1000.csv", "network", "csv"),
-        ("synthetic_combined.csv", "combined", "csv"),
-        ("synthetic_transactions.json", "transaction", "json"),
-        ("synthetic_network.json", "network", "json"),
     ]
 
     for filename, kind, fmt in sample_files:

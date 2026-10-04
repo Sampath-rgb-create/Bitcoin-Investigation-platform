@@ -82,21 +82,36 @@ from pathlib import Path
 from fastapi.responses import FileResponse, Response
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+REACT_DIST_DIR = BASE_DIR / "frontend-react" / "dist"
 FRONTEND_DIR = BASE_DIR / "frontend"
 STATIC_DIR = FRONTEND_DIR / "static"
 
 @app.get("/", tags=["frontend"])
 def serve_dashboard():
-    """Serves the primary Forensic Intelligence Dashboard HTML."""
+    """Serves the primary Forensic Intelligence Dashboard HTML (React or fallback)."""
+    react_index = REACT_DIST_DIR / "index.html"
+    if react_index.exists():
+        with open(react_index, "r", encoding="utf-8") as f:
+            return Response(content=f.read(), media_type="text/html")
     index_file = FRONTEND_DIR / "index.html"
     if index_file.exists():
         with open(index_file, "r", encoding="utf-8") as f:
             return Response(content=f.read(), media_type="text/html")
     return {"message": "Frontend index.html not found"}
 
+@app.get("/assets/{file_path:path}", tags=["frontend"])
+def serve_react_assets(file_path: str):
+    """Serves compiled React Vite bundle assets."""
+    target = REACT_DIST_DIR / "assets" / file_path
+    if not target.exists() or not target.is_file():
+        return Response(status_code=404, content="Asset not found")
+    media_type = "application/javascript" if target.suffix == ".js" else ("text/css" if target.suffix == ".css" else "application/octet-stream")
+    with open(target, "rb") as f:
+        return Response(content=f.read(), media_type=media_type)
+
 @app.get("/static/{file_path:path}", tags=["frontend"])
 def serve_static(file_path: str):
-    """Serves static CSS and JS assets synchronously without extra async dependencies."""
+    """Serves legacy static assets if requested."""
     target = STATIC_DIR / file_path
     if not target.exists() or not target.is_file():
         return Response(status_code=404, content="File not found")
@@ -112,3 +127,4 @@ def serve_static(file_path: str):
 
     with open(target, "rb") as f:
         return Response(content=f.read(), media_type=media_type)
+

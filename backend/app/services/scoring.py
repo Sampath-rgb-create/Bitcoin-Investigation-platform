@@ -65,15 +65,15 @@ class PriorityFusionScorer:
         Map priority score to priority severity tier.
         Supports both normalized [0.0, 1.0] and percentage [0.0, 100.0].
         Thresholds:
-        - CRITICAL: >= 0.80 (or >= 80.0)
-        - HIGH:     >= 0.60 (or >= 60.0)
+        - CRITICAL: >= 0.85 (or >= 85.0)
+        - HIGH:     >= 0.65 (or >= 65.0)
         - MEDIUM:   >= 0.40 (or >= 40.0)
         - LOW:      < 0.40 (or < 40.0)
         """
         s = score if score <= 1.0 else (score / 100.0)
-        if s >= 0.80:
+        if s >= 0.85:
             return "CRITICAL"
-        elif s >= 0.60:
+        elif s >= 0.65:
             return "HIGH"
         elif s >= 0.40:
             return "MEDIUM"

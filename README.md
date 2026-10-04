@@ -4,7 +4,9 @@
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com)
-[![Pytest](https://img.shields.io/badge/pytest-25%20passed-brightgreen.svg)](https://docs.pytest.org)
+[![React 18](https://img.shields.io/badge/React-18.3-61DAFB.svg)](https://react.dev/)
+[![React Flow](https://img.shields.io/badge/@xyflow/react-12.0-FF4081.svg)](https://reactflow.dev/)
+[![Pytest](https://img.shields.io/badge/pytest-36%20passed-brightgreen.svg)](https://docs.pytest.org)
 [![Offline Security](https://img.shields.io/badge/Security-100%25%20Air--Gapped-success.svg)]()
 [![Forensic Chain of Custody](https://img.shields.io/badge/Provenance-SHA--256%20Verified-blueviolet.svg)]()
 
@@ -15,76 +17,79 @@
 - [Overview](#-overview)
 - [System Architecture & Visual Workflow](#-system-architecture--visual-workflow)
 - [Key Capabilities & Innovations](#-key-capabilities--innovations)
-- [Forensic Detection Engines & Scoring](#-forensic-detection-engines--scoring)
-- [Interactive Investigation Workbench](#-interactive-investigation-workbench)
+- [Multi-Brain AI/ML Models & Detection Engines](#-multi-brain-aiml-models--detection-engines)
+- [Interactive React Investigation Workbench](#-interactive-react-investigation-workbench)
 - [Project Directory Structure](#-project-directory-structure)
-- [Installation & Quickstart Guide](#-installation--quickstart-guide)
-  - [Prerequisites](#1-prerequisites)
-  - [Method 1: Workspace Virtual Environment (Recommended)](#method-1-workspace-virtual-environment-recommended)
-  - [Method 2: Conda Environment Setup](#method-2-conda-environment-setup)
-  - [Database Initialization & Seeding](#step-3-database-initialization--seeding)
-  - [Launching the Server](#step-4-launching-the-server)
-  - [Troubleshooting & Common Questions](#troubleshooting--common-setup-tips)
-- [Synthetic Dataset Generation](#-synthetic-dataset-generation)
-- [Running Automated Tests](#-running-automated-tests)
+- [⚡ Complete End-to-End Installation & Quickstart](#-complete-end-to-end-installation--quickstart)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Clone the Repository](#2-clone-the-repository)
+  - [3. Environment Setup (Python Virtual Environment)](#3-environment-setup-python-virtual-environment)
+  - [4. Install Python Dependencies](#4-install-python-dependencies)
+  - [5. How Pre-Trained AI/ML Models Are Included](#5-how-pre-trained-aiml-models-are-included)
+  - [6. Offline GeoIP Database Setup](#6-offline-geoip-database-setup)
+  - [7. Frontend Dashboard Setup (Pre-Compiled & Source)](#7-frontend-dashboard-setup-pre-compiled--source)
+  - [8. Initialize SQLite Database & Seed Data](#8-initialize-sqlite-database--seed-data)
+  - [9. Launching the Server](#9-launching-the-server)
+- [Synthetic Dataset Generation & Ground Truth](#-synthetic-dataset-generation--ground-truth)
+- [Running Automated Verification & Tests](#-running-automated-verification--tests)
 - [REST API Reference](#-rest-api-reference)
 - [Forensic Integrity & Chain of Custody](#-forensic-integrity--chain-of-custody)
+- [Repository Access & Read-Only Notice](#-repository-access--read-only-notice)
 
 ---
 
 ## 🔍 Overview
 
-The **Bitcoin Forensic Intelligence Platform** is built for law enforcement, blockchain intelligence analysts, and financial crime investigators. It fuses on-chain Bitcoin transaction graphs with off-chain P2P network observations (IPv4/IPv6, autonomous systems, geolocations, relay timestamps) to detect money laundering topologies, peeling chains, mixing hops, and anomalous broadcast patterns.
+The **Bitcoin Forensic Intelligence Platform** is engineered for law enforcement agencies, cybercrime task forces, blockchain intelligence analysts, and financial crime compliance units. It bridges the gap between on-chain Bitcoin transaction ledgers and off-chain P2P network telemetry (IPv4/IPv6, autonomous systems, geolocations, relay timing) to detect money laundering typologies, peeling chains, mixer dispersals, botnet dust floods, and zero-fee miner collusions.
 
-Designed under strict **air-gapped forensic requirements**:
-- **100% Offline-First**: Zero external API dependencies, zero remote DNS/HTTP queries, and zero telemetry leakage.
-- **Cryptographic Provenance**: Every alert, graph link, and report statement is cryptographically bound to raw dataset record IDs via SHA-256 hashes and columnar Parquet tables.
-- **Deterministic Explainability**: Zero probabilistic hallucinations. Alerts present clear numerical thresholds, observed metrics, and exact rule criteria.
+### Strict Air-Gapped Forensic Principles:
+- **100% Offline-First**: Zero external API dependencies, zero remote DNS/HTTP telemetry, zero cloud LLM callbacks. Runs natively on isolated Linux or Windows workstations.
+- **Cryptographic Provenance**: Every alert, graph link, and report finding is cryptographically bound to raw dataset record IDs via SHA-256 hashes and columnar PyArrow Parquet tables.
+- **Deterministic Explainability**: Zero probabilistic hallucinations. Alerts present exact numerical thresholds, observed metrics, case median baselines, and triggered AML rule codes.
 
 ---
 
 ## 🏗️ System Architecture & Visual Workflow
 
-Below is the complete end-to-end flowchart illustrating how data flows from ingestion to graph analytics, machine learning, scoring, and UI visualization:
-
 ```mermaid
 flowchart TD
-    subgraph UI ["🖥️ Investigation Workbench (Frontend Single-Page App)"]
+    subgraph UI ["🖥️ Investigation Workbench (React 18 + @xyflow/react)"]
         direction LR
-        TAB1["Cases & Ingestion"]
-        TAB2["Alerts & Forensic Evidence Pack"]
-        TAB3["Interactive Entity Graph (HTML5 Canvas)"]
-        TAB4["Executive Intelligence Reports"]
+        TAB1["Canonical 4-File Ingestion Dropzones"]
+        TAB2["Multi-Stream Alerts & Evidence Drawer"]
+        TAB3["Interactive React Flow Topology Canvas"]
+        TAB4["Court-Ready Forensic Reports (Markdown/JSON)"]
     end
 
-    subgraph API ["⚡ API Gateway & Service Layer (FastAPI)"]
+    subgraph API ["⚡ API Gateway & Service Layer (FastAPI + Uvicorn)"]
         direction LR
         ROUTER["REST Endpoints (/api/v1)"]
         DEPS["Auth & Lifecycle Middleware"]
         JOB["Background Job Orchestrator"]
     end
 
-    subgraph PIPELINE ["⚙️ 7-Stage Analytical Forensic Engine"]
+    subgraph PIPELINE ["⚙️ 7-Stage Analytical Forensic Pipeline"]
         direction TB
         subgraph S1 ["Stage 1 & 2: Ingestion & Normalization"]
-            ING["CSV / JSON / XML Adapters"] --> VAL["Monetary & Array Parity Validation"]
+            ING["CSV / JSON / XML Adapters & Canonicalizer"] --> VAL["Monetary & Array Parity Validation"]
             VAL --> NORM["ISO 8601 UTC & Canonical IP Normalization"]
         end
 
         subgraph S2 ["Stage 3 & 4: Correlation & Graph Topology"]
-            CORR["Multi-Modal Correlator\n(TXID Exact & Time-Window)"] --> GEO["Offline MaxMind GeoLite2 & ASN"]
+            CORR["Multi-Modal Correlator\n(Exact TXID & Time-Window)"] --> GEO["Offline MaxMind GeoLite2 & ASN"]
             GEO --> GRAPH["NetworkX Multi-Layer Knowledge Graph\n(Wallets, TXs, IPs, ASNs, Countries)"]
         end
 
         subgraph S3 ["Stage 5 & 6: Feature Extraction & Detectors"]
-            FEAT["Multi-Dimensional Feature Engineering\n(Entropy, Centrality, Fan-Out, PageRank)"] --> IFOREST["Unsupervised Isolation Forest Model\n(Anomaly Score: 40%)"]
-            FEAT --> AML["Deterministic AML Rule Detectors\n(Peeling Chain, Dispersal, Dust: 30%)"]
-            FEAT --> TOPO["Graph Centrality & Hub Detectors\n(Bridge, PageRank: 20%)"]
-            FEAT --> NET["Network Relay Burst Detectors\n(Multi-IP, Port Anomalies: 10%)"]
+            FEAT["Multi-Dimensional Feature Engineering\n(Entropy, Centrality, Fan-Out, PageRank)"] --> IFOREST["Unsupervised Isolation Forest Model"]
+            FEAT --> AML["Deterministic AML Heuristic Engine\n(Peeling Chains, Dust Floods, Dispersal, Zero-Fee)"]
+            FEAT --> TOPO["Graph Centrality & Hub Signals"]
+            FEAT --> NET["Network Relay Burst & ASN Signals"]
+            FEAT --> ML["Supervised Multi-Brain Stack\n(RF, GATv2, GraphSAGE, FG-EGCN)"]
         end
 
         subgraph S4 ["Stage 7: Fusion Scoring & Evidence Compilation"]
-            IFOREST & AML & TOPO & NET --> FUSION["Composite Priority Fusion Algorithm\n(CRITICAL >= 80, HIGH >= 60, MED >= 40, LOW < 40)"]
+            IFOREST & AML & TOPO & NET & ML --> FUSION["Priority Fusion Scorer\n(CRITICAL >= 85, HIGH >= 65, MED >= 40, LOW < 40)"]
             FUSION --> PACK["Cryptographic Evidence Pack\n(SHA-256 Hashes & Source Record IDs)"]
         end
     end
@@ -109,90 +114,75 @@ flowchart TD
 
 ## 🚀 Key Capabilities & Innovations
 
-### 1. Multi-Modal Ingestion & Normalization
-- Flexible parsing of **CSV, JSON, and XML** formats for transactions and network observations.
-- Automatic column alias resolution (`txid`, `tx_hash`, `client_ip`, `src_ip`, etc.).
-- Strict validation rules:
-  - **Array parity checks**: Ensures inputs match input amounts and outputs match output amounts.
-  - **Monetary conservation checks**: $\sum \text{inputs} = \sum \text{outputs} + \text{fee}$ (with tolerance for partial UTXO views).
-  - **Sanitization**: Standardized ISO 8601 UTC timestamps and canonical IPv4/IPv6 addresses.
+### 1. Canonical Multi-File Ingestion & Validation
+- Fully supports both **canonical 4-file ingestion** (`transactions.csv`, `inputs.csv`, `outputs.csv`, `network.csv`) and legacy combined datasets (CSV, JSON, XML).
+- Strict validation checks:
+  - **Array parity**: Input addresses match input amounts; output addresses match output amounts.
+  - **Monetary conservation**: $\sum \text{inputs} = \sum \text{outputs} + \text{fee}$ with configurable floating-point epsilon.
+  - **Format normalization**: Standardized ISO-8601 UTC timestamps, lowercase hex TXIDs, and clean IPv4/IPv6 addresses.
 
-### 2. Multi-Modal Telemetry Correlation Engine
-- **Exact TXID Correlation**: Instant correlation when network telemetry contains matching Bitcoin transaction hashes.
-- **Time-Window Proximity Correlation**: Connects anonymous network observations to Bitcoin transactions occurring within sliding temporal windows ($\Delta t$).
-- Records forensic correlation basis (`TXID_EXACT` vs. `TIME_WINDOW`) on all derived entity links.
+### 2. Multi-Modal Correlation Engine
+- **Exact TXID Correlation**: Instant mapping when network observations share on-chain Bitcoin transaction hashes.
+- **Time-Window Proximity Correlation**: Connects unlinked network telemetry to Bitcoin transactions broadcast within sliding temporal windows ($\Delta t$).
+- Records forensic correlation basis (`TXID_EXACT` vs. `TIME_WINDOW`) and microsecond `time_delta_ms` on all derived entity links.
 
-### 3. Multi-Layer Forensic Entity Graph (NetworkX)
-- Constructs a heterogeneous multi-layer knowledge graph:
+### 3. Multi-Layer Knowledge Graph (NetworkX)
+- Constructs a heterogeneous directed graph:
   - **Nodes**: `wallet`, `transaction`, `ip`, `asn`, `country`
   - **Edges**: `SPENT_FROM`, `SENT_TO`, `RELAYED_BY`, `HOSTED_IN`, `LOCATED_IN`
-- Computes on-the-fly topological metrics: PageRank, degree centrality, betweenness centrality, and Louvain community sizes.
+- Automatically computes PageRank, in/out degree centrality, betweenness centrality, short circular loop detection (2–4 hops), and community density.
 
-### 4. Multi-Engine Anomaly Detection & Scoring
-- **Unsupervised Isolation Forest**: Evaluates high-dimensional feature distributions (entropy, fan-out ratio, fee ratios, graph centrality) to isolate outlier entities without training labels.
-- **Deterministic Forensic AML Rules**:
-  - `RULE_PEELING_CHAIN`: Small incremental transfers peeled from a central balance.
-  - `RULE_RAPID_DISPERSAL`: 1 input rapidly dispersed into dozens of child outputs.
-  - `RULE_DUST_ATTACK`: Flood of sub-dust threshold outputs ($< 546$ satoshis).
-  - `RULE_REPEATED_VALUE`: Repeated transfers with identical satoshi values.
-  - `RULE_HIGH_FAN_OUT`: Extreme ratio of outputs to inputs ($> 10\times$).
-  - `RULE_HIGH_FAN_IN`: Consolidation of multiple wallet inputs into a single address ($> 10\times$).
-  - `RULE_FEE_ANOMALY`: Zero-fee transactions or exorbitant miner bribe fees.
-- **Network Signals**: Multi-IP concurrent relay bursts, proxy/VPN/Tor port markers, and rapid ASN hopping.
-- **Composite Fusion Scoring**:
-  $$\text{Priority Score} = 0.40 \cdot S_{\text{anomaly}} + 0.30 \cdot S_{\text{behavior}} + 0.20 \cdot S_{\text{graph}} + 0.10 \cdot S_{\text{network}}$$
-  Categorized into **CRITICAL** ($\ge 80$), **HIGH** ($\ge 60$), **MEDIUM** ($\ge 40$), and **LOW** ($< 40$) priority tiers.
+### 4. Deterministic AML Heuristics & Behavioral Rules
+- `RULE_PEELING_CHAIN`: Detects sequential laundering chains stripping small peel payments while forwarding major change.
+- `RULE_RAPID_DISPERSAL`: Identifies sudden 1-to-many fan-out fund splits across dozens of counterparties.
+- `RULE_DUST_ATTACK`: Detects botnet micro-transfer floods below the Bitcoin dust threshold ($< 546$ satoshis).
+- `RULE_REPEATED_VALUE`: Flags structured transfers with identical satoshi values.
+- `RULE_FEE_ANOMALY`: Detects zero-fee miner collusion transfers or exorbitant priority bribes.
+- `RULE_HIGH_FAN_OUT` & `RULE_HIGH_FAN_IN`: Uncovers extreme split or consolidation ratios ($> 10\times$).
 
 ---
 
-## 📊 Forensic Detection Engines & Scoring
+## 🧠 Multi-Brain AI/ML Models & Detection Engines
 
-| Component | Weight | Forensic Basis | Target Threat Vectors |
-|---|:---:|---|---|
-| **Anomaly Engine** | `40%` | Unsupervised Isolation Forest on multi-dimensional numerical features | Unknown statistical outliers, zero-day dispersal patterns, non-standard UTXO structures |
-| **Behavior Engine** | `30%` | Rule-based AML heuristic pattern matching | Peeling chains, mixer deposit/peel patterns, dust spam attacks, repeated value layering |
-| **Graph Engine** | `20%` | PageRank, betweenness centrality, degree centrality, community clustering | Laundering bridges, money aggregation hubs, mule cluster intermediaries |
-| **Network Engine** | `10%` | Concurrent multi-IP relay telemetry, ASN diversity, broadcast timing | Sybil broadcasts, multi-relay obfuscation, Tor/VPN exit hopping |
+The platform does not rely on a single model. It deploys a hybrid multi-domain stack:
+
+| Model Layer | Architecture / Framework | Input Dimensionality | Purpose |
+|---|---|:---:|---|
+| **Unsupervised Outlier Engine** | **Isolation Forest** (scikit-learn) | 55-dim features | Detects statistical outliers and unknown laundering topologies without pre-labeled data. |
+| **Transaction Brain** | **Random Forest** + **GATv2** + **FG-EGCN** (PyTorch) | 182-dim features | Classifies transaction-level risk using local and relational topological embeddings. |
+| **Wallet Brain** | **Actor Random Forest** + **GraphSAGE** + **FG-EGCN** | 55-dim features | Evaluates entity-level velocity, fan-in/fan-out ratios, and circular flow structures. |
+| **Network Brain** | **Random Forest** + **GraphSAGE** + **TGAT** | 13-dim features | Flags multi-IP concurrent relays, ASN hopping, and port anomalies. |
+| **Meta-Stacking Fusion** | **L2 Stacker & Priority Fusion** | Ensemble | Synthesizes all detector streams into a transparent composite risk score (0–100%). |
+
+### Severity Tier Thresholds:
+- **CRITICAL**: Priority Score $\ge 85.0$ (Sanction hits, confirmed botnet originators)
+- **HIGH**: Priority Score $\ge 65.0$ (High-probability ML hits, zero-fee collusion, peeling chain originators)
+- **MEDIUM**: Priority Score $\ge 40.0$ (Statistical deviations, high fan-in/out)
+- **LOW**: Priority Score $< 40.0$ (Baseline monitoring)
 
 ---
 
-## 🖥️ Interactive Investigation Workbench
+## 🖥️ Interactive React Investigation Workbench
 
-The platform includes a client-side single-page interface:
+Built with **React 18, TypeScript, Tailwind CSS, and `@xyflow/react`**:
 
-1. **Cases & Ingestion Tab**:
-   - Case creation and metadata management.
-   - Dual-zone drag-and-drop file uploader for Bitcoin transactions and network telemetry.
-   - 1-click **Pre-Packaged Synthetic Demo Datasets** loader (1,000 transactions and 1,000 network observations).
-   - Real-time pipeline modal tracker displaying live progress across all 7 execution stages.
-
-2. **Forensic Leads & Evidence Tab**:
-   - Prioritized alerts table with severity filters (`CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `ALL`).
-   - Monospaced entity address cards with instant "Investigate" pivot buttons.
-   - **Forensic Evidence Pack Drawer**:
-     - 4 score breakdown cards displaying raw scores, weighted points contribution (e.g. `+40.0 pts`), and progress meters.
-     - Deterministic finding cards displaying rule codes, human-readable explanations, observed values, and thresholds.
-     - **Cryptographic Chain of Custody**: SHA-256 verified badges displaying all linked source dataset record IDs (`tx-rec-000051`, etc.) with pagination and 1-click clipboard copy.
-
-3. **Forensic Entity Graph Tab**:
-   - High-performance HTML5 Canvas visualizer supporting 1,000+ simultaneous nodes.
-   - **Physics & Layouts**:
-     - *Force-Directed*: Fruchterman-Reingold spring physics with collision boundary repulsion ($r_1 + r_2 + 36\text{px}$).
-     - *Flow / Sankey*: 4-tier structured layout (`Inputs` $\to$ `Transactions` $\to$ `Outputs` $\to$ `Relays`).
-     - *Community Clusters*: Isolates connected subgraphs into distinct orbital clusters.
-   - **Navigation & Controls**:
-     - Interactive Zoom suite (`+`, `−`, `100%` badge, `⟲ Fit`, smooth mouse wheel zoom centered at cursor).
-     - Full-text search for addresses, TXIDs, or IPs with auto-centering camera glide.
-     - Node type filtering pills (`All`, `Wallets`, `TXs`, `IPs`, `⚠️ Flagged Only`).
-   - **Click-to-Inspect Drawer**:
-     - Pulsing golden halo ring on selected node; 1-hop connected neighbors illuminated while unrelated nodes dim to 12% opacity.
-     - Displays wallet balances, transaction counts, mining fees, script types, and connected peers.
-     - Action buttons: `Focus Node`, `Isolate 1-Hop Ego`, `View Evidence Pack`, `Copy ID`.
-
-4. **Forensic Intelligence Reports Tab**:
-   - Automatically generates executive investigation reports in Markdown format.
-   - Built-in Markdown renderer supporting structured headers, statistical data tables, and risk metrics.
-   - 1-click export to **Markdown (.md)** or **JSON (.json)** for court submission and chain-of-custody documentation.
+1. **Dataset Ingestion Suite**:
+   - Drag-and-drop dropzones for `transactions.csv`, `inputs.csv`, `outputs.csv`, and `network.csv`.
+   - Real-time row counting, format validation, and attached dataset status indicators.
+2. **Alerts & Evidence Workbench**:
+   - High-density forensic summary cards (`Total Flagged`, `Critical`, `High ML Hits`, `Medium Risk`).
+   - Interactive stream switcher pills:
+     `[🎯 Composite Ensemble | 🧠 Supervised ML | 🔍 Unsupervised (IF) | 🕸️ Graph Flow | ⚖️ Custom Rules]`.
+   - Ranked alerts table with dynamic sorting by active stream score.
+   - **Slide-over Evidence Drawer**: Displays transparent score bars, natural language narrative explanation, feature deviation charts, and raw source record IDs with one-click clipboard copy.
+3. **Interactive React Flow Topology Canvas**:
+   - Directed visual money flow between wallets, transactions, and relay IPs.
+   - Left-to-right DAG layout with animated risk-weighted edges.
+   - Click-to-inspect drawer showing node degree, balance, PageRank, and connected counterparties.
+4. **Dynamic Rules Manager**:
+   - Allows investigators to create custom rules on the fly (e.g. `fan_out > 10`, `fee == 0`) with custom severity and weight.
+5. **Court-Ready Reports**:
+   - Automatically renders structured executive investigation reports with Markdown and JSON download options.
 
 ---
 
@@ -203,260 +193,257 @@ Bitcoin-Investigation-platform/
 ├── backend/
 │   ├── app/
 │   │   ├── api/
-│   │   │   ├── deps.py               # Dependency injection & offline mock auth
 │   │   │   └── v1/
-│   │   │       ├── alerts.py         # Alerts & evidence pack API endpoints
+│   │   │       ├── alerts.py         # Paginated alerts & latest run scoping
 │   │   │       ├── cases.py          # Case lifecycle management
 │   │   │       ├── datasets.py       # Dataset upload & validation endpoints
-│   │   │       ├── graph.py          # Entity graph serialization & ego subgraphs
-│   │   │       ├── reports.py        # Forensic markdown/JSON report generator
-│   │   │       ├── runs.py           # Pipeline execution & status polling
-│   │   │       └── wallets.py        # Unified entity inspector (wallets, TXs, IPs)
-│   │   ├── core/
-│   │   │   ├── config.py             # Settings (Dynamic paths, OFFLINE_MODE, weights)
-│   │   │   └── logging.py            # Structured JSON logging
-│   │   ├── db/
-│   │   │   ├── base.py               # SQLAlchemy metadata registration
-│   │   │   ├── models.py             # Case, Dataset, AnalysisRun, Alert ORM models
-│   │   │   └── session.py            # SQLite session factory
-│   │   ├── schemas/                  # Pydantic validation schemas
+│   │   │       ├── graph.py          # Entity graph serialization & neighborhood inspection
+│   │   │       ├── reports.py        # Executive forensic report generation
+│   │   │       ├── rules.py          # Dynamic investigator custom rules
+│   │   │       └── runs.py           # Pipeline execution & status polling
+│   │   ├── core/                     # Configuration, logging & error handlers
+│   │   ├── db/                       # SQLAlchemy models & SQLite session factory
 │   │   ├── services/
-│   │   │   ├── detectors/            # Isolation Forest, AML rules, network signals
-│   │   │   ├── ingestion/            # Field mapping, CSV/JSON/XML adapters, normalization
-│   │   │   ├── correlation.py        # Multi-modal exact & temporal correlation
+│   │   │   ├── detectors/            # Isolation Forest, AML rules, graph & network signals
+│   │   │   ├── ingestion/            # Field mapping, CSV/JSON/XML adapters, validation
+│   │   │   ├── new_pipeline/         # Canonicalizer & strict InputValidator
+│   │   │   ├── correlation.py        # Multi-modal exact & temporal correlation engine
 │   │   │   ├── evidence.py           # Provenance compilation & chain of custody
-│   │   │   ├── features.py           # Transaction, wallet, graph, network features
-│   │   │   ├── geoip.py              # MaxMind GeoLite2 offline reader (graceful fallback)
+│   │   │   ├── features.py           # 335-dimensional multi-domain feature engine
+│   │   │   ├── geoip.py              # Offline MaxMind GeoLite2 reader with fallback
 │   │   │   ├── graph_builder.py      # NetworkX entity graph construction
-│   │   │   ├── job_manager.py        # Background asynchronous execution manager
-│   │   │   ├── pipeline.py           # End-to-end 7-stage analytical pipeline
-│   │   │   ├── report.py             # Forensic report builder
-│   │   │   └── scoring.py            # Composite priority fusion algorithm
-│   │   └── storage/
-│   │       ├── case_store.py         # Directory management (raw/, features/, reports/)
-│   │       ├── file_store.py         # Raw file storage with SHA-256 integrity
-│   │       └── parquet_store.py      # PyArrow columnar read/write engine
-│   ├── main.py                       # FastAPI application entrypoint & static mount
-│   └── tests/                        # Pytest automated test suites
+│   │   │   ├── ml_inference.py       # Multi-Brain PyTorch & scikit-learn inference engine
+│   │   │   ├── pipeline.py           # End-to-end analytical pipeline orchestrator
+│   │   │   └── scoring.py            # Priority fusion scoring algorithm
+│   │   └── storage/                  # Parquet & case directory storage managers
+│   └── main.py                       # FastAPI application & compiled React static server
 ├── data/
-│   ├── cases/                        # Case execution artifacts (Parquet, models, reports)
-│   └── samples/                      # 1,000-record synthetic ground truth test datasets
-├── frontend/
-│   ├── index.html                    # Single-page investigation workbench UI
-│   └── static/
-│       ├── app.js                    # Graph visualizer, UI controllers, API client
-│       └── style.css                 # Dark-mode forensic theme styles
+│   ├── app.db                        # SQLite database (auto-created on seed)
+│   ├── cases/                        # Case run directories (features/, reports/, graph/)
+│   └── samples/                      # Canonical synthetic datasets & ground truth catalog
+│       ├── transactions.csv          # 180 on-chain Bitcoin transactions
+│       ├── inputs.csv                # 180 input UTXO references (vin)
+│       ├── outputs.csv               # 362 output scripts & amounts (vout)
+│       ├── network.csv               # 171 network P2P telemetry records
+│       ├── ground_truth.json         # Complete ground-truth labels for 38 illicit targets
+│       └── ground_truth.md           # Human-readable ground truth documentation
+├── docs/
+│   ├── YOUTUBE_DEMO_SCRIPT.md        # Complete 5-7 minute video presentation script
+│   └── DATABASE_ARCHITECTURE.md      # Storage & schema specifications
+├── frontend-react/                   # Modern React 18 + Vite + Tailwind dashboard
+│   ├── dist/                         # Pre-compiled production bundle (served by FastAPI)
+│   ├── src/                          # TypeScript source components & React Flow canvas
+│   └── package.json                  # Frontend dependencies
+├── models/                           # Pre-trained ML weights (PyTorch .pt & joblib)
+│   ├── fusion/                       # OOF Meta-stacker & calibration matrices
+│   ├── network/                      # Network GraphSAGE, TGAT, Isolation Forest, RF
+│   ├── transaction/                  # Transaction GATv2, FG-EGCN, Isolation Forest, RF
+│   └── wallet/                       # Wallet Actor RF, GraphSAGE, FG-EGCN, Isolation Forest
 ├── scripts/
-│   ├── generate_1000_datasets.py     # Generates 1,000 transactions & network observations
-│   ├── generate_synthetic.py         # Base synthetic dataset generator
-│   ├── package_models.py             # Cross-laptop model bundle export, import & verification CLI
-│   └── seed_admin.py                 # Seeds default case & administrator credentials
-├── environment.yml                   # Conda environment specifications
-├── requirements.txt                  # Standard pip dependencies specification
-├── .gitignore                        # Git exclusion rules
-└── README.md                         # Comprehensive platform documentation
+│   ├── generate_synthetic.py         # Ground-truth synthetic dataset generator
+│   ├── package_models.py             # Model bundle packaging & verification CLI
+│   └── seed_admin.py                 # SQLite database initialization & case seeding
+├── requirements.txt                  # Python dependencies
+└── README.md                         # This documentation
 ```
 
 ---
 
-## 💻 Cross-Laptop Model Transfer & Verification
+## ⚡ Complete End-to-End Installation & Quickstart
 
-The platform supports 100% offline transfer of all trained models and neural weights between laptops.
-
-### Exporting Models from This Laptop:
-To create a self-contained, portable zip bundle containing all 16 ML model artifacts, PyTorch GNN architectures, and input feature schemas:
-```bash
-python scripts/package_models.py --export btc_models_bundle.zip
-```
-
-### Importing Models on Another Laptop:
-1. Copy `btc_models_bundle.zip` to the new laptop via USB drive or local network.
-2. In the platform root directory on the new laptop, run:
-```bash
-python scripts/package_models.py --import btc_models_bundle.zip
-```
-3. The tool automatically extracts the models into their exact expected paths and verifies checksums and inference readiness.
-
-### Verifying Model Integrity On Any Machine:
-```bash
-python scripts/package_models.py --verify
-```
-
-
----
-
-## ⚡ Installation & Quickstart Guide
-
-The platform uses **dynamic path resolution** (`BASE_DIR = Path(__file__).resolve().parent...`), meaning it runs out-of-the-box on **Windows, macOS, or Linux** on any drive (`C:`, `D:`, etc.) without editing a single line of code.
+The platform uses **dynamic path resolution** throughout the backend (`Path(__file__).resolve().parent...`), meaning it operates out-of-the-box on **Windows or Linux** without modifying any code or path variables.
 
 ### 1. Prerequisites
-
-- **Python 3.10 or 3.11** installed. Check your version:
+- **Python 3.10 or 3.11** (Python 3.11 recommended). Verify:
   ```bash
   python --version
   ```
-- **Git** installed for cloning.
+- **Git** installed on your system.
 
 ---
 
-### Method 1: Workspace Virtual Environment (Recommended)
-
-Installing inside an isolated `venv` folder within the workspace ensures packages do not conflict with other system libraries.
-
-#### Step 1: Clone the Repository
+### 2. Clone the Repository
 ```bash
 git clone https://github.com/Sampath-rgb-create/Bitcoin-Investigation-platform.git
 cd Bitcoin-Investigation-platform
 ```
 
-#### Step 2: Create the Virtual Environment
+---
+
+### 3. Environment Setup (Python Virtual Environment)
+
+#### Option A: Python `venv` (Standard - Recommended)
 ```bash
-# Creates an isolated ./venv folder inside the project
+# Create an isolated virtual environment
 python -m venv venv
+
+# Activate on Linux / macOS:
+source venv/bin/activate
+
+# Activate on Windows (PowerShell):
+.\venv\Scripts\activate
+
+# Activate on Windows (Command Prompt):
+venv\Scripts\activate.bat
 ```
 
-#### Step 3: Activate the Virtual Environment
-- **On Windows (PowerShell)**:
-  ```powershell
-  .\venv\Scripts\activate
-  ```
-- **On Windows (Command Prompt `cmd`)**:
-  ```cmd
-  venv\Scripts\activate.bat
-  ```
-- **On macOS / Linux**:
-  ```bash
-  source venv/bin/activate
-  ```
-
-*(You will see `(venv)` appear in front of your terminal prompt).*
-
-#### Step 4: Install Dependencies
+#### Option B: Conda Environment
 ```bash
-pip install -r requirements.txt
-```
-
----
-
-### Method 2: Conda Environment Setup
-
-If you prefer using **Miniconda** or **Anaconda**, you can create the environment directly from `environment.yml`:
-
-```bash
-# 1. Clone & enter repository
-git clone https://github.com/Sampath-rgb-create/Bitcoin-Investigation-platform.git
-cd Bitcoin-Investigation-platform
-
-# 2. Create and activate environment
-conda env create -f environment.yml
+conda create -n btc-intel python=3.11 -y
 conda activate btc-intel
 ```
 
 ---
 
-### Step 3: Database Initialization & Seeding
+### 4. Install Python Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-Run the seed script to initialize SQLite database tables and set up default case metadata:
+---
+
+### 5. How Pre-Trained AI/ML Models Are Included
+
+All required model architectures, neural weights, and meta-stackers are **already tracked and included directly inside the repository** under [`models/`](file:///d:/Bitcoin-Investigation-platform/models/):
+
+- `models/transaction/` (`gatv2.pt`, `fgecgn.pt`, `rf.joblib`, `isolation_forest.joblib`)
+- `models/wallet/` (`actor_rf.joblib`, `graphsage.pt`, `fgecgn.pt`, `isolation_forest.joblib`)
+- `models/network/` (`graphsage.pt`, `tgat.pt`, `rf.joblib`, `isolation_forest.joblib`)
+- `models/fusion/` (`oof_meta_stacker.joblib`, `calibration.json`, `threshold.json`)
+
+**No separate download is necessary.** 
+
+#### Verifying Model Integrity:
+To verify that all 16 model files are present and ready for offline inference, run the verification CLI:
+```bash
+python scripts/package_models.py --verify
+```
+*Expected output: `✓ Verification successful: All models, architectures, and calibrations are intact.`*
+
+---
+
+### 6. Offline GeoIP Database Setup
+The platform is built to operate **100% offline**:
+- It includes a native offline MaxMind GeoLite2 reader ([`GeoIPService`](file:///d:/Bitcoin-Investigation-platform/backend/app/services/geoip.py)).
+- If you have a local `GeoLite2-City.mmdb` or `GeoLite2-ASN.mmdb` file, place it in `data/geoip/` or configure the path in `.env`.
+- If no `.mmdb` file is present, the system employs **graceful degradation** — it automatically defaults IP locations to `UNKNOWN` with zero crashes and zero external network calls.
+
+---
+
+### 7. Frontend Dashboard Setup (Pre-Compiled & Source)
+
+#### Pre-Compiled Production Build (Instant Plug-and-Play)
+The repository already includes the **pre-compiled production bundle** in [`frontend-react/dist/`](file:///d:/Bitcoin-Investigation-platform/frontend-react/dist/). The FastAPI backend automatically serves this bundle at the root URL (`http://127.0.0.1:8000/`).
+
+> **You do NOT need Node.js or npm installed just to run and evaluate the dashboard.**
+
+#### Optional: Building Frontend from Source
+If you wish to modify the React source code:
+```bash
+cd frontend-react
+npm install
+npm run build
+cd ..
+```
+
+---
+
+### 8. Initialize SQLite Database & Seed Data
+Initialize the database tables and register the default demo investigation case:
 
 ```bash
 python scripts/seed_admin.py
 ```
 
-*What this does*: Creates `data/app.db` with all ORM tables (`cases`, `datasets`, `analysis_runs`, `alerts`) and registers the default administrator account.
+*What this does:*
+- Creates `data/app.db` with all required tables (`cases`, `datasets`, `analysis_runs`, `alerts`, `custom_rules`).
+- Seeds the initial demo investigation dossier with the pre-attached canonical 4-file dataset.
 
 ---
 
-### Step 4: Launching the Server
+### 9. Launching the Server
 
-Run Uvicorn to start the application:
+Start the platform via Uvicorn:
 
 ```bash
 python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-Open your browser to:
-👉 **`http://localhost:8000`** (or `http://127.0.0.1:8000`)
+Open your browser and navigate to:
+👉 **`http://127.0.0.1:8000`** (or `http://localhost:8000`)
+
+- **Interactive Forensic Dashboard**: `http://127.0.0.1:8000/`
+- **Interactive OpenAPI / Swagger Documentation**: `http://127.0.0.1:8000/docs`
 
 ---
 
-### 💡 Troubleshooting & Common Setup Tips
+## 🧪 Synthetic Dataset Generation & Ground Truth
 
-1. **PowerShell `Script Execution` Error on Windows**:
-   If PowerShell displays `running scripts is disabled on this system` when running `activate`, run this command once in PowerShell:
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   ```
-   Then run `.\venv\Scripts\activate` again.
+The repository comes pre-loaded with an exact benchmark dataset in `data/samples/`. To regenerate or produce fresh datasets with known ground truth:
 
-2. **Port 8000 Already in Use**:
-   If another application is using port 8000, start Uvicorn on another port (e.g. 8080):
-   ```bash
-   python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8080 --reload
-   ```
-
----
-
-## 🧪 Synthetic Dataset Generation
-
-To generate comprehensive forensic datasets featuring ground-truth AML anomalies (peeling chains, mixer dispersals, dust attacks, multi-IP relays):
-
-```powershell
-# Generates 1,000 transactions and 1,000 network telemetry observations
-python scripts/generate_1000_datasets.py
+```bash
+python scripts/generate_synthetic.py
 ```
 
-This outputs ready-to-ingest datasets under `data/samples/`:
-- `transactions_1000.csv`
-- `network_telemetry_1000.csv`
-- `combined_1000.csv`
-- `ground_truth_1000.json`
+### Planted Ground-Truth Typologies:
+- **Total Transactions**: 180 (150 Licit, 30 Illicit).
+- **Planted Illicit Targets**: Exactly **38** (documented in [`data/samples/ground_truth.md`](file:///d:/Bitcoin-Investigation-platform/data/samples/ground_truth.md)):
+  - **Peeling Chain (8 hops)**: Originator `bc1q_peel_master_source_...` peeling 0.75 BTC per hop.
+  - **Dust Flood Attack (20 txs)**: Controller `bc1q_dust_botnet_origin_...` transmitting sub-dust amounts at 2.86 tx/sec.
+  - **Rapid Dispersal (1 tx, 25 outputs)**: Launderer `bc1q_dispersal_launderer_...` splitting funds across 25 child addresses.
+  - **Zero-Fee Collusion (1 whale tx)**: `tx_illicit_zerofee_collusion_001` transferring 15.0 BTC with 0 miner fee.
+  - **4 Bulletproof / Tor Relay IPs**: `185.220.101.5`, `185.220.101.7`, `194.26.29.112`, `45.154.255.89`.
 
 ---
 
-## 🛡️ Running Automated Tests
+## 🛡️ Running Automated Verification & Tests
 
-Run the full pytest suite to verify all pipeline components, adapters, detectors, and storage engines:
+Run the complete test suite to verify ingestion, correlation, graph building, ML inference, and analytical scoring:
 
-```powershell
+```bash
 python -m pytest backend/tests -v
 ```
 
-Expected result:
+*Expected test suite output:*
 ```text
-============================= 25 passed in 5.24s ==============================
+======================= 36 passed in 18.77s =======================
 ```
 
 ---
 
 ## 📡 REST API Reference
 
-The backend provides a RESTful API compliant with OpenAPI 3.0:
-
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/v1/cases` | List all investigation cases |
-| `POST` | `/api/v1/cases` | Create a new investigation case |
+| `GET` | `/api/v1/cases` | List all investigation case dossiers |
+| `POST` | `/api/v1/cases` | Create a new case dossier |
 | `POST` | `/api/v1/cases/{case_id}/datasets/upload` | Upload CSV/JSON/XML transaction or telemetry files |
-| `POST` | `/api/v1/cases/{case_id}/runs` | Execute the end-to-end analysis pipeline |
-| `GET` | `/api/v1/cases/{case_id}/runs/{run_id}` | Poll pipeline progress and stage status |
-| `GET` | `/api/v1/cases/{case_id}/alerts` | Retrieve prioritized forensic alerts and scores |
-| `GET` | `/api/v1/cases/{case_id}/alerts/{alert_id}/evidence` | Fetch complete evidence pack and provenance record IDs |
-| `GET` | `/api/v1/cases/{case_id}/graph?limit=250` | Retrieve serialized entity graph (nodes and edges) |
+| `POST` | `/api/v1/cases/{case_id}/runs` | Trigger the end-to-end analytical pipeline |
+| `GET` | `/api/v1/cases/{case_id}/runs/{run_id}` | Poll pipeline execution stage and progress (0-100%) |
+| `GET` | `/api/v1/cases/{case_id}/alerts` | Retrieve prioritized alerts (scoped to active run) |
+| `GET` | `/api/v1/cases/{case_id}/alerts/{alert_id}/evidence` | Fetch cryptographic evidence pack and raw record IDs |
+| `GET` | `/api/v1/cases/{case_id}/graph?limit=250` | Retrieve serialized entity graph (nodes, edges, stats) |
 | `GET` | `/api/v1/cases/{case_id}/graph/neighborhood/{id}` | Extract 1-hop ego network subgraph for a specific node |
-| `GET` | `/api/v1/cases/{case_id}/entities/{entity_id}` | Unified inspector lookup for wallet, TXID, or IP entity |
+| `GET` | `/api/v1/cases/{case_id}/rules` | List active custom investigator behavioral rules |
+| `POST` | `/api/v1/cases/{case_id}/rules` | Create a new investigator dynamic rule |
 | `GET` | `/api/v1/cases/{case_id}/report?format=markdown` | Download executive forensic report (Markdown or JSON) |
-
-Interactive Swagger documentation is available locally at:
-👉 **`http://localhost:8000/docs`**
 
 ---
 
 ## 🔒 Forensic Integrity & Chain of Custody
 
-1. **SHA-256 Dataset Hashing**: Every uploaded raw file is hashed prior to processing. Hashes are permanently recorded in SQLite and Parquet metadata.
-2. **Deterministic Offline Execution**: The pipeline sets explicit random seeds (`random_state=42`) across scikit-learn models, guaranteeing bit-for-bit reproducible results across repeated runs.
-3. **Columnar Immutability**: Intermediate features and normalized records are persisted in PyArrow Parquet format with Snappy compression, preventing accidental mutation.
-4. **Court-Ready Evidence Export**: Evidence packs link specific forensic findings (e.g. `RULE_HIGH_FAN_OUT: 60 outputs`) to exact source record IDs (`tx-rec-000051` to `tx-rec-000110`), establishing an unbroken chain of custody.
+1. **SHA-256 Dataset Hashing**: All uploaded raw files are cryptographically hashed upon receipt. Hashes are permanently recorded in SQLite and Parquet metadata.
+2. **Deterministic Reproducibility**: Random states (`random_state=42`) are strictly pinned across all scikit-learn models and PyTorch initializations, guaranteeing identical scores on identical datasets.
+3. **Columnar Immutability**: Intermediate features and canonical tables are saved in PyArrow Parquet format with Snappy compression to prevent accidental mutation.
+4. **Court-Admissible Evidence Packs**: Every alert explicitly lists `source_record_ids` and transaction hashes, establishing an unbroken chain of custody.
+
+---
+
+## 👁️ Repository Access & Read-Only Notice
+
+- **Public Repository**: This repository is publicly viewable for evaluation, benchmarking, and review.
+- **Read-Only / Pull Request Policy**: Direct pushes to `main` are restricted to maintain forensic reproducibility. Third-party contributors are welcome to clone, inspect, and submit pull requests for enhancements.
 
 ---
 

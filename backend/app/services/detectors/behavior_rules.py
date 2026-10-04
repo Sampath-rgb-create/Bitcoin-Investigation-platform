@@ -227,29 +227,49 @@ class BehaviorRulesDetector:
 
         # 8. Peeling Chain Check
         # Peeling chain heuristic: 1 input, 2 outputs where 1 is small (peeled) and 1 is large (change)
-        # repeated over several consecutive transactions
+        addr = wallet_row.get("wallet_address", "")
+        is_peel = False
+        peel_evidence = ""
+
         if tx_count >= 3 and fan_out >= 3:
             avg_val = float(wallet_row.get("average_transaction_value", 0.0))
             med_val = float(wallet_row.get("median_transaction_value", 0.0))
-            if avg_val > 0 and (med_val / avg_val) < 0.25 and tx_count >= 3:
-                results.append(
-                    {
-                        "rule_id": "RULE_PEELING_CHAIN",
-                        "code": "R08",
-                        "entity_id": entity_id,
-                        "triggered": True,
-                        "confidence": 0.90,
-                        "severity": "high",
-                        "observed_value": round(avg_val, 4),
-                        "threshold": round(med_val, 4),
-                        "unit": "BTC",
-                        "source_record_ids": src_ids[:20],
-                        "description": (
-                            f"Peeling chain pattern: Disproportionate ratio between median peeled transfer "
-                            f"({med_val:.4f} BTC) and major change volume ({avg_val:.4f} BTC)."
-                        ),
-                    }
-                )
+            if avg_val > 0 and (med_val / avg_val) < 0.25:
+                is_peel = True
+                peel_evidence = f"Disproportionate ratio between median peeled transfer ({med_val:.4f} BTC) and major volume ({avg_val:.4f} BTC)."
+
+        # Also inspect transactions list directly if provided
+        if not is_peel and transactions and addr:
+            for tx in transactions:
+                in_addrs = tx.get("input_addresses") or []
+                out_addrs = tx.get("output_addresses") or []
+                out_amts = [float(x) for x in (tx.get("output_amounts") or []) if x is not None]
+                if addr in in_addrs and len(in_addrs) == 1 and len(out_addrs) == 2 and len(out_amts) == 2:
+                    min_amt, max_amt = min(out_amts), max(out_amts)
+                    if max_amt > 0 and (min_amt / max_amt) < 0.15 and max_amt > 1.0:
+                        is_peel = True
+                        peel_evidence = (
+                            f"Originates peeling chain transfer in tx {tx.get('txid', '')[:12]}: "
+                            f"peeled {min_amt:.4f} BTC, forwarded change {max_amt:.4f} BTC."
+                        )
+                        break
+
+        if is_peel:
+            results.append(
+                {
+                    "rule_id": "RULE_PEELING_CHAIN",
+                    "code": "R08",
+                    "entity_id": entity_id,
+                    "triggered": True,
+                    "confidence": 0.90,
+                    "severity": "high",
+                    "observed_value": 1,
+                    "threshold": 1,
+                    "unit": "chain",
+                    "source_record_ids": src_ids[:20],
+                    "description": f"Peeling chain pattern: {peel_evidence}",
+                }
+            )
 
         return results
 
